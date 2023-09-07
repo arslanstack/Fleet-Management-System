@@ -6,3 +6,4 @@
 # Node artifact files
 node_modules/
 vendor/
+fms_frontend_local/
