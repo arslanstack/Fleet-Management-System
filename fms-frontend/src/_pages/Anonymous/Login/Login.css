@@ -1,0 +1,22 @@
+.help-block {
+    color: 'red';
+    margin-top: -10;
+    margin-bottom: 10
+}
+
+
+
+input.form-control.login-input {
+    border-radius: 20px !important;
+    background-color: #E9EBEC;
+}
+
+input.form-control:focus {
+    background-color: rgba(233, 235, 236, 0.822);
+}
+
+button.btn.btn-login {
+    background-color: #E7E7E7;
+    border-radius: 20px !important;
+    box-shadow: 0 6px 8px #E0E0E0;
+}
