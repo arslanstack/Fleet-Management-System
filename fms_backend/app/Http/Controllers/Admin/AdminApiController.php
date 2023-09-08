@@ -15,7 +15,7 @@ class AdminApiController extends Controller
 
     public function __construct()
     {
-// $this->middleware('guest:api')->except('logout');
+        // $this->middleware('guest:api')->except('logout');
     }
 
     public function login(Request $request) {
