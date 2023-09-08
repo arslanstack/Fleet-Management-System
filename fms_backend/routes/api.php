@@ -31,5 +31,7 @@ Route::middleware(['api'])->group(function () {
         Route::post('/logout', [AdminApiController::class, 'logout'])->name('logout');
         Route::get('/profile', [AdminApiController::class, 'profile']);
         Route::get('/refresh', [AdminApiController::class, 'refresh']);
+
+        Route::get('/refresh', [AdminApiController::class, 'refresh']);
     });
 });
