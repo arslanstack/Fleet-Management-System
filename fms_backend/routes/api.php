@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\AdminApi\AuthController;
-use App\Http\Controllers\Admin\AdminApiController;
+use App\Http\Controllers\Admin\AdminAuthController;
+use App\Http\Controllers\Admin\DriverController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +16,9 @@ use App\Http\Controllers\Admin\AdminApiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 // Route::group(['prefix'  =>  'admin'], function () {
 //     Route::post('/login', [AuthController::class, 'login'])->name('login');
@@ -27,11 +27,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(['api'])->group(function () {
     Route::group(['prefix' => 'admin'], function () {
-        Route::post('/login', [AdminApiController::class, 'login'])->name('login');
-        Route::post('/logout', [AdminApiController::class, 'logout'])->name('logout');
-        Route::get('/profile', [AdminApiController::class, 'profile']);
-        Route::get('/refresh', [AdminApiController::class, 'refresh']);
+        Route::post('/login', [AdminAuthController::class, 'login'])->name('login');
+        Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+        Route::get('/profile', [AdminAuthController::class, 'profile']);
+        Route::get('/refresh', [AdminAuthController::class, 'refresh']);
 
-        Route::get('/refresh', [AdminApiController::class, 'refresh']);
+        Route::group(['prefix' => 'driver'], function() {
+            Route::get('/', [DriverController::class, 'index']);
+            // Route::get('create', [DriverController::class, 'create']);
+            Route::post('store', [DriverController::class, 'store']);
+            Route::get('edit/{id}', [DriverController::class, 'edit']);
+            Route::post('update', [DriverController::class, 'update']);
+            Route::post('delete', [DriverController::class, 'destroy']);
+        });
     });
 });

@@ -10,7 +10,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Auth;
 use Hash, Session, Validator, DB, DateTime, DateInterval;
 
-class AdminApiController extends Controller
+class AdminAuthController extends Controller
 {
 
     public function __construct()
