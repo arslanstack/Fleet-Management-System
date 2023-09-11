@@ -61,8 +61,8 @@ class AdminAuthController extends Controller
         return response()->json([
             'user' => Auth::user(),
             'authorisation' => [
-                'token' => Auth::refresh(),
-                'type' => 'bearer',
+                'access_token' => Auth::refresh(),
+                'token_type' => 'bearer',
             ]
         ]);
     }
