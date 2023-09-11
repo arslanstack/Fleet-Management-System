@@ -11,7 +11,7 @@ class DriverController extends Controller
 	public function index()
 	{
 		$drivers = Driver::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'drivers' => $drivers));
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $drivers));
 	}
 	public function store(Request $request)
 	{
@@ -100,7 +100,7 @@ class DriverController extends Controller
 	public function edit($id, Request $request)
 	{
 		$driver = Driver::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'driver' => $driver));
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $driver));
 	}
 	public function update(Request $request)
 	{

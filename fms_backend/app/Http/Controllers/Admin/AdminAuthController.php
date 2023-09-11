@@ -40,7 +40,7 @@ class AdminAuthController extends Controller
             return response()->json(array('msg'=> 'error', 'response' => 'Something went wrong. Please try again.'));
         }
         $user = Auth::user();
-        return response()->json(array('msg' => 'success', 'response'=>'Logged in successfully', 'access_token'=> $token, 'token_type'=>'bearer', 'user_detail' => $user));
+        return response()->json(array('msg' => 'success', 'response'=>'Logged in successfully', 'access_token'=> $token, 'token_type'=>'bearer', 'data' => $user));
     }
 
     public function logout(Request $request) {
@@ -52,7 +52,7 @@ class AdminAuthController extends Controller
 
     public function profile() {
         $user = Auth::user();
-        return response()->json(array('msg' => 'success', 'response'=>'successfully', 'user_detail' => $user));
+        return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $user));
     }
 
 

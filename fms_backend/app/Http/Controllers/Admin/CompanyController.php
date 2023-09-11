@@ -11,7 +11,7 @@ class CompanyController extends Controller
 	public function index()
 	{
 		$companies = Company::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'companies' => $companies));
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $companies));
 	}
 	public function store(Request $request)
 	{
@@ -81,7 +81,7 @@ class CompanyController extends Controller
 	public function edit($id, Request $request)
 	{
 		$driver = Company::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'driver' => $driver));
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $driver));
 	}
 	public function update(Request $request)
 	{
