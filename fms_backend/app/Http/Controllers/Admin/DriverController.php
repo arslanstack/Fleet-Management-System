@@ -108,8 +108,6 @@ class DriverController extends Controller
 		$validator = Validator::make($request->all(), [
 			'name' => 'required',
 			'phone_no' => 'required',
-			'email' => 'required',
-			'password' => 'required',
 			'nric' => 'required',
 			'address' => 'required',
 			'dob' => 'required',
@@ -175,8 +173,6 @@ class DriverController extends Controller
 		$post_status = Driver::where('id', $data['id'])->update([
 			'name'=> $data['name'],
 			'phone_no'=> $data['phone_no'],
-			'email'=> $data['email'],
-			'password'=> $data['password'],
 			'nric'=> $data['nric'],
 			'address'=> $data['address'],
 			'dob'=> $data['dob'],
