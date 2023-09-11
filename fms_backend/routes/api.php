@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\VehicleTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,14 @@ Route::middleware(['api'])->group(function () {
             Route::get('edit/{id}', [CompanyController::class, 'edit']);
             Route::post('update', [CompanyController::class, 'update']);
             Route::post('delete', [CompanyController::class, 'destroy']);
+        });
+
+        Route::group(['prefix' => 'vehicle_type'], function() {
+            Route::get('/', [VehicleTypeController::class, 'index']);
+            Route::post('store', [VehicleTypeController::class, 'store']);
+            Route::get('edit/{id}', [VehicleTypeController::class, 'edit']);
+            Route::post('update', [VehicleTypeController::class, 'update']);
+            Route::post('delete', [VehicleTypeController::class, 'destroy']);
         });
     });
 });
