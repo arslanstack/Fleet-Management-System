@@ -199,8 +199,9 @@ class DriverController extends Controller
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
-		$status = Driver::find($data['id'])->delete();
+		$status = Driver::where('id', $data['id'])->first();
 		if($status > 0) {
+			Driver::find($data['id'])->delete();
 			return response()->json(['msg' => 'success', 'response'=>'Driver successfully deleted.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);

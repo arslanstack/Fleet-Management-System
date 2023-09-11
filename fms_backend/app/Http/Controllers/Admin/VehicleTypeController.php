@@ -10,8 +10,12 @@ class VehicleTypeController extends Controller
 {
 	public function index()
 	{
-		$vehicle_types = VehicleType::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $vehicle_types));
+		try {
+			$vehicle_types = VehicleType::orderBy('id', 'DESC')->get();
+			return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $vehicle_types));
+		} catch (Exception $e) {
+			return response()->json(array('msg' => 'error', 'response'=>$e->getMessage() ));
+		}
 	}
 	public function store(Request $request)
 	{
@@ -72,12 +76,17 @@ class VehicleTypeController extends Controller
 	}
 	public function destroy(Request $request)
 	{
-		$data = $request->all();
-		$status = VehicleType::find($data['id'])->delete();
-		if($status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Vehicle type successfully deleted.']);
-		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+		try {
+			$data = $request->all();
+			$status = VehicleType::where('id', $data['id'])->first();
+			if($status) {
+				VehicleType::find($data['id'])->delete();
+				return response()->json(['msg' => 'success', 'response'=>'Vehicle type successfully deleted.']);
+			} else {
+				return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			}
+		} catch (Exception $e) {
+			return response()->json(array('msg' => 'error', 'response'=>$e->getMessage() ));
 		}
 	}
 }

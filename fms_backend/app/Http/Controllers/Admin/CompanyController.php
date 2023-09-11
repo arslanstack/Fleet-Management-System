@@ -80,8 +80,8 @@ class CompanyController extends Controller
 	}
 	public function edit($id, Request $request)
 	{
-		$driver = Company::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $driver));
+		$company = Company::where('id', $id)->first();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $company));
 	}
 	public function update(Request $request)
 	{
@@ -158,8 +158,9 @@ class CompanyController extends Controller
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
-		$status = Company::find($data['id'])->delete();
+		$status = Company::where('id', $data['id'])->first();
 		if($status > 0) {
+			Company::find($data['id'])->delete();
 			return response()->json(['msg' => 'success', 'response'=>'Company successfully deleted.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
