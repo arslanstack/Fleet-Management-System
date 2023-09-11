@@ -9,7 +9,7 @@ import { UserCustomNotification } from "./_pages/Authenticated/UserCustomNotific
 import { UserCustomNotificationManage } from "./_pages/Authenticated/UserCustomNotifications/UserCustomNotificationManage";
 import { DistributeProfit } from "./_pages/Authenticated/DistributeProfit";
 import { RideEarnings } from "./_pages/Authenticated/RideEarnings";
-import { Users } from "./_pages/Authenticated/Users/Users";
+import { Drivers } from "./_pages/Authenticated/Drivers/Drivers";
 
 
 // const Console = React.lazy(() => import("./views/Console"));
@@ -24,12 +24,11 @@ const routes = [
   // { path: "/users/:id", exact: true, name: "User Details", component: User },
   
 
-  { path: "/users", exact: true, component: Users },
+  { path: "/drivers", name:"Drivers", exact: true, component: DataTable },
   { path: "/user/add", exact: true, name: "Add Users", component: Manage },
   { path: "/user/edit/:id", exact: true, name: "Edit Users", component: Manage },
   { path: "/users/delete/:id", exact: true, name: "Delete", component: Detail },
-  { path: "/users/detail/:id", exact: true, name: "Details", component: Detail },
-
+  { path: "/drivers/detail/:id", exact: true, name: "Details", component: Detail },
   { path: "/user-custom-notifications", exact: true, name: "User Custom Notifications", component: UserCustomNotifications },
   { path: "/user-custom-notifications/detail/:id", exact: true, name: "Details", component: UserCustomNotification },
   { path: "/user-custom-notification/add", exact: true, name: "New Custom Notification", component: UserCustomNotificationManage },

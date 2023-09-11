@@ -1,10 +1,10 @@
-import React, { Component, lazy, Suspense } from 'react';
+import React, { lazy, useState } from 'react';
 import { Bar, Line } from 'react-chartjs-2';
 import { Link, withRouter } from "react-router-dom";
 import { Badge, Card, CardBody, CardFooter, CardHeader, CardTitle, Col, Progress, Row, } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
-import { dashboardService } from '../../_services/dashboard.service';
+// import { dashboardService } from '../../_services/dashboard.service';
 
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
 
@@ -449,268 +449,287 @@ const mainChartOpts = {
   },
 };
 
-class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-
-    this.toggle = this.toggle.bind(this);
-    this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
-
-    this.state = {
-      dropdownOpen: false,
-      radioSelected: 2,
-      mainChart: null,
-      regiseteredUserCounter: null,
-      registeredUserData: null,
-      registeredUserOptions: null,
-      activeUserCounter: null,
-      activeUserData: null,
-      activeUserOptions: null,
-      verifiedUserCounter: null,
-      verifiedUserData: null,
-      verifiedUserOptions: null,
-      rideCounter: null,
-      rideData: null,
-      rideOptions: null,
-      clientCounter: null,
-      clientData: null,
-      clientAppointmentCounter: null,
-      clientAppointmentData: null,
-      clientTaskCounter: null,
-      clientTaskData: null,
-      userGroupCounter: null,
-      userGroupData: null,
-    };
-  }
-  componentDidMount() {
-    // dashboardService.userCounter().then(counter => {
-    //   this.setState({ userCounter: counter })
-    // })
-    let x = 0;
-
-    dashboardService.registeredUserGraph().then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.activeUserGraph().then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.verifiedUserGraph().then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.rideGraph().then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.clientGraph(brandPrimary).then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.clientAppointmentsGraph(brandDanger).then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.clientTasksGraph(brandWarning).then(m => {
-      x++;
-      this.setState(m);
-    });
-    dashboardService.userGroupGraph(brandSuccess).then(m => {
-      x++;
-      this.setState(m);
-    });
-    let i = setInterval(() => {
-      if (x > 4) {
-        clearInterval(i); console.log();
-
-        this.setState({
-          mainChart: {
-            labels: this.state.registeredUserData.labels,
-            datasets: [
-              {
-                label: 'Registered Users',
-                backgroundColor: hexToRgba(brandInfo, 10),
-                borderColor: brandInfo,
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 2,
-                data: this.state.registeredUserData.datasets[0].data,
-              },
-              {
-                label: 'Active Users',
-                backgroundColor: 'transparent',
-                borderColor: brandSuccess,
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 2,
-                // data: data2,
-                data: this.state.activeUserData.datasets[0].data,
-              },
-              {
-                label: 'Online Users',
-                backgroundColor: 'transparent',
-                borderColor: brandDanger,
-                pointHoverBackgroundColor: '#fff',
-                borderWidth: 1,
-                borderDash: [8, 5],
-                // data: data3,
-                data: this.state.rideData.datasets[0].data,
-              },
-            ],
-          }
-        })
-      }
-    }, 500);
-  }
-
-  toggle() {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen,
-    });
-  }
-
-  onRadioBtnClick(radioSelected) {
-    this.setState({
-      radioSelected: radioSelected,
-    });
-  }
-
-  loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
-
-  render() {
-
-    return (
-      <div className="animated fadeIn">
-        <Row>
-
-          <Col xs="12" sm="6" lg="3" >
-            <Link to='/users?filter={"role":"Rider"}' style={{ textDecoration: 'none' }}>
-              <Card className="text-white bg-info">
-                <CardBody className="pb-0">
-                  <div className="text-value">{this.state.regiseteredUserCounter ? this.state.regiseteredUserCounter : "Loading..."}</div>
-                  <div>Riders</div>
-                </CardBody>
-                <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                  <Line
-                    data={this.state.registeredUserData ? this.state.registeredUserData : cardChartData2}
-                    options={this.state.registeredUserOptions ? this.state.registeredUserOptions : cardChartOpts2}
-                    height={70} />
-                </div>
-              </Card>
-            </Link>
-          </Col>
-
-          <Col xs="12" sm="6" lg="3">
-            <Link to='users?filter={"role":"Driver"}' style={{ textDecoration: 'none' }}>
-              <Card className="text-white bg-warning">
-                <CardBody className="pb-0">
-                  <div className="text-value" > {this.state.verifiedUserCounter ? this.state.verifiedUserCounter : "Loading..."}</div>
-                  <div>Drivers</div>
-
-                </CardBody>
-                <div className="chart-wrapper" style={{ height: '70px' }}>
-                  <Line
-                    data={this.state.verifiedUserData ? this.state.verifiedUserData : cardChartData3}
-                    options={this.state.verifiedUserOptions ? this.state.verifiedUserOptions : cardChartOpts3}
-                    height={70} />
-                </div>
-              </Card>
-            </Link>
-          </Col>
+const Dashboard = () => {
+  const [dropdownOpen, setDropDownOpen] = useState(false)
+  const [regiseteredUserCounter, setRegiseteredUserCounter] = useState(0)
+  const [registeredUserData, setRegisteredUserData] = useState(null)
+  const [activeUserCounter, setActiveUserCounter] = useState(null)
+  const [radioSelected, setRadioSelected] = useState(null)
+  const [activeUserOptions, setActiveUserOptions] = useState(null)
+  const [registeredUserOptions, setRegisteredUserOptions] = useState(null)
+  const [verifiedUserData, setVerifiedUserData] = useState(null)
+  const [rideCounter, setRideCounter] = useState(null)
+  const [userGroupData, setUserGroupData] = useState(null)
+  const [verifiedUserCounter , setVerifiedUserCounter ] = useState(null)
+  const [verifiedUserOptions , setVerifiedUserOptions ] = useState(null)
+  const [clientData , setClientData ] = useState(null)
+  const [activeUserData , setActiveUserData ] = useState(null)
+  const [rideData , setRideData ] = useState(null)
+  const [rideOptions , setRideOptions ] = useState(null)
+  const [clientCounter , setClientCounter ] = useState(null)
+  const [clientAppointmentCounter , setClientAppointmentCounter ] = useState(null)
+  const [clientAppointmentData , setClientAppointmentData ] = useState(null)
+  const [clientTaskCounter , setClientTaskCounter ] = useState(null)
+  const [clientTaskData , setClientTaskData ] = useState(null)
+  const [userGroupCounter , setUserGroupCounter ] = useState(null)
+  
 
 
-          <Col xs="12" sm="6" lg="3">
-            <Link to="/user/filter/active" style={{ textDecoration: 'none' }}>
-              <Card className="text-white bg-primary">
-                <CardBody className="pb-0">
-                  <div className="text-value">{this.state.activeUserCounter ? this.state.activeUserCounter : "Loading..."}</div>
-                  <div>Active Users</div>
-                </CardBody>
-                <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                  <Line
-                    data={this.state.activeUserData ? this.state.activeUserData : cardChartData1}
-                    options={this.state.activeUserOptions ? this.state.activeUserOptions : cardChartOpts1}
-                    height={70} />
-                </div>
-              </Card>
-            </Link>
-          </Col>
+  //     state = {
+  //       dropdownOpen: false,
+  //       radioSelected: 2,
+  //       mainChart: null,
+  //       regiseteredUserCounter: null,
+  //       registeredUserData: null,
+  //       registeredUserOptions: null,
+  //       activeUserCounter: null,
+  //       activeUserData: null,
+  //       activeUserOptions: null,
+  //       verifiedUserCounter: null,
+  //       verifiedUserData: null,
+  //       verifiedUserOptions: null,
+  //       rideCounter: null,
+  //       rideData: null,
+  //       rideOptions: null,
+  //       clientCounter: null,
+  //       clientData: null,
+  //       clientAppointmentCounter: null,
+  //       clientAppointmentData: null,
+  //       clientTaskCounter: null,
+  //       clientTaskData: null,
+  //       userGroupCounter: null,
+  //       userGroupData: null,
+  //     };
+  //   }
+
+  //     // dashboardService.userCounter().then(counter => {
+  //     //   this.setState({ userCounter: counter })
+  //     // })
+  //     let x = 0;
+
+  //     dashboardService.registeredUserGraph().then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.activeUserGraph().then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.verifiedUserGraph().then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.rideGraph().then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.clientGraph(brandPrimary).then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.clientAppointmentsGraph(brandDanger).then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.clientTasksGraph(brandWarning).then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     dashboardService.userGroupGraph(brandSuccess).then(m => {
+  //       x++;
+  //       this.setState(m);
+  //     });
+  //     let i = setInterval(() => {
+  //       if (x > 4) {
+  //         clearInterval(i); console.log();
+
+  //         this.setState({
+  //           mainChart: {
+  //             labels: registeredUserData.labels,
+  //             datasets: [
+  //               {
+  //                 label: 'Registered Users',
+  //                 backgroundColor: hexToRgba(brandInfo, 10),
+  //                 borderColor: brandInfo,
+  //                 pointHoverBackgroundColor: '#fff',
+  //                 borderWidth: 2,
+  //                 data: registeredUserData.datasets[0].data,
+  //               },
+  //               {
+  //                 label: 'Active Users',
+  //                 backgroundColor: 'transparent',
+  //                 borderColor: brandSuccess,
+  //                 pointHoverBackgroundColor: '#fff',
+  //                 borderWidth: 2,
+  //                 // data: data2,
+  //                 data: activeUserData.datasets[0].data,
+  //               },
+  //               {
+  //                 label: 'Online Users',
+  //                 backgroundColor: 'transparent',
+  //                 borderColor: brandDanger,
+  //                 pointHoverBackgroundColor: '#fff',
+  //                 borderWidth: 1,
+  //                 borderDash: [8, 5],
+  //                 // data: data3,
+  //                 data: rideData.datasets[0].data,
+  //               },
+  //             ],
+  //           }
+  //         })
+  //       }
+  //     }, 500);
 
 
-          <Col xs="12" sm="6" lg="3">
-            <Link to="/rides" style={{ textDecoration: 'none' }}>
-              <Card className="text-white bg-danger">
-                <CardBody className="pb-0">
-                  <div className="text-value" > {this.state.rideCounter ? this.state.rideCounter : "Loading..."}</div>
-                  <div>Rides</div>
-                </CardBody>
-                <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
-                  <Bar
-                    data={this.state.rideData ? this.state.rideData : cardChartData4}
-                    options={this.state.rideOptions ? this.state.rideOptions : cardChartOpts4}
-                    height={70} />
-                </div>
-              </Card>
-            </Link>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Card>
-              <CardBody>
-                <Row>
-                  <Col sm="5">
-                    <CardTitle className="mb-0">Traffic</CardTitle>
-                    <div className="small text-muted">{month[new Date().getMonth()]} {new Date().getFullYear()}</div>
-                  </Col>
-                  <Col sm="7" className="d-none d-sm-inline-block">
-                    {/* <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
+  //  const toggle=() =>{
+  //     this.setState({
+  //       dropdownOpen: !dropdownOpen,
+  //     });
+  //   }
+
+  //   onRadioBtnClick(radioSelected) {
+  //     this.setState({
+  //       radioSelected: radioSelected,
+  //     });
+  //   }
+
+  //   const loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
+
+
+
+  return (
+    <div className="animated fadeIn">
+      <Row>
+
+        <Col xs="12" sm="6" lg="3" >
+          <Link to='/users?filter={"role":"Rider"}' style={{ textDecoration: 'none' }}>
+            <Card className="text-white bg-info">
+              <CardBody className="pb-0">
+                <div className="text-value">{regiseteredUserCounter ? regiseteredUserCounter : "Loading..."}</div>
+                <div>Riders</div>
+              </CardBody>
+              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+                <Line
+                  data={registeredUserData ? registeredUserData : cardChartData2}
+                  options={registeredUserOptions ? registeredUserOptions : cardChartOpts2}
+                  height={70} />
+              </div>
+            </Card>
+          </Link>
+        </Col>
+
+        <Col xs="12" sm="6" lg="3">
+          <Link to='users?filter={"role":"Driver"}' style={{ textDecoration: 'none' }}>
+            <Card className="text-white bg-warning">
+              <CardBody className="pb-0">
+                <div className="text-value" > {verifiedUserCounter ? verifiedUserCounter : "Loading..."}</div>
+                <div>Drivers</div>
+
+              </CardBody>
+              <div className="chart-wrapper" style={{ height: '70px' }}>
+                <Line
+                  data={verifiedUserData ? verifiedUserData : cardChartData3}
+                  options={verifiedUserOptions ? verifiedUserOptions : cardChartOpts3}
+                  height={70} />
+              </div>
+            </Card>
+          </Link>
+        </Col>
+
+
+        <Col xs="12" sm="6" lg="3">
+          <Link to="/user/filter/active" style={{ textDecoration: 'none' }}>
+            <Card className="text-white bg-primary">
+              <CardBody className="pb-0">
+                <div className="text-value">{activeUserCounter ? activeUserCounter : "Loading..."}</div>
+                <div>Active Users</div>
+              </CardBody>
+              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+                <Line
+                  data={activeUserData ? activeUserData : cardChartData1}
+                  options={activeUserOptions ? activeUserOptions : cardChartOpts1}
+                  height={70} />
+              </div>
+            </Card>
+          </Link>
+        </Col>
+
+
+        <Col xs="12" sm="6" lg="3">
+          <Link to="/rides" style={{ textDecoration: 'none' }}>
+            <Card className="text-white bg-danger">
+              <CardBody className="pb-0">
+                <div className="text-value" > {rideCounter ? rideCounter : "Loading..."}</div>
+                <div>Rides</div>
+              </CardBody>
+              <div className="chart-wrapper mx-3" style={{ height: '70px' }}>
+                <Bar
+                  data={rideData ? rideData : cardChartData4}
+                  options={rideOptions ? rideOptions : cardChartOpts4}
+                  height={70} />
+              </div>
+            </Card>
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <Card>
+            <CardBody>
+              <Row>
+                <Col sm="5">
+                  <CardTitle className="mb-0">Traffic</CardTitle>
+                  <div className="small text-muted">{month[new Date().getMonth()]} {new Date().getFullYear()}</div>
+                </Col>
+                {/* <Col sm="7" className="d-none d-sm-inline-block">
+                  <Button color="primary" className="float-right"><i className="icon-cloud-download"></i></Button>
                     <ButtonToolbar className="float-right" aria-label="Toolbar with button groups">
                       <ButtonGroup className="mr-3" aria-label="First group">
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={this.state.radioSelected === 1}>Day</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={this.state.radioSelected === 2}>Month</Button>
-                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={this.state.radioSelected === 3}>Year</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(1)} active={radioSelected === 1}>Day</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(2)} active={radioSelected === 2}>Month</Button>
+                        <Button color="outline-secondary" onClick={() => this.onRadioBtnClick(3)} active={radioSelected === 3}>Year</Button>
                       </ButtonGroup>
-                    </ButtonToolbar> */}
-                  </Col>
-                </Row>
-                <div className="chart-wrapper" style={{ height: 300 + 'px', marginTop: 40 + 'px' }}>
-                  <Line data={this.state.mainChart ? this.state.mainChart : mainChart} options={mainChartOpts} height={300} />
-                </div>
-              </CardBody>
-              <CardFooter>
-                <Row className="text-center">
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Visits</div>
-                    <strong>29.703 Users (40%)</strong>
-                    <Progress className="progress-xs mt-2" color="success" value="40" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
-                    <div className="text-muted">Unique</div>
-                    <strong>24.093 Users (20%)</strong>
-                    <Progress className="progress-xs mt-2" color="info" value="20" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">Pageviews</div>
-                    <strong>78.706 Views (60%)</strong>
-                    <Progress className="progress-xs mt-2" color="warning" value="60" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0">
-                    <div className="text-muted">New Users</div>
-                    <strong>22.123 Users (80%)</strong>
-                    <Progress className="progress-xs mt-2" color="danger" value="80" />
-                  </Col>
-                  <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
-                    <div className="text-muted">Bounce Rate</div>
-                    <strong>Average Rate (40.15%)</strong>
-                    <Progress className="progress-xs mt-2" color="primary" value="40" />
-                  </Col>
-                </Row>
-              </CardFooter>
-            </Card>
-          </Col>
-        </Row>
+                    </ButtonToolbar>
+                </Col> */}
+              </Row>
+              <div className="chart-wrapper" style={{ height: 300 + 'px', marginTop: 40 + 'px' }}>
+                <Line data={mainChart ? mainChart : mainChart} options={mainChartOpts} height={300} />
+              </div>
+            </CardBody>
+            <CardFooter>
+              <Row className="text-center">
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <div className="text-muted">Visits</div>
+                  <strong>29.703 Users (40%)</strong>
+                  <Progress className="progress-xs mt-2" color="success" value="40" />
+                </Col>
+                <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
+                  <div className="text-muted">Unique</div>
+                  <strong>24.093 Users (20%)</strong>
+                  <Progress className="progress-xs mt-2" color="info" value="20" />
+                </Col>
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <div className="text-muted">Pageviews</div>
+                  <strong>78.706 Views (60%)</strong>
+                  <Progress className="progress-xs mt-2" color="warning" value="60" />
+                </Col>
+                <Col sm={12} md className="mb-sm-2 mb-0">
+                  <div className="text-muted">New Users</div>
+                  <strong>22.123 Users (80%)</strong>
+                  <Progress className="progress-xs mt-2" color="danger" value="80" />
+                </Col>
+                <Col sm={12} md className="mb-sm-2 mb-0 d-md-down-none">
+                  <div className="text-muted">Bounce Rate</div>
+                  <strong>Average Rate (40.15%)</strong>
+                  <Progress className="progress-xs mt-2" color="primary" value="40" />
+                </Col>
+              </Row>
+            </CardFooter>
+          </Card>
+        </Col>
+      </Row>
 
-        {/* <Row>
+      {/* <Row>
           <Col xs="6" sm="6" lg="3">
             <Suspense fallback={this.loading()}>
               <Widget03 dataBox={() => ({ variant: 'facebook', friends: '89k', feeds: '459' })} >
@@ -752,123 +771,123 @@ class Dashboard extends Component {
           </Col>
         </Row> */}
 
-        <Row>
-          <Col>
-            <Card>
-              <CardHeader>
-                Traffic {' & '} Activity
-              </CardHeader>
-              <CardBody>
-                <Row>
-                  <Col xs="12" md="6" xl="6">
-                    <Row>
-                      <Col sm="6">
-                        <div className="callout callout-info">
-                          <small className="text-muted">Clients</small>
-                          <br />
-                          <strong className="h4">{this.state.clientCounter ? this.state.clientCounter : 0}</strong>
+      <Row>
+        <Col>
+          <Card>
+            <CardHeader>
+              Traffic {' & '} Activity
+            </CardHeader>
+            <CardBody>
+              <Row>
+                <Col xs="12" md="6" xl="6">
+                  <Row>
+                    <Col sm="6">
+                      <div className="callout callout-info">
+                        <small className="text-muted">Clients</small>
+                        <br />
+                        <strong className="h4">{clientCounter ? clientCounter : 0}</strong>
 
-                          <div className="chart-wrapper">
-                            <Line data={this.state.clientData ? this.state.clientData : makeSparkLineData(0, brandPrimary)} options={sparklineChartOpts} width={100} height={30} />
-                          </div>
+                        <div className="chart-wrapper">
+                          <Line data={clientData ? clientData : makeSparkLineData(0, brandPrimary)} options={sparklineChartOpts} width={100} height={30} />
                         </div>
-                      </Col>
-                      <Col sm="6">
-                        <div className="callout callout-danger">
-                          <small className="text-muted">Agends</small>
-                          <br />
-                          <strong className="h4">{this.state.clientAppointmentCounter ? this.state.clientAppointmentCounter : 0}</strong>
+                      </div>
+                    </Col>
+                    <Col sm="6">
+                      <div className="callout callout-danger">
+                        <small className="text-muted">Agends</small>
+                        <br />
+                        <strong className="h4">{clientAppointmentCounter ? clientAppointmentCounter : 0}</strong>
 
-                          <div className="chart-wrapper">
-                            <Line data={this.state.clientAppointmentData ? this.state.clientAppointmentData : makeSparkLineData(1, brandDanger)} options={sparklineChartOpts} width={100} height={30} />
-                          </div>
+                        <div className="chart-wrapper">
+                          <Line data={clientAppointmentData ? clientAppointmentData : makeSparkLineData(1, brandDanger)} options={sparklineChartOpts} width={100} height={30} />
                         </div>
-                      </Col>
-                    </Row>
-                    <hr className="mt-0" />
-                    {this.state.clientData && this.state.clientAppointmentData &&
-                      this.state.clientData.labels.map((label, key) => {
-                        const counter1 = this.state.clientData.datasets[0].data[key];
-                        const counter2 = this.state.clientAppointmentData.datasets[0].data[key];
-                        return (<div className="progress-group mb-4" key={key}>
-                          <div className="progress-group-prepend">
-                            <span className="progress-group-text">
-                              {label}
-                            </span>
-                          </div>
-                          <div className="progress-group-bars">
-                            <Progress className="progress-xs" color="info" value={(counter1 * 3) > 100 ? 100 : counter1 * 3} />
-                            <Progress className="progress-xs" color="danger" value={(counter2 * 3) > 100 ? 100 : counter2 * 3} />
-                          </div>
-                        </div>)
-                      })
-                    }
+                      </div>
+                    </Col>
+                  </Row>
+                  <hr className="mt-0" />
+                  {clientData && clientAppointmentData &&
+                    clientData.labels.map((label, key) => {
+                      const counter1 = clientData.datasets[0].data[key];
+                      const counter2 = clientAppointmentData.datasets[0].data[key];
+                      return (<div className="progress-group mb-4" key={key}>
+                        <div className="progress-group-prepend">
+                          <span className="progress-group-text">
+                            {label}
+                          </span>
+                        </div>
+                        <div className="progress-group-bars">
+                          <Progress className="progress-xs" color="info" value={(counter1 * 3) > 100 ? 100 : counter1 * 3} />
+                          <Progress className="progress-xs" color="danger" value={(counter2 * 3) > 100 ? 100 : counter2 * 3} />
+                        </div>
+                      </div>)
+                    })
+                  }
 
 
-                    <div className="legend text-center">
-                      <small>
-                        <sup className="px-1"><Badge pill color="info">&nbsp;</Badge></sup>
-                        Clients
-                        &nbsp;
-                        <sup className="px-1"><Badge pill color="danger">&nbsp;</Badge></sup>
-                        Agendas
-                      </small>
-                    </div>
-                  </Col>
-                  <Col xs="12" md="6" xl="6">
-                    <Row>
-                      <Col sm="6">
-                        <div className="callout callout-warning">
-                          <small className="text-muted">Tasks</small>
-                          <br />
-                          <strong className="h4">{this.state.clientTaskCounter ? this.state.clientTaskCounter : 0}</strong>
-                          <div className="chart-wrapper">
-                            <Line data={this.state.clientTaskData ? this.state.clientTaskData : makeSparkLineData(2, brandWarning)} options={sparklineChartOpts} width={100} height={30} />
-                          </div>
+                  <div className="legend text-center">
+                    <small>
+                      <sup className="px-1"><Badge pill color="info">&nbsp;</Badge></sup>
+                      Clients
+                      &nbsp;
+                      <sup className="px-1"><Badge pill color="danger">&nbsp;</Badge></sup>
+                      Agendas
+                    </small>
+                  </div>
+                </Col>
+                <Col xs="12" md="6" xl="6">
+                  <Row>
+                    <Col sm="6">
+                      <div className="callout callout-warning">
+                        <small className="text-muted">Tasks</small>
+                        <br />
+                        <strong className="h4">{clientTaskCounter ? clientTaskCounter : 0}</strong>
+                        <div className="chart-wrapper">
+                          <Line data={clientTaskData ? clientTaskData : makeSparkLineData(2, brandWarning)} options={sparklineChartOpts} width={100} height={30} />
                         </div>
-                      </Col>
-                      <Col sm="6">
-                        <div className="callout callout-success">
-                          <small className="text-muted">Groups</small>
-                          <br />
-                          <strong className="h4">{this.state.userGroupCounter ? this.state.userGroupCounter : 0}</strong>
-                          <div className="chart-wrapper">
-                            <Line data={this.state.userGroupData ? this.state.userGroupData : makeSparkLineData(3, brandSuccess)} options={sparklineChartOpts} width={100} height={30} />
-                          </div>
+                      </div>
+                    </Col>
+                    <Col sm="6">
+                      <div className="callout callout-success">
+                        <small className="text-muted">Groups</small>
+                        <br />
+                        <strong className="h4">{userGroupCounter ? userGroupCounter : 0}</strong>
+                        <div className="chart-wrapper">
+                          <Line data={userGroupData ? userGroupData : makeSparkLineData(3, brandSuccess)} options={sparklineChartOpts} width={100} height={30} />
                         </div>
-                      </Col>
-                    </Row>
-                    <hr className="mt-0" />
-                    {this.state.clientTaskData && this.state.userGroupData &&
-                      this.state.clientTaskData.labels.map((label, key) => {
-                        const counter1 = this.state.clientTaskData.datasets[0].data[key];
-                        const counter2 = this.state.userGroupData.datasets[0].data[key];
-                        return (<div className="progress-group mb-4" key={key}>
-                          <div className="progress-group-prepend">
-                            <span className="progress-group-text">
-                              {label}
-                            </span>
-                          </div>
-                          <div className="progress-group-bars">
-                            <Progress className="progress-xs" color="warning" value={(counter1 * 3) > 100 ? 100 : counter1 * 3} />
-                            <Progress className="progress-xs" color="success" value={(counter2 * 3) > 100 ? 100 : counter2 * 3} />
-                          </div>
-                        </div>)
-                      })
-                    }
-                    <div className="legend text-center">
-                      <small>
-                        <sup className="px-1"><Badge pill color="warning">&nbsp;</Badge></sup>
-                        Tasks
-                        &nbsp;
-                        <sup className="px-1"><Badge pill color="success">&nbsp;</Badge></sup>
-                        Groups
-                      </small>
-                    </div>
-                  </Col>
-                </Row>
-                <br />
-                {/* <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
+                      </div>
+                    </Col>
+                  </Row>
+                  <hr className="mt-0" />
+                  {clientTaskData && userGroupData &&
+                    clientTaskData.labels.map((label, key) => {
+                      const counter1 = clientTaskData.datasets[0].data[key];
+                      const counter2 = userGroupData.datasets[0].data[key];
+                      return (<div className="progress-group mb-4" key={key}>
+                        <div className="progress-group-prepend">
+                          <span className="progress-group-text">
+                            {label}
+                          </span>
+                        </div>
+                        <div className="progress-group-bars">
+                          <Progress className="progress-xs" color="warning" value={(counter1 * 3) > 100 ? 100 : counter1 * 3} />
+                          <Progress className="progress-xs" color="success" value={(counter2 * 3) > 100 ? 100 : counter2 * 3} />
+                        </div>
+                      </div>)
+                    })
+                  }
+                  <div className="legend text-center">
+                    <small>
+                      <sup className="px-1"><Badge pill color="warning">&nbsp;</Badge></sup>
+                      Tasks
+                      &nbsp;
+                      <sup className="px-1"><Badge pill color="success">&nbsp;</Badge></sup>
+                      Groups
+                    </small>
+                  </div>
+                </Col>
+              </Row>
+              <br />
+              {/* <Table hover responsive className="table-outline mb-0 d-none d-sm-table">
                   <thead className="thead-light">
                     <tr>
                       <th className="text-center"><i className="icon-people"></i></th>
@@ -1093,13 +1112,13 @@ class Dashboard extends Component {
                     </tr>
                   </tbody>
                 </Table>*/}
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
-      </div >
-    );
-  }
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </div >
+  );
 }
+
 
 export default withRouter(Dashboard);

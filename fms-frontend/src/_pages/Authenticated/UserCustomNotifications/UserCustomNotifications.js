@@ -135,7 +135,7 @@ class UserCustomNotifications extends Component {
                         this.state.activePagination.pageSize
                       )
                       .map((userCustomNotificationObj, index) => (
-                        <UserCustomNotificationRow key={index} userCustomNotification={userCustomNotificationObj} key={userCustomNotificationObj._id.toString()} />
+                        <UserCustomNotificationRow  userCustomNotification={userCustomNotificationObj} key={userCustomNotificationObj._id.toString()} />
                       ))}
                   </tbody>
                 </Table>

@@ -14,13 +14,16 @@ import {
 } from "reactstrap";
 import { adminActions } from "../../../_actions/admin.actions";
 import "./Login.css";
-import { withRouter } from "react-router-dom";
+import { withRouter,useHistory } from "react-router-dom";
 import { apiService } from "../../../_services/api.service";
 import sygnet from './../../../assets/img/brand/sygnet.png';
 
 const Login =()=>{
-
-
+const history = useHistory()
+const handleSubmit = (e)=>{
+  e.preventDefault()
+  history.push("/")
+}
 
 
     return (
@@ -31,7 +34,7 @@ const Login =()=>{
               <CardGroup>
                 <Card className="p-4">
                   <CardBody>
-                    <Form onSubmit={this.handleSubmit}>
+                    <Form onSubmit={handleSubmit}>
                       <div className="text-center">
                         {<img src={sygnet} />}
 

@@ -6,6 +6,7 @@ export const AuthenticatedRoute = ({ component: Component, ...rest }) => (
         // localStorage.getItem('token')
         //     ? <Component {...props} />
         //     : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />
+           
         <Component {...props} />
     )} />
 )

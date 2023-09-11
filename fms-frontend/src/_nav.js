@@ -35,8 +35,8 @@ export default {
       ]
     },
     {
-      name: "Users",
-      url: "/users",
+      name: "Drivers",
+      url: "/drivers",
       icon: "fa fa-user",
       // children: [
       //   {
