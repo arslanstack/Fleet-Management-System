@@ -11,7 +11,7 @@ class DriverController extends Controller
 	public function index()
 	{
 		$drivers = Driver::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'drivers' => $drivers));
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $drivers));
 	}
 	public function store(Request $request)
 	{
@@ -31,7 +31,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus' => 'required',
 			'car_plateno' => 'required',
 			'diesel_tag' => 'required',
-			'driver_project' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
@@ -81,7 +80,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus'=> $data['vehicle_rental_tatus'],
 			'car_plateno'=> $data['car_plateno'],
 			'diesel_tag'=> $data['diesel_tag'],
-			'driver_project'=> $data['driver_project'],
 
 			'nric_front_side' => $nric_front_side,
 			'nric_back_side' => $nric_back_side,
@@ -100,7 +98,7 @@ class DriverController extends Controller
 	public function edit($id, Request $request)
 	{
 		$driver = Driver::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'driver' => $driver));
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $driver));
 	}
 	public function update(Request $request)
 	{
@@ -118,7 +116,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus' => 'required',
 			'car_plateno' => 'required',
 			'diesel_tag' => 'required',
-			'driver_project' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
@@ -184,7 +181,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus'=> $data['vehicle_rental_tatus'],
 			'car_plateno'=> $data['car_plateno'],
 			'diesel_tag'=> $data['diesel_tag'],
-			'driver_project'=> $data['driver_project'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
 			'updated_by' => Auth()->user()->id,
@@ -199,8 +195,9 @@ class DriverController extends Controller
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
-		$status = Driver::find($data['id'])->delete();
+		$status = Driver::where('id', $data['id'])->first();
 		if($status > 0) {
+			Driver::find($data['id'])->delete();
 			return response()->json(['msg' => 'success', 'response'=>'Driver successfully deleted.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);

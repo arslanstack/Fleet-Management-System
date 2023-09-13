@@ -3,50 +3,50 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Admin\VehicleType;
+use App\Models\Admin\MaintenanceType;
 use Session, Validator, DB, Str;
 
-class VehicleTypeController extends Controller
+class MaintenanceTypeController extends Controller
 {
 	public function index()
 	{
-		$vehicle_types = VehicleType::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $vehicle_types));
+		$types = MaintenanceType::orderBy('id', 'DESC')->get();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $types));
 	}
 	public function store(Request $request)
 	{
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
-			'vehicle_type' => 'required',
-			'capacity' => 'required',
+			'maintenance_type' => 'required',
+			'description' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
 		}
-		$query = VehicleType::create([
-			'vehicle_type'=> $data['vehicle_type'],
-			'capacity'=> $data['capacity'],
+		$query = MaintenanceType::create([
+			'maintenance_type'=> $data['maintenance_type'],
+			'description'=> $data['description'],
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s')
 		]);
 		$response_status = $query->id;
 		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Vehicle type successfully added.']);
+			return response()->json(['msg' => 'success', 'response'=>'Vehicle maintenance type successfully added.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
 	}
 	public function edit($id, Request $request)
 	{
-		$vehicle_type = VehicleType::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $vehicle_type));
+		$type = MaintenanceType::where('id', $id)->first();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $type));
 	}
 	public function update(Request $request)
 	{
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
-			'vehicle_type' => 'required',
-			'capacity' => 'required',
+			'maintenance_type' => 'required',
+			'description' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
@@ -56,16 +56,16 @@ class VehicleTypeController extends Controller
 		}else {
 			$status = "0";
 		}
-		$post_status = VehicleType::where('id', $data['id'])->update([
-			'vehicle_type'=> $data['vehicle_type'],
-			'capacity'=> $data['capacity'],
+		$post_status = MaintenanceType::where('id', $data['id'])->update([
+			'maintenance_type'=> $data['maintenance_type'],
+			'description'=> $data['description'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
 			'updated_by' => Auth()->user()->id,
 		]);
 
 		if($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Vehicle type successfully updated!']);
+			return response()->json(['msg' => 'success', 'response'=>'Vehicle maintenance type successfully updated!']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
@@ -73,10 +73,10 @@ class VehicleTypeController extends Controller
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
-		$status = VehicleType::where('id', $data['id'])->first();
+		$status = MaintenanceType::where('id', $data['id'])->first();
 		if($status) {
-			VehicleType::find($data['id'])->delete();
-			return response()->json(['msg' => 'success', 'response'=>'Vehicle type successfully deleted.']);
+			MaintenanceType::find($data['id'])->delete();
+			return response()->json(['msg' => 'success', 'response'=>'Vehicle maintenance type successfully deleted.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
