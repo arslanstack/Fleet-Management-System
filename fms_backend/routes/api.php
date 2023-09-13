@@ -43,6 +43,7 @@ Route::middleware(['api'])->group(function () {
             Route::get('/profile', [AdminAuthController::class, 'profile']);
             Route::get('/refresh', [AdminAuthController::class, 'refresh']);
             Route::get('/image/{filename}', [PhotoController::class, 'image']);
+            Route::get('/images', [PhotoController::class, 'get_all_images']);
 
             Route::group(['prefix' => 'driver'], function() {
                 Route::get('/', [DriverController::class, 'index']);
