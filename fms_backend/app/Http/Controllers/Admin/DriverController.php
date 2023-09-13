@@ -40,28 +40,28 @@ class DriverController extends Controller
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_front_side);
 		}$nric_back_side = '';
 		if(!empty($data['nric_back_side'])){
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_back_side);
 		}$licence_front_side = '';
 		if(!empty($data['licence_front_side'])){
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$licence_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $licence_front_side);
 		}$licence_back_side = '';
 		if(!empty($data['licence_back_side'])){
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$licence_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $licence_back_side);
 		}
 		$query = Driver::create([
@@ -129,7 +129,7 @@ class DriverController extends Controller
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_front_side']);
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
@@ -139,7 +139,7 @@ class DriverController extends Controller
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_back_side']);
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
@@ -149,7 +149,7 @@ class DriverController extends Controller
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['licence_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['licence_front_side']);
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
@@ -159,7 +159,7 @@ class DriverController extends Controller
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['licence_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/drivers_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['licence_back_side']);
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
