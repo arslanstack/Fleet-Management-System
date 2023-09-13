@@ -31,7 +31,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus' => 'required',
 			'car_plateno' => 'required',
 			'diesel_tag' => 'required',
-			'driver_project' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
@@ -81,7 +80,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus'=> $data['vehicle_rental_tatus'],
 			'car_plateno'=> $data['car_plateno'],
 			'diesel_tag'=> $data['diesel_tag'],
-			'driver_project'=> $data['driver_project'],
 
 			'nric_front_side' => $nric_front_side,
 			'nric_back_side' => $nric_back_side,
@@ -118,7 +116,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus' => 'required',
 			'car_plateno' => 'required',
 			'diesel_tag' => 'required',
-			'driver_project' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
@@ -184,7 +181,6 @@ class DriverController extends Controller
 			'vehicle_rental_tatus'=> $data['vehicle_rental_tatus'],
 			'car_plateno'=> $data['car_plateno'],
 			'diesel_tag'=> $data['diesel_tag'],
-			'driver_project'=> $data['driver_project'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
 			'updated_by' => Auth()->user()->id,
