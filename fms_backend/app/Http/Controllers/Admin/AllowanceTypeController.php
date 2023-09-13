@@ -3,49 +3,49 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Admin\FineType;
+use App\Models\Admin\AllowanceType;
 use Session, Validator, DB, Str;
 
-class FineTypeController extends Controller
+class AllowanceTypeController extends Controller
 {
 	public function index()
 	{
-		$fine_types = FineType::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $fine_types));
+		$allowance_types = AllowanceType::orderBy('id', 'DESC')->get();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowance_types));
 	}
 	public function store(Request $request)
 	{
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
-			'fine_type' => 'required',
+			'allowance_type' => 'required',
 			'description' => 'required',
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
 		}
-		$query = FineType::create([
-			'fine_type'=> $data['fine_type'],
+		$query = AllowanceType::create([
+			'allowance_type'=> $data['allowance_type'],
 			'description'=> $data['description'],
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s')
 		]);
 		$response_status = $query->id;
 		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Fine type successfully added.']);
+			return response()->json(['msg' => 'success', 'response'=>'Allowance type successfully added.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
 	}
 	public function edit($id, Request $request)
 	{
-		$fine_type = FineType::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $fine_type));
+		$allowance_type = AllowanceType::where('id', $id)->first();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowance_type));
 	}
 	public function update(Request $request)
 	{
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
-			'fine_type' => 'required',
+			'allowance_type' => 'required',
 			'description' => 'required',
 		]);
 		if ($validator->fails()) {
@@ -56,8 +56,8 @@ class FineTypeController extends Controller
 		}else {
 			$status = "0";
 		}
-		$post_status = FineType::where('id', $data['id'])->update([
-			'fine_type'=> $data['fine_type'],
+		$post_status = AllowanceType::where('id', $data['id'])->update([
+			'allowance_type'=> $data['allowance_type'],
 			'description'=> $data['description'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
@@ -65,7 +65,7 @@ class FineTypeController extends Controller
 		]);
 
 		if($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Fine type successfully updated!']);
+			return response()->json(['msg' => 'success', 'response'=>'Allowance type successfully updated!']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
@@ -73,10 +73,10 @@ class FineTypeController extends Controller
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
-		$status = FineType::where('id', $data['id'])->first();
+		$status = AllowanceType::where('id', $data['id'])->first();
 		if($status) {
-			FineType::find($data['id'])->delete();
-			return response()->json(['msg' => 'success', 'response'=>'Fine type successfully deleted.']);
+			AllowanceType::find($data['id'])->delete();
+			return response()->json(['msg' => 'success', 'response'=>'Allowance type successfully deleted.']);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}

@@ -203,4 +203,61 @@ class DriverController extends Controller
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
 	}
+
+	public function salary(Request $request)
+	{
+		$data = $request->all();
+		$validator = Validator::make($request->all(), [
+			'salary' => 'required'
+		]);
+		if ($validator->fails()) {
+			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+		}
+		$query = DB::table('driver_salaries')->insertGetId([
+			'driver_id' => $data['id'],
+			'salary'=> $data['salary'],
+			'created_by' => Auth()->user()->id,
+			'created_at' => date('Y-m-d H:i:s'),
+		]);
+
+		if($query > 0) {
+			return response()->json(['msg' => 'success', 'response'=>'Driver salary successfully added.']);
+		} else {
+			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+		}
+	}
+
+	public function generate_payslip(Request $request)
+	{
+		$data = $request->all();
+		$validator = Validator::make($request->all(), [
+			'driver_id' => 'required'
+		]);
+		if ($validator->fails()) {
+			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+		}
+
+		$current_salary = get_single_row('driver_salaries', 'driver_id', $data['driver_id'], '', '', '', '');
+		$data['basic_salary'] = $current_salary->salary;
+
+		$allowances = get_allowances('driver_allowances', 'driver_id', $data['driver_id'], '', '', '', '');
+		$deductions = get_deductions('driver_deductions', 'driver_id', $data['driver_id'], '', '', '', '');
+		$query = DB::table('salary_payroll')->insertGetId([
+			'driver_id' => $data['id'],
+			'basic_salary'=> $data['basic_salary'],
+			'allowance_amount'=> $data['allowance_amount'],
+			'deduction_amount'=> $data['deduction_amount'],
+			'net_salary'=> $data['net_salary'],
+			'salary_month'=> $data['salary_month'],
+			'notes'=> $data['notes'],
+			'created_by' => Auth()->user()->id,
+			'created_at' => date('Y-m-d H:i:s'),
+		]);
+
+		if($query > 0) {
+			return response()->json(['msg' => 'success', 'response'=>'Driver salary successfully added.']);
+		} else {
+			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+		}
+	}
 }
