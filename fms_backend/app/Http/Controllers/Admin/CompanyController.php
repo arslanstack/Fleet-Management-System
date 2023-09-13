@@ -40,7 +40,7 @@ class CompanyController extends Controller
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/companies_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_front_side);
 		}
 		$nric_back_side = '';
@@ -48,7 +48,7 @@ class CompanyController extends Controller
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/companies_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_back_side);
 		}
 		$query = Company::create([
@@ -112,7 +112,7 @@ class CompanyController extends Controller
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/companies_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_front_side']);
 			DB::table('companies')
 			->where('id', $data['id'])->update([
@@ -123,7 +123,7 @@ class CompanyController extends Controller
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
-			$destinationPath = public_path('/assets/companies_img');
+			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_back_side']);
 			DB::table('companies')
 			->where('id', $data['id'])->update([

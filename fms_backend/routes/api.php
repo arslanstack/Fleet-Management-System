@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\VehicleMaintenanceController;
 use App\Http\Controllers\Admin\VehicleInspectionController;
 use App\Http\Controllers\Admin\VpcController;
 use App\Http\Controllers\Admin\RoadtaxExpiryController;
+use App\Http\Controllers\Admin\PhotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::middleware(['api'])->group(function () {
         Route::middleware('jwt.auth')->group(function () {
             Route::get('/profile', [AdminAuthController::class, 'profile']);
             Route::get('/refresh', [AdminAuthController::class, 'refresh']);
+            Route::get('/image/{filename}', [PhotoController::class, 'image']);
 
             Route::group(['prefix' => 'driver'], function() {
                 Route::get('/', [DriverController::class, 'index']);
@@ -122,6 +124,14 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [RoadtaxExpiryController::class, 'destroy']);
             });
 
+            Route::group(['prefix' => 'deduction'], function() {
+                Route::get('/', [FineTypeController::class, 'index']);
+                Route::post('store', [FineTypeController::class, 'store']);
+                Route::get('edit/{id}', [FineTypeController::class, 'edit']);
+                Route::post('update', [FineTypeController::class, 'update']);
+                Route::post('delete', [FineTypeController::class, 'destroy']);
+            });
+
         });
-    });
+});
 });
