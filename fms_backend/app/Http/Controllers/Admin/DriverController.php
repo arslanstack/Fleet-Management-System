@@ -37,7 +37,7 @@ class DriverController extends Controller
 		}
 		$nric_front_side = '';
 		$image_path1 = '';
-		if(!empty($data['nric_front_side'])){
+		if($request->hasFile('nric_front_side'))
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -47,7 +47,7 @@ class DriverController extends Controller
 		}
 		$nric_back_side = '';
 		$image_path2 = '';
-		if(!empty($data['nric_back_side'])){
+		if($request->hasFile('nric_back_side')){
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -57,7 +57,7 @@ class DriverController extends Controller
 		}
 		$licence_front_side = '';
 		$image_path3 = '';
-		if(!empty($data['licence_front_side'])){
+		if($request->hasFile('licence_front_side')){
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$licence_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -67,7 +67,7 @@ class DriverController extends Controller
 		}
 		$licence_back_side = '';
 		$image_path4 = '';
-		if(!empty($data['licence_back_side'])){
+		if($request->hasFile('licence_back_side')){
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$licence_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -77,7 +77,7 @@ class DriverController extends Controller
 		}
 		$profile_pic = '';
 		$image_path5 = '';
-		if(!empty($data['profile_pic'])){
+		if($request->hasFile('profile_pic')){
 			$image = $request->file('profile_pic');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$profile_pic = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -146,7 +146,7 @@ class DriverController extends Controller
 		}else {
 			$status = "0";
 		}
-		if(!empty($data['nric_front_side'])){
+		if($request->hasFile('nric_front_side')){
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -157,7 +157,7 @@ class DriverController extends Controller
 			->where('id', $data['id'])->update([
 				'nric_front_side' => $image_path1
 			]);
-		}if(!empty($data['nric_back_side'])){
+		}if($request->hasFile('nric_back_side')){
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -168,7 +168,7 @@ class DriverController extends Controller
 			->where('id', $data['id'])->update([
 				'nric_back_side' => $image_path2
 			]);
-		}if(!empty($data['licence_front_side'])){
+		}if($request->hasFile('licence_front_side')){
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['licence_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -179,7 +179,7 @@ class DriverController extends Controller
 			->where('id', $data['id'])->update([
 				'licence_front_side' => $image_path3
 			]);
-		}if(!empty($data['licence_back_side'])){
+		}if($request->hasFile('licence_back_side')){
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['licence_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
@@ -190,7 +190,7 @@ class DriverController extends Controller
 			->where('id', $data['id'])->update([
 				'licence_back_side' => $image_path4
 			]);
-		}if(!empty($data['profile_pic'])){
+		}if($request->hasFile('profile_pic')){
 			$image = $request->file('profile_pic');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['profile_pic'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
