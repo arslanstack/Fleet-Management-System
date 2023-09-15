@@ -36,44 +36,54 @@ class DriverController extends Controller
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
 		}
 		$nric_front_side = '';
+		$image_path1 = '';
 		if(!empty($data['nric_front_side'])){
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_front_side);
+			$image_path1 = asset('assets/upload_images').'/'.$nric_front_side;
 		}
 		$nric_back_side = '';
+		$image_path2 = '';
 		if(!empty($data['nric_back_side'])){
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_back_side);
+			$image_path2 = asset('assets/upload_images').'/'.$nric_back_side;
 		}
 		$licence_front_side = '';
+		$image_path3 = '';
 		if(!empty($data['licence_front_side'])){
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$licence_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $licence_front_side);
+			$image_path3 = asset('assets/upload_images').'/'.$licence_front_side;
 		}
 		$licence_back_side = '';
+		$image_path4 = '';
 		if(!empty($data['licence_back_side'])){
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$licence_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $licence_back_side);
+			$image_path4 = asset('assets/upload_images').'/'.$licence_back_side;
 		}
 		$profile_pic = '';
+		$image_path5 = '';
 		if(!empty($data['profile_pic'])){
 			$image = $request->file('profile_pic');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$profile_pic = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $profile_pic);
+			$image_path5 = asset('assets/upload_images').'/'.$profile_pic;
 		}
 		$query = Driver::create([
 			'name'=> $data['name'],
@@ -91,11 +101,11 @@ class DriverController extends Controller
 			'car_plateno'=> $data['car_plateno'],
 			'diesel_tag'=> $data['diesel_tag'],
 
-			'nric_front_side' => $nric_front_side,
-			'nric_back_side' => $nric_back_side,
-			'licence_front_side' => $licence_front_side,
-			'licence_back_side' => $licence_back_side,
-			'profile' => $profile_pic,
+			'nric_front_side' => $image_path1,
+			'nric_back_side' => $image_path2,
+			'licence_front_side' => $image_path3,
+			'licence_back_side' => $image_path4,
+			'profile' => $image_path5,
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s')
 		]);
@@ -142,9 +152,10 @@ class DriverController extends Controller
 			$data['nric_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_front_side']);
+			$image_path1 = asset('assets/upload_images').'/'.$data['nric_front_side'];
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
-				'nric_front_side' => $data['nric_front_side']
+				'nric_front_side' => $image_path1
 			]);
 		}if(!empty($data['nric_back_side'])){
 			$image = $request->file('nric_back_side');
@@ -152,9 +163,10 @@ class DriverController extends Controller
 			$data['nric_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_back_side']);
+			$image_path2 = asset('assets/upload_images').'/'.$data['nric_back_side'];
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
-				'nric_back_side' => $data['nric_back_side']
+				'nric_back_side' => $image_path2
 			]);
 		}if(!empty($data['licence_front_side'])){
 			$image = $request->file('licence_front_side');
@@ -162,9 +174,10 @@ class DriverController extends Controller
 			$data['licence_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['licence_front_side']);
+			$image_path3 = asset('assets/upload_images').'/'.$data['licence_front_side'];
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
-				'licence_front_side' => $data['licence_front_side']
+				'licence_front_side' => $image_path3
 			]);
 		}if(!empty($data['licence_back_side'])){
 			$image = $request->file('licence_back_side');
@@ -172,9 +185,10 @@ class DriverController extends Controller
 			$data['licence_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['licence_back_side']);
+			$image_path4 = asset('assets/upload_images').'/'.$data['licence_back_side'];
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
-				'licence_back_side' => $data['licence_back_side']
+				'licence_back_side' => $image_path4
 			]);
 		}if(!empty($data['profile_pic'])){
 			$image = $request->file('profile_pic');
@@ -182,9 +196,10 @@ class DriverController extends Controller
 			$data['profile_pic'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['profile_pic']);
+			$image_path5 = asset('assets/upload_images').'/'.$data['profile_pic'];
 			DB::table('drivers')
 			->where('id', $data['id'])->update([
-				'profile' => $data['profile_pic']
+				'profile' => $image_path5
 			]);
 		}
 
