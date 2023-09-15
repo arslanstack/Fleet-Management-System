@@ -78,8 +78,7 @@ if (!function_exists('get_single_value')) {
 }
 
 if (!function_exists('get_section_content')) {
-	function get_section_content($meta_tag, $meta_key)
-	{
+	function get_section_content($meta_tag, $meta_key) {
 		$query = DB::table('settings')
 		->select('meta_value')
 		->where('meta_tag', $meta_tag)
@@ -119,6 +118,28 @@ if (!function_exists('get_single_row')) {
 		}
 		$query->orderBy('id', 'DESC');
 		$data = $query->first();
+		return $data;
+	}
+}
+
+if (!function_exists('get_deductions')) {
+	function get_deductions($driver_id) {
+		$year = date('Y');
+		$month = date('m');
+		$query = DB::table('driver_deductions');
+		$query->where('driver_id', $driver_id);
+		$query->whereYear('effective_date', '=', $year);
+		$query->whereMonth('effective_date', '=', $month);
+		$data = $query->sum('amount');
+		return $data;
+	}
+}
+
+if (!function_exists('get_allowances')) {
+	function get_allowances($driver_id) {
+		$query = DB::table('driver_allowances');
+		$query->where('driver_id', $driver_id);
+		$data = $query->sum('amount');
 		return $data;
 	}
 }

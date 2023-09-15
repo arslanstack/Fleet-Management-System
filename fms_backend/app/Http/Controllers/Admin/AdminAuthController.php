@@ -40,7 +40,7 @@ class AdminAuthController extends Controller
             return response()->json(array('msg'=> 'error', 'response' => 'Something went wrong. Please try again.'));
         }
         $user = Auth::user();
-        return response()->json(array('msg' => 'success', 'response'=>'Logged in successfully', 'access_token'=> $token, 'token_type'=>'bearer', 'data' => $user));
+        return response()->json(array('msg' => 'success', 'response'=>'Logged in successfully', 'access_token'=> $token, 'token_type'=>'bearer', 'data' => $user, 'expires_in' => auth()->factory()->getTTL() * 7200));
     }
 
     public function logout(Request $request) {

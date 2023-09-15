@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PhotoController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\CompanyController;
@@ -13,7 +14,10 @@ use App\Http\Controllers\Admin\VehicleMaintenanceController;
 use App\Http\Controllers\Admin\VehicleInspectionController;
 use App\Http\Controllers\Admin\VpcController;
 use App\Http\Controllers\Admin\RoadtaxExpiryController;
-use App\Http\Controllers\Admin\PhotoController;
+use App\Http\Controllers\Admin\DeductionTypeController;
+use App\Http\Controllers\Admin\DeductionController;
+use App\Http\Controllers\Admin\AllowanceTypeController;
+use App\Http\Controllers\Admin\AllowanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +55,8 @@ Route::middleware(['api'])->group(function () {
                 Route::get('edit/{id}', [DriverController::class, 'edit']);
                 Route::post('update', [DriverController::class, 'update']);
                 Route::post('delete', [DriverController::class, 'destroy']);
+                Route::post('salary', [DriverController::class, 'salary']);
+                Route::post('generate_payslip', [DriverController::class, 'generate_payslip']);
             });
 
             Route::group(['prefix' => 'company'], function() {
@@ -125,12 +131,35 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [RoadtaxExpiryController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'deduction'], function() {
-                Route::get('/', [FineTypeController::class, 'index']);
-                Route::post('store', [FineTypeController::class, 'store']);
-                Route::get('edit/{id}', [FineTypeController::class, 'edit']);
-                Route::post('update', [FineTypeController::class, 'update']);
-                Route::post('delete', [FineTypeController::class, 'destroy']);
+            Route::group(['prefix' => 'deduction-type'], function() {
+                Route::get('/', [DeductionTypeController::class, 'index']);
+                Route::post('store', [DeductionTypeController::class, 'store']);
+                Route::get('edit/{id}', [DeductionTypeController::class, 'edit']);
+                Route::post('update', [DeductionTypeController::class, 'update']);
+                Route::post('delete', [DeductionTypeController::class, 'destroy']);
+            });
+
+            Route::group(['prefix' => 'deductions'], function() {
+                Route::get('/', [DeductionController::class, 'index']);
+                Route::post('store', [DeductionController::class, 'store']);
+                Route::get('edit/{id}', [DeductionController::class, 'edit']);
+                Route::post('update', [DeductionController::class, 'update']);
+                Route::post('delete', [DeductionController::class, 'destroy']);
+            });
+            Route::group(['prefix' => 'allowance-type'], function() {
+                Route::get('/', [AllowanceTypeController::class, 'index']);
+                Route::post('store', [AllowanceTypeController::class, 'store']);
+                Route::get('edit/{id}', [AllowanceTypeController::class, 'edit']);
+                Route::post('update', [AllowanceTypeController::class, 'update']);
+                Route::post('delete', [AllowanceTypeController::class, 'destroy']);
+            });
+
+            Route::group(['prefix' => 'allowances'], function() {
+                Route::get('/', [AllowanceController::class, 'index']);
+                Route::post('store', [AllowanceController::class, 'store']);
+                Route::get('edit/{id}', [AllowanceController::class, 'edit']);
+                Route::post('update', [AllowanceController::class, 'update']);
+                Route::post('delete', [AllowanceController::class, 'destroy']);
             });
 
         });
