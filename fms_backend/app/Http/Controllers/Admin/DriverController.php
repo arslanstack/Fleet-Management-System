@@ -45,7 +45,6 @@ class DriverController extends Controller
 			$image->move($destinationPath, $nric_front_side);
 			$image_path1 = asset('assets/upload_images').'/'.$nric_front_side;
 		}
-		$nric_back_side = '';
 		$image_path2 = '';
 		if($request->hasFile('nric_back_side')){
 			$image = $request->file('nric_back_side');
@@ -55,7 +54,6 @@ class DriverController extends Controller
 			$image->move($destinationPath, $nric_back_side);
 			$image_path2 = asset('assets/upload_images').'/'.$nric_back_side;
 		}
-		$licence_front_side = '';
 		$image_path3 = '';
 		if($request->hasFile('licence_front_side')){
 			$image = $request->file('licence_front_side');
@@ -65,7 +63,6 @@ class DriverController extends Controller
 			$image->move($destinationPath, $licence_front_side);
 			$image_path3 = asset('assets/upload_images').'/'.$licence_front_side;
 		}
-		$licence_back_side = '';
 		$image_path4 = '';
 		if($request->hasFile('licence_back_side')){
 			$image = $request->file('licence_back_side');
@@ -75,7 +72,6 @@ class DriverController extends Controller
 			$image->move($destinationPath, $licence_back_side);
 			$image_path4 = asset('assets/upload_images').'/'.$licence_back_side;
 		}
-		$profile_pic = '';
 		$image_path5 = '';
 		if($request->hasFile('profile_pic')){
 			$image = $request->file('profile_pic');
