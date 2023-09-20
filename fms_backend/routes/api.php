@@ -77,6 +77,7 @@ Route::middleware(['api'])->group(function () {
 
             Route::group(['prefix' => 'vehicles'], function() {
                 Route::get('/', [VehicleController::class, 'index']);
+                Route::get('add', [VehicleController::class, 'add']);
                 Route::post('store', [VehicleController::class, 'store']);
                 Route::get('edit/{id}', [VehicleController::class, 'edit']);
                 Route::post('update', [VehicleController::class, 'update']);
