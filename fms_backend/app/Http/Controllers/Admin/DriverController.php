@@ -230,7 +230,7 @@ class DriverController extends Controller
 	{
 		$data = $request->all();
 		$status = Driver::where('id', $data['id'])->first();
-		if($status > 0) {
+		if($status->id) {
 			Driver::find($data['id'])->delete();
 			return response()->json(['msg' => 'success', 'response'=>'Driver successfully deleted.']);
 		} else {

@@ -35,21 +35,25 @@ class CompanyController extends Controller
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
 		}
-		$nric_front_side = '';
-		if(!empty($data['nric_front_side'])){
+
+		$image_path1 = '';
+		$image_path2 = '';
+		$image_path3 = '';
+		if($request->hasFile('nric_front_side')){
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_front_side);
+			$image_path1 = asset('assets/upload_images').'/'.$nric_front_side;
 		}
-		$nric_back_side = '';
-		if(!empty($data['nric_back_side'])){
+		if($request->hasFile('nric_back_side')){
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$nric_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_back_side);
+			$image_path2 = asset('assets/upload_images').'/'.$nric_back_side;
 		}
 		$query = Company::create([
 			'company_name'=> $data['company_name'],
@@ -66,8 +70,8 @@ class CompanyController extends Controller
 			'car_plateno'=> $data['car_plateno'],
 			'diesel_tag'=> $data['diesel_tag'],
 			'driver_project'=> $data['driver_project'],
-			'nric_front_side' => $nric_front_side,
-			'nric_back_side' => $nric_back_side,
+			'nric_front_side' => $image_path1,
+			'nric_back_side' => $image_path2,
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s')
 		]);
@@ -108,26 +112,28 @@ class CompanyController extends Controller
 		}else {
 			$status = "0";
 		}
-		if(!empty($data['nric_front_side'])){
+		if($request->hasFile('nric_front_side')){
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_front_side']);
+			$image_path1 = asset('assets/upload_images').'/'.$data['nric_front_side'];
 			DB::table('companies')
 			->where('id', $data['id'])->update([
-				'nric_front_side' => $data['nric_front_side']
+				'nric_front_side' => $image_path1
 			]);
 		}
-		if(!empty($data['nric_back_side'])){
+		if($request->hasFile('nric_back_side')){
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
 			$data['nric_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_back_side']);
+			$image_path2 = asset('assets/upload_images').'/'.$data['nric_back_side'];
 			DB::table('companies')
 			->where('id', $data['id'])->update([
-				'nric_back_side' => $data['nric_back_side']
+				'nric_back_side' => $image_path2
 			]);
 		}
 
