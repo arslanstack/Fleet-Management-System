@@ -165,7 +165,7 @@ class CompanyController extends Controller
 	{
 		$data = $request->all();
 		$status = Company::where('id', $data['id'])->first();
-		if($status > 0) {
+		if($status->id) {
 			Company::find($data['id'])->delete();
 			return response()->json(['msg' => 'success', 'response'=>'Company successfully deleted.']);
 		} else {
