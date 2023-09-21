@@ -18,7 +18,8 @@ use App\Http\Controllers\Admin\DeductionTypeController;
 use App\Http\Controllers\Admin\DeductionController;
 use App\Http\Controllers\Admin\AllowanceTypeController;
 use App\Http\Controllers\Admin\AllowanceController;
-
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TripController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -65,6 +66,20 @@ Route::middleware(['api'])->group(function () {
                 Route::get('edit/{id}', [CompanyController::class, 'edit']);
                 Route::post('update', [CompanyController::class, 'update']);
                 Route::post('delete', [CompanyController::class, 'destroy']);
+            });
+            Route::group(['prefix' => 'project'], function() {
+                Route::get('/', [ProjectController::class, 'index']);
+                Route::post('store', [ProjectController::class, 'store']);
+                Route::get('edit/{id}', [ProjectController::class, 'edit']);
+                Route::post('update', [ProjectController::class, 'update']);
+                Route::post('delete', [ProjectController::class, 'destroy']);
+            });
+            Route::group(['prefix' => 'trip'], function() {
+                Route::get('/', [TripController::class, 'index']);
+                Route::post('store', [TripController::class, 'store']);
+                Route::get('edit/{id}', [TripController::class, 'edit']);
+                Route::post('update', [TripController::class, 'update']);
+                Route::post('delete', [TripController::class, 'destroy']);
             });
 
             Route::group(['prefix' => 'vehicle-type'], function() {
