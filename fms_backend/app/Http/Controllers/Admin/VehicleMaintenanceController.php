@@ -32,6 +32,8 @@ class VehicleMaintenanceController extends Controller
 		}
 		$query = VehicleMaintenance::create([
 			'vehicle_id'=> $data['vehicle_id'],
+			'driver_id'=> $data['driver_id'],
+			'company_id'=> $data['company_id'],
 			'maintenance_type_id'=> $data['maintenance_type_id'],
 			'maintenance_date'=> $data['maintenance_date'],
 			'location'=> $data['location'],
@@ -77,6 +79,7 @@ class VehicleMaintenanceController extends Controller
 		}
 		$post_status = VehicleMaintenance::where('id', $data['id'])->update([
 			'vehicle_id'=> $data['vehicle_id'],
+			'company_id'=> $data['company_id'],
 			'maintenance_type_id'=> $data['maintenance_type_id'],
 			'maintenance_date'=> $data['maintenance_date'],
 			'location'=> $data['location'],

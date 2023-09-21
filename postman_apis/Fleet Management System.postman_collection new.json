@@ -1,0 +1,4628 @@
+{
+	"info": {
+		"_postman_id": "0ce5768b-d3c1-4b14-a98d-8a2c9417231b",
+		"name": "Fleet Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23569044"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL3JlZnJlc2giLCJpYXQiOjE2OTUyMTM4NzEsImV4cCI6MTY5NTIxNzQ5NywibmJmIjoxNjk1MjEzODk3LCJqdGkiOiJ0aGlTTUlIR2NUYUZWZmlFIiwic3ViIjoiMSIsInBydiI6ImEyM2I1NzNkYzczYTQwN2U4ZGU1M2I0ODZmMzY4ODZhZGY3MGM0ODMifQ.g-AckoYVTTbwvDBCB_isST6ejTn9xwLShPtWeomH1O8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/logout",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL3JlZnJlc2giLCJpYXQiOjE2OTUyMTM4NzEsImV4cCI6MTY5NTIxNzQ5NywibmJmIjoxNjk1MjEzODk3LCJqdGkiOiJ0aGlTTUlIR2NUYUZWZmlFIiwic3ViIjoiMSIsInBydiI6ImEyM2I1NzNkYzczYTQwN2U4ZGU1M2I0ODZmMzY4ODZhZGY3MGM0ODMifQ.g-AckoYVTTbwvDBCB_isST6ejTn9xwLShPtWeomH1O8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profile",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzODcxLCJleHAiOjE2OTUyMTc0NzEsIm5iZiI6MTY5NTIxMzg3MSwianRpIjoiYnJ6WFZESUJpWVQ4bW5MbiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.7ufn5xdfTWsvAij1rqztwxmZGY1ILnoSxSFqvBH3-W8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/refresh",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Driver Details",
+			"item": [
+				{
+					"name": "Add Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "John Doe",
+									"type": "text"
+								},
+								{
+									"key": "phone_no",
+									"value": "03394008123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "calebjanaltair@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "nric",
+									"value": "3330198122441",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "Lahore Cantt, Pakistan",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "2023-09-09",
+									"type": "text"
+								},
+								{
+									"key": "bank_account_no",
+									"value": "090012331881",
+									"type": "text"
+								},
+								{
+									"key": "licence_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "joining_date",
+									"value": "2023-09-08",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-09-08",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_rental_tatus",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car_plateno",
+									"value": "LEQ 12311",
+									"type": "text"
+								},
+								{
+									"key": "diesel_tag",
+									"value": "454545",
+									"type": "text"
+								},
+								{
+									"key": "driver_project",
+									"value": "one, two",
+									"type": "text"
+								},
+								{
+									"key": "nric_front_side",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/front.png"
+								},
+								{
+									"key": "nric_back_side",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/back.png"
+								},
+								{
+									"key": "licence_front_side",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/front.png"
+								},
+								{
+									"key": "licence_back_side",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/back.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Drivers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Driver",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver/edit/15",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver",
+								"edit",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Abdul Waheed",
+									"type": "text"
+								},
+								{
+									"key": "phone_no",
+									"value": "03394008120",
+									"type": "text"
+								},
+								{
+									"key": "nric",
+									"value": "35021363636363",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "lahore",
+									"type": "text"
+								},
+								{
+									"key": "dob",
+									"value": "2023-09-09",
+									"type": "text"
+								},
+								{
+									"key": "bank_account_no",
+									"value": "01020304052023",
+									"type": "text"
+								},
+								{
+									"key": "licence_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "joining_date",
+									"value": "2023-09-08",
+									"type": "text"
+								},
+								{
+									"key": "end_date",
+									"value": "2023-09-08",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_rental_tatus",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car_plateno",
+									"value": "leo 1234",
+									"type": "text"
+								},
+								{
+									"key": "diesel_tag",
+									"value": "454545",
+									"type": "text"
+								},
+								{
+									"key": "driver_project",
+									"value": "one, two",
+									"type": "text"
+								},
+								{
+									"key": "nric_front_side",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "nric_back_side",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "licence_front_side",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "licence_back_side",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Companies",
+			"item": [
+				{
+					"name": "Add Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_name",
+									"value": "PayPal",
+									"type": "text"
+								},
+								{
+									"key": "uen",
+									"value": "T09LL0001B",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "paypal@paypal.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "company_address",
+									"value": "5 Temasek Blvd, #09-01 Suntec Tower Five, Singapore 038985",
+									"type": "text"
+								},
+								{
+									"key": "bank_account_no",
+									"value": "T09LL0001B1288UAA1121",
+									"type": "text"
+								},
+								{
+									"key": "pic_name",
+									"value": "Paypal CEO",
+									"type": "text"
+								},
+								{
+									"key": "pic_mobile_no",
+									"value": "01020304052023",
+									"type": "text"
+								},
+								{
+									"key": "pic_nric",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pic_address",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_rental_tatus",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car_plateno",
+									"value": "leo 1234",
+									"type": "text"
+								},
+								{
+									"key": "diesel_tag",
+									"value": "454545",
+									"type": "text"
+								},
+								{
+									"key": "driver_project",
+									"value": "one, two",
+									"type": "text"
+								},
+								{
+									"key": "nric_front_side",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/front.png"
+								},
+								{
+									"key": "nric_back_side",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/back.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/company/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"company",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_name",
+									"value": "Paypal Updated",
+									"type": "text"
+								},
+								{
+									"key": "uen",
+									"value": "030414141414",
+									"type": "text"
+								},
+								{
+									"key": "company_address",
+									"value": "35021363636363",
+									"type": "text"
+								},
+								{
+									"key": "bank_account_no",
+									"value": "lahore",
+									"type": "text"
+								},
+								{
+									"key": "pic_name",
+									"value": "2023-09-09",
+									"type": "text"
+								},
+								{
+									"key": "pic_mobile_no",
+									"value": "01020304052023",
+									"type": "text"
+								},
+								{
+									"key": "pic_nric",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "pic_address",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_rental_tatus",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "car_plateno",
+									"value": "leo 1234",
+									"type": "text"
+								},
+								{
+									"key": "diesel_tag",
+									"value": "454545",
+									"type": "text"
+								},
+								{
+									"key": "driver_project",
+									"value": "one, two",
+									"type": "text"
+								},
+								{
+									"key": "nric_front_side",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "nric_back_side",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/company/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"company",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Companies",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/company",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Company",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/company/edit/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"company",
+								"edit",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Company",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/company/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"company",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projects",
+			"item": [
+				{
+					"name": "Add Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Project 5",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem Ipsum",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/project/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"project",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Test Project 4",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem Ipsum Bhaio",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/project/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"project",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Project",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/project",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Project",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/project/edit/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"project",
+								"edit",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Project",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/project/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"project",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trips",
+			"item": [
+				{
+					"name": "Add Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "start_date_time",
+									"value": "2018-01-19 03:14:07",
+									"type": "text"
+								},
+								{
+									"key": "end_date_time",
+									"value": "2018-01-20 03:14:07",
+									"type": "text"
+								},
+								{
+									"key": "from_location",
+									"value": "Karachi",
+									"type": "text"
+								},
+								{
+									"key": "end_location",
+									"value": "Peshawar",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "2000",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Payloads Lorem Ipsum",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "nill",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "150000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/trip/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"trip",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "project_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "start_date_time",
+									"value": "2018-01-19 03:14:07",
+									"type": "text"
+								},
+								{
+									"key": "end_date_time",
+									"value": "2018-01-21 03:14:07",
+									"type": "text"
+								},
+								{
+									"key": "from_location",
+									"value": "Karachi",
+									"type": "text"
+								},
+								{
+									"key": "end_location",
+									"value": "Chitral",
+									"type": "text"
+								},
+								{
+									"key": "distance",
+									"value": "2312",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Payloads increased Lorem Ipsum",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "amount increased",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "220050",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/trip/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"trip",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trip",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/trip",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"trip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Trip",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/trip/edit/2",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"trip",
+								"edit",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Trip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/trip/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"trip",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Types",
+			"item": [
+				{
+					"name": "Add Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_type",
+									"value": "U-Haul Truck",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "450 Metric Tonnes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-type/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-type",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Types",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_type",
+									"value": "U-Haul Truck",
+									"type": "text"
+								},
+								{
+									"key": "capacity",
+									"value": "550",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-type/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-type",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-type",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Vehicle Type",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-type/edit/17",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-type",
+								"edit",
+								"17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicle type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "17",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-type/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-type",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Maintenance Types",
+			"item": [
+				{
+					"name": "Add Maintenance Type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "maintenance_type",
+									"value": "Oil Change",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A description of the maintenance tasks and services performed.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/maintenance-type/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"maintenance-type",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Maintenance Types",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "maintenance_type",
+									"value": "brake inspection",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "A description of the maintenance tasks and services performed.",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/maintenance-type/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"maintenance-type",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/maintenance-type",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"maintenance-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/maintenance-type/edit/15",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"maintenance-type",
+								"edit",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/maintenance-type/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"maintenance-type",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Maintenance",
+			"item": [
+				{
+					"name": "Add Vehicle Maintenance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "maintenance_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "maintenance_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+									"type": "text"
+								},
+								{
+									"key": "meter_reading",
+									"value": "32010",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "2500",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-maintenance/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-maintenance",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Maintenance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "maintenance_type_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "maintenance_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+									"type": "text"
+								},
+								{
+									"key": "meter_reading",
+									"value": "32010",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "2500",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "12",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-maintenance/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-maintenance",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles Maintenance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-maintenance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-maintenance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-maintenance/edit/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-maintenance",
+								"edit",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "4",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-maintenance/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-maintenance",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle",
+			"item": [
+				{
+					"name": "Add Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mjg3OTUxLCJleHAiOjE2OTUyOTE1NTEsIm5iZiI6MTY5NTI4Nzk1MSwianRpIjoiRWRRYkgzQkJtb3J4QXRHaCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.u5LNAYioXkbQUrbpBifHwABNOZrkt0ZyBbCp03-qQ4M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "fuel_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "registration_no",
+									"value": "FAZ10K",
+									"type": "text"
+								},
+								{
+									"key": "chassis_no",
+									"value": "9762317",
+									"type": "text"
+								},
+								{
+									"key": "engine_no",
+									"value": "213213123",
+									"type": "text"
+								},
+								{
+									"key": "current_mileage",
+									"value": "1134511",
+									"type": "text"
+								},
+								{
+									"key": "make",
+									"value": "Ford",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "e450",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2019",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "white",
+									"type": "text"
+								},
+								{
+									"key": "registration_date",
+									"value": "2023-09-09",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_location",
+									"value": "56 Bakers Street",
+									"type": "text"
+								},
+								{
+									"key": "driver",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "plate_no_photo",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/front.png"
+								},
+								{
+									"key": "vehicle_photo",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/back.png"
+								},
+								{
+									"key": "additional_notes",
+									"value": "Lorem Ipsum",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicles/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicles",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mjg3OTUxLCJleHAiOjE2OTUyOTE1NTEsIm5iZiI6MTY5NTI4Nzk1MSwianRpIjoiRWRRYkgzQkJtb3J4QXRHaCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.u5LNAYioXkbQUrbpBifHwABNOZrkt0ZyBbCp03-qQ4M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_type",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "fuel_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "registration_no",
+									"value": "FAZ10K",
+									"type": "text"
+								},
+								{
+									"key": "chassis_no",
+									"value": "9762317",
+									"type": "text"
+								},
+								{
+									"key": "engine_no",
+									"value": "213213123",
+									"type": "text"
+								},
+								{
+									"key": "current_mileage",
+									"value": "1134511",
+									"type": "text"
+								},
+								{
+									"key": "make",
+									"value": "Ford",
+									"type": "text"
+								},
+								{
+									"key": "model",
+									"value": "e450",
+									"type": "text"
+								},
+								{
+									"key": "year",
+									"value": "2019",
+									"type": "text"
+								},
+								{
+									"key": "color",
+									"value": "white",
+									"type": "text"
+								},
+								{
+									"key": "registration_date",
+									"value": "2023-09-09",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_location",
+									"value": "Karachi Port",
+									"type": "text"
+								},
+								{
+									"key": "plate_no_photo",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/front.png"
+								},
+								{
+									"key": "vehicle_photo",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/back.png"
+								},
+								{
+									"key": "additional_notes",
+									"value": "Lorem Ipsum",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicles/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicles",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicles",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Vehicle",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicles/edit/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicles",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicles/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicles",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fuel management",
+			"item": [
+				{
+					"name": "Add Fuel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjE3NTYwLCJleHAiOjE2OTUyMjExNjAsIm5iZiI6MTY5NTIxNzU2MCwianRpIjoiYzlPcFRHVExXR0x2dDdMYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._zU46tHDU28kwuTRq1hFxTwTiBcTyl_z-HL801AojMM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cost_per_liter",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "fuel_type",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "fuel_cost",
+									"value": "21",
+									"type": "text"
+								},
+								{
+									"key": "current_meter_reading",
+									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "fuel_datetime",
+									"value": "2019-01-19 03:14:07",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Singapore Chowk",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/fuel-management/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"fuel-management",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fuel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjE3NTYwLCJleHAiOjE2OTUyMjExNjAsIm5iZiI6MTY5NTIxNzU2MCwianRpIjoiYzlPcFRHVExXR0x2dDdMYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._zU46tHDU28kwuTRq1hFxTwTiBcTyl_z-HL801AojMM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cost_per_liter",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "fuel_type",
+									"value": "23",
+									"type": "text"
+								},
+								{
+									"key": "vehicle_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "fuel_cost",
+									"value": "23",
+									"type": "text"
+								},
+								{
+									"key": "current_meter_reading",
+									"value": "13",
+									"type": "text"
+								},
+								{
+									"key": "fuel_datetime",
+									"value": "2013-01-19 03:14:03",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Singapore Chowk3",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/fuel-management/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"fuel-management",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Fuel Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjE3NTYwLCJleHAiOjE2OTUyMjExNjAsIm5iZiI6MTY5NTIxNzU2MCwianRpIjoiYzlPcFRHVExXR0x2dDdMYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._zU46tHDU28kwuTRq1hFxTwTiBcTyl_z-HL801AojMM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/fuel-management",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"fuel-management"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjE3NTYwLCJleHAiOjE2OTUyMjExNjAsIm5iZiI6MTY5NTIxNzU2MCwianRpIjoiYzlPcFRHVExXR0x2dDdMYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._zU46tHDU28kwuTRq1hFxTwTiBcTyl_z-HL801AojMM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/fuel-management/edit/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"fuel-management",
+								"edit",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjE3NTYwLCJleHAiOjE2OTUyMjExNjAsIm5iZiI6MTY5NTIxNzU2MCwianRpIjoiYzlPcFRHVExXR0x2dDdMYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._zU46tHDU28kwuTRq1hFxTwTiBcTyl_z-HL801AojMM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/fuel-management/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"fuel-management",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Inspection",
+			"item": [
+				{
+					"name": "Add Vehicle Inspection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NTA4MzM4LCJleHAiOjE2OTQ1MTE5MzgsIm5iZiI6MTY5NDUwODMzOCwianRpIjoiWmtBTFhNU2JyWFgwRURVUCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.qyo8GjYkJt06XaTjsyJk8O29oiWRRcKCbQOMlvg6LW4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "inspection_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "next_inspection_date",
+									"value": "2025-09-12",
+									"type": "text"
+								},
+								{
+									"key": "maintenance_recommendation",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "inspection_status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-inspection/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-inspection",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Inspection",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NTA4MzM4LCJleHAiOjE2OTQ1MTE5MzgsIm5iZiI6MTY5NDUwODMzOCwianRpIjoiWmtBTFhNU2JyWFgwRURVUCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.qyo8GjYkJt06XaTjsyJk8O29oiWRRcKCbQOMlvg6LW4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "inspection_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "next_inspection_date",
+									"value": "2025-09-12",
+									"type": "text"
+								},
+								{
+									"key": "maintenance_recommendation",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "inspection_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-inspection/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-inspection",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDI5MTAxLCJleHAiOjE2OTQ0MzI3MDEsIm5iZiI6MTY5NDQyOTEwMSwianRpIjoiQmg5MDdTSEhTVVRSTHZpZSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.c9TLgyRmmKL9AeTikErQWPmAkwlvfiAAMtaDf1KYA4Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-inspection",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-inspection"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-inspection/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-inspection",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vehicle-inspection/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vehicle-inspection",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Plate Check",
+			"item": [
+				{
+					"name": "Add Vehicle Plate check",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NTA4MzM4LCJleHAiOjE2OTQ1MTE5MzgsIm5iZiI6MTY5NDUwODMzOCwianRpIjoiWmtBTFhNU2JyWFgwRURVUCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.qyo8GjYkJt06XaTjsyJk8O29oiWRRcKCbQOMlvg6LW4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "plate_expiry_date",
+									"value": "2024-09-12",
+									"type": "text"
+								},
+								{
+									"key": "license_plate",
+									"value": "leo-12345",
+									"type": "text"
+								},
+								{
+									"key": "plate_registration_status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vpc/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vpc",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Plate check",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "plate_expiry_date",
+									"value": "2025-09-12",
+									"type": "text"
+								},
+								{
+									"key": "license_plate",
+									"value": "pak 6541",
+									"type": "text"
+								},
+								{
+									"key": "plate_registration_status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vpc/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vpc",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDI5MTAxLCJleHAiOjE2OTQ0MzI3MDEsIm5iZiI6MTY5NDQyOTEwMSwianRpIjoiQmg5MDdTSEhTVVRSTHZpZSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.c9TLgyRmmKL9AeTikErQWPmAkwlvfiAAMtaDf1KYA4Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vpc",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vpc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vpc/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vpc",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/vpc/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"vpc",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Roadtax",
+			"item": [
+				{
+					"name": "Add Vehicle Roadtax",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NTA4MzM4LCJleHAiOjE2OTQ1MTE5MzgsIm5iZiI6MTY5NDUwODMzOCwianRpIjoiWmtBTFhNU2JyWFgwRURVUCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.qyo8GjYkJt06XaTjsyJk8O29oiWRRcKCbQOMlvg6LW4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "expiry_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "renewal_date",
+									"value": "2024-09-12",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": " Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/roadtax/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"roadtax",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Roadtax",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "expiry_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "renewal_date",
+									"value": "2023-09-12",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/roadtax/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"roadtax",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDI5MTAxLCJleHAiOjE2OTQ0MzI3MDEsIm5iZiI6MTY5NDQyOTEwMSwianRpIjoiQmg5MDdTSEhTVVRSTHZpZSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.c9TLgyRmmKL9AeTikErQWPmAkwlvfiAAMtaDf1KYA4Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/roadtax",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"roadtax"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/roadtax/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"roadtax",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Record",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/roadtax/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"roadtax",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deductions Types",
+			"item": [
+				{
+					"name": "Add Fine Type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "deduction_type",
+									"value": "Truck",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "6021",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deduction-type/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deduction-type",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Fine Types",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "deduction_type",
+									"value": "Car",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "650",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deduction-type/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deduction-type",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deduction-type",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deduction-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deduction-type/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deduction-type",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deduction-type/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deduction-type",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deductions",
+			"item": [
+				{
+					"name": "Add Deductions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "deduction_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "effective_date",
+									"value": "2023-12-12",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Deductions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "deduction_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "effective_date",
+									"value": "2023-12-12",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Allowances Types",
+			"item": [
+				{
+					"name": "Add Allowance Type",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "allowance_type",
+									"value": "Truck",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowance-type/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowance-type",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Allowance Types",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "allowance_type",
+									"value": "Car",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Test",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowance-type/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowance-type",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowance-type",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowance-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowance-type/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowance-type",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowance-type/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowance-type",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Allowances",
+			"item": [
+				{
+					"name": "Add Allowances",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "allowance_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "500",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowances/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowances",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update allowances",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "allowance_type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "500",
+									"type": "text"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowances/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowances",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowances",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowances"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowances/edit/3",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowances",
+								"edit",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/allowances/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"allowances",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Salaries",
+			"item": [
+				{
+					"name": "Add Salary",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "salary_amount",
+									"value": "5000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver/salary",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver",
+								"salary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Payslip",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NjgwNDYxLCJleHAiOjE2OTQ2ODQwNjEsIm5iZiI6MTY5NDY4MDQ2MSwianRpIjoicUxnRGdsUlJ5NmdWN1BwNSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.qmEsyMtZ1dMhc5k46DsQebLxHyuQVE7GJgc_zxkKz_k",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "notes if any",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/driver/generate_payslip",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"driver",
+								"generate_payslip"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Images",
+			"item": [
+				{
+					"name": "Get All Data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NjA0Mjg2LCJleHAiOjE2OTQ2MDc4ODYsIm5iZiI6MTY5NDYwNDI4NiwianRpIjoiaXFJZDVqZzF6dlh0QjVtcCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.-2I0EamvMBkp1B6bDQFPEFvbGdZxJwRACdSZyEIgj28",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/images",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NjA0Mjg2LCJleHAiOjE2OTQ2MDc4ODYsIm5iZiI6MTY5NDYwNDI4NiwianRpIjoiaXFJZDVqZzF6dlh0QjVtcCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.-2I0EamvMBkp1B6bDQFPEFvbGdZxJwRACdSZyEIgj28",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/image/123123_1694412004.png",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"image",
+								"123123_1694412004.png"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
