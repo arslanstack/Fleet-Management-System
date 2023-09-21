@@ -92,7 +92,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL3JlZnJlc2giLCJpYXQiOjE2OTUyMTM4NzEsImV4cCI6MTY5NTIxNzQ5NywibmJmIjoxNjk1MjEzODk3LCJqdGkiOiJ0aGlTTUlIR2NUYUZWZmlFIiwic3ViIjoiMSIsInBydiI6ImEyM2I1NzNkYzczYTQwN2U4ZGU1M2I0ODZmMzY4ODZhZGY3MGM0ODMifQ.g-AckoYVTTbwvDBCB_isST6ejTn9xwLShPtWeomH1O8",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjkyNTYwLCJleHAiOjE2OTUyOTYxNjAsIm5iZiI6MTY5NTI5MjU2MCwianRpIjoiYlNQTWIxbU5xb1VyQllveCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.St-nyI6qFs-O9VbNbi2Z1cg8x2-7OUrocdpioL-T-vQ",
 								"type": "text"
 							}
 						],
@@ -1435,6 +1435,290 @@
 			]
 		},
 		{
+			"name": "Admins",
+			"item": [
+				{
+					"name": "Add  Admins",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzMTcxLCJleHAiOjE2OTUzMDY3NzEsIm5iZiI6MTY5NTMwMzE3MSwianRpIjoiVXE0Rk1tSWY0YkF5R0xtMCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.LmWLm6Y59vsZdvihnmVA34njVGFxao9y0noRKrFGU0M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "caleb",
+									"type": "text"
+								},
+								{
+									"key": "phone_no",
+									"value": "+923134188721",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "calebjanaltair@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "permissions",
+									"value": "Supervisor 1, Supervisor 2",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/caleb-lucas-Wl3dPgNc8Nw-unsplash.jpg"
+								},
+								{
+									"key": "view_all_data",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"adminManagement",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Admins",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzMTcxLCJleHAiOjE2OTUzMDY3NzEsIm5iZiI6MTY5NTMwMzE3MSwianRpIjoiVXE0Rk1tSWY0YkF5R0xtMCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.LmWLm6Y59vsZdvihnmVA34njVGFxao9y0noRKrFGU0M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "caleb",
+									"type": "text"
+								},
+								{
+									"key": "phone_no",
+									"value": "+923134188721",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "calebjanaltair@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "type",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "permissions",
+									"value": "Supervisor 1, Supervisor 2, Supervisor 3",
+									"type": "text"
+								},
+								{
+									"key": "view_all_data",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/Untitled design.png"
+								},
+								{
+									"key": "id",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"adminManagement",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  Admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzNTU3LCJleHAiOjE2OTUzMDcxNTcsIm5iZiI6MTY5NTMwMzU1NywianRpIjoiSEdCamUwbVh5ZmRqZ0ozZiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XNGxEvD7pOXJDVuU1zHhDVKcPBrUi40SWcz5JXZ5Nqg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/adminManagement",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"adminManagement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One  Admins",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzMTcxLCJleHAiOjE2OTUzMDY3NzEsIm5iZiI6MTY5NTMwMzE3MSwianRpIjoiVXE0Rk1tSWY0YkF5R0xtMCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.LmWLm6Y59vsZdvihnmVA34njVGFxao9y0noRKrFGU0M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/edit/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"adminManagement",
+								"edit",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  Admins",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzNTU3LCJleHAiOjE2OTUzMDcxNTcsIm5iZiI6MTY5NTMwMzU1NywianRpIjoiSEdCamUwbVh5ZmRqZ0ozZiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XNGxEvD7pOXJDVuU1zHhDVKcPBrUi40SWcz5JXZ5Nqg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "18",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"adminManagement",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Vehicle Types",
 			"item": [
 				{
@@ -2282,7 +2566,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mjg3OTUxLCJleHAiOjE2OTUyOTE1NTEsIm5iZiI6MTY5NTI4Nzk1MSwianRpIjoiRWRRYkgzQkJtb3J4QXRHaCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.u5LNAYioXkbQUrbpBifHwABNOZrkt0ZyBbCp03-qQ4M",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mjk0MzI0LCJleHAiOjE2OTUyOTc5MjQsIm5iZiI6MTY5NTI5NDMyNCwianRpIjoiYU9BalM1QlRVZ2pLZEo3cSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aYqiTDvc2X2PCjlz8qQHM_Cvyl-x8d3yGwIM9KNYaUs",
 								"type": "text"
 							}
 						],
@@ -2352,12 +2636,12 @@
 								{
 									"key": "plate_no_photo",
 									"type": "file",
-									"src": "/C:/Users/Muhammad Arslan/Downloads/front.png"
+									"src": "/C:/Users/Muhammad Arslan/Downloads/Untitled design.png"
 								},
 								{
 									"key": "vehicle_photo",
 									"type": "file",
-									"src": "/C:/Users/Muhammad Arslan/Downloads/back.png"
+									"src": "/C:/Users/Muhammad Arslan/Downloads/adrian-dascal-1QOsJGbNIgk-unsplash.jpg"
 								},
 								{
 									"key": "additional_notes",
@@ -2366,7 +2650,7 @@
 								},
 								{
 									"key": "id",
-									"value": "1",
+									"value": "3",
 									"type": "text"
 								},
 								{
