@@ -118,8 +118,6 @@ class VehicleController extends Controller
 			'registration_date' => 'required',
 			'vehicle_location' => 'required',
 			'driver_id' => 'required',
-			'plate_no_photo' => 'required',
-			'vehicle_photo' => 'required',
 			'additional_notes' => 'required',
 		]);
 		if ($validator->fails()) {
@@ -137,6 +135,10 @@ class VehicleController extends Controller
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['plate_no_photo']);
 			$image_path1 = asset('assets/upload_images') . '/' . $data['plate_no_photo'];
+			DB::table('vehicles')
+				->where('id', $data['id'])->update([
+					'plate_no_photo' => $image_path1
+				]);
 		}
 		if ($request->hasFile('vehicle_photo')) {
 			$image = $request->file('vehicle_photo');
@@ -145,6 +147,10 @@ class VehicleController extends Controller
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['vehicle_photo']);
 			$image_path2 = asset('assets/upload_images') . '/' . $data['vehicle_photo'];
+			DB::table('vehicles')
+				->where('id', $data['id'])->update([
+					'vehicle_photo' => $image_path2
+				]);
 		} else {
 		}
 		$post_status = Vehicle::where('id', $data['id'])->update([
@@ -161,8 +167,6 @@ class VehicleController extends Controller
 			'registration_date' => $data['registration_date'],
 			'vehicle_location' => $data['vehicle_location'],
 			'driver_id' => $data['driver_id'],
-			'plate_no_photo' => $image_path1,
-			'vehicle_photo' => $image_path2,
 			'additional_notes' => $data['additional_notes'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
