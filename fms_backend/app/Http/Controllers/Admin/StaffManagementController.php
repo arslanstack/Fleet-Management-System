@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use Session, DB, Str;
+use Session, Str;
+use Illuminate\Support\Facades\DB;
 
-class AdminManagementController extends Controller
+class StaffManagementController extends Controller
 {
     public function index()
     {
         try {
-            $admins = Admin::where('type', '!=', 0)->where('id', '!=', Auth::user()->id)->orderBy('id', 'DESC')->get();
+            $admins = Admin::where('id', '!=', Auth::user()->id)->orderBy('id', 'DESC')->get();
             return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $admins]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
@@ -27,8 +28,7 @@ class AdminManagementController extends Controller
             'username' => 'required',
             'email' => 'required',
             'password' => 'required',
-            'type' => 'required',
-            'permissions' => 'required',
+            'role_type' => 'required',
             'phone_no' => 'required',
             'image' => 'required',
             'view_all_data' => 'required',
@@ -51,8 +51,7 @@ class AdminManagementController extends Controller
                 'username' => $data['username'],
                 'email' => $data['email'],
                 'password' => bcrypt($data['password']),
-                'type' => $data['type'],
-                'permissions' => $data['permissions'],
+                'role_type' => $data['role_type'],
                 'phone_no' => $data['phone_no'],
                 'view_all_data' => $data['view_all_data'],
                 'image' => $image_path1,
@@ -70,7 +69,8 @@ class AdminManagementController extends Controller
         }
     }
 
-    public function edit($id, Request $request){
+    public function edit($id, Request $request)
+    {
         try {
             $admin = Admin::where('id', $id)->first();
             return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $admin]);
@@ -83,10 +83,10 @@ class AdminManagementController extends Controller
     {
         $data = $request->all();
         $validator = Validator::make($request->all(), [
+            'id' => 'required',
             'username' => 'required',
             'email' => 'required',
-            'type' => 'required',
-            'permissions' => 'required',
+            'role_type' => 'required',
             'phone_no' => 'required',
             'view_all_data' => 'required',
         ]);
@@ -122,8 +122,7 @@ class AdminManagementController extends Controller
             $post_status = Admin::where('id', $data['id'])->update([
                 'username' => $data['username'],
                 'email' => $data['email'],
-                'type' => $data['type'],
-                'permissions' => $data['permissions'],
+                'role_type' => $data['role_type'],
                 'phone_no' => $data['phone_no'],
                 'view_all_data' => $data['view_all_data'],
                 'status' => $status,
@@ -134,7 +133,7 @@ class AdminManagementController extends Controller
             if ($post_status > 0) {
                 return response()->json(['msg' => 'success', 'response' => 'Admin successfully updated!']);
             } else {
-                return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
+                return response()->json(['msg' => 'error', 'response' => 'Something went wrong! Probably Inavlid id given.']);
             }
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
@@ -144,7 +143,7 @@ class AdminManagementController extends Controller
     public function destroy(Request $request)
     {
         $data = $request->all();
-        
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
         ]);
@@ -154,12 +153,11 @@ class AdminManagementController extends Controller
         }
 
         try {
-             
+
             $admin = Admin::find($data['id']);
-            if($admin->type == 0 && Auth::user()->type != 0){
+            if ($admin->type == 0 && Auth::user()->type != 0) {
                 return response()->json(['msg' => 'error', 'response' => 'You can not delete super admin.'], 404);
             }
-
             if (!$admin) {
                 return response()->json(['msg' => 'error', 'response' => 'Admin not found.'], 404);
             }

@@ -20,7 +20,8 @@ use App\Http\Controllers\Admin\AllowanceTypeController;
 use App\Http\Controllers\Admin\AllowanceController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TripController;
-use App\Http\Controllers\Admin\AdminManagementController;
+use App\Http\Controllers\Admin\StaffManagementController;
+use App\Http\Controllers\Admin\RoleController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -68,12 +69,19 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [CompanyController::class, 'update']);
                 Route::post('delete', [CompanyController::class, 'destroy']);
             });
-            Route::group(['prefix' => 'adminManagement'], function() {
-                Route::get('/', [AdminManagementController::class, 'index']);
-                Route::post('store', [AdminManagementController::class, 'store']);
-                Route::get('edit/{id}', [AdminManagementController::class, 'edit']);
-                Route::post('update', [AdminManagementController::class, 'update']);
-                Route::post('delete', [AdminManagementController::class, 'destroy']);
+            Route::group(['prefix' => 'staff'], function() {
+                Route::get('/', [StaffManagementController::class, 'index']);
+                Route::post('store', [StaffManagementController::class, 'store']);
+                Route::get('edit/{id}', [StaffManagementController::class, 'edit']);
+                Route::post('update', [StaffManagementController::class, 'update']);
+                Route::post('delete', [StaffManagementController::class, 'destroy']);
+            });
+            Route::group(['prefix' => 'role'], function() {
+                Route::get('/', [RoleController::class, 'index']);
+                Route::post('store', [RoleController::class, 'store']);
+                Route::get('edit/{id}', [RoleController::class, 'edit']);
+                Route::post('update', [RoleController::class, 'update']);
+                Route::post('delete', [RoleController::class, 'destroy']);
             });
             Route::group(['prefix' => 'project'], function() {
                 Route::get('/', [ProjectController::class, 'index']);
