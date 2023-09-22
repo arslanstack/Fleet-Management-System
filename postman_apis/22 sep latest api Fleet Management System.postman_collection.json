@@ -19,7 +19,7 @@
 							"formdata": [
 								{
 									"key": "email",
-									"value": "admin@gmail.com",
+									"value": "calebjanaltair@gmail.com",
 									"type": "text"
 								},
 								{
@@ -1011,7 +1011,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzgzODgxLCJleHAiOjE2OTUzODc0ODEsIm5iZiI6MTY5NTM4Mzg4MSwianRpIjoidE1IbGF5WG1VV29KcUs4MiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.S0X0GuTgrDfILcBkkUl6mcdi4N8nFrN1ziiOO9STKbo",
 								"type": "text"
 							}
 						],
@@ -1325,7 +1325,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mzg1MDQ3LCJleHAiOjE2OTUzODg2NDcsIm5iZiI6MTY5NTM4NTA0NywianRpIjoiWEtXaGJhbTRhMEZkUVg3biIsInN1YiI6IjIwIiwicHJ2IjoiYTIzYjU3M2RjNzNhNDA3ZThkZTUzYjQ4NmYzNjg4NmFkZjcwYzQ4MyJ9.Y2lB0MAuLr9WH5VPNThBg6vvPZOnY3xYA2q3xnAJvNQ",
 								"type": "text"
 							}
 						],
@@ -1444,7 +1444,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"value": "Bearer Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mzg1MDQ3LCJleHAiOjE2OTUzODg2NDcsIm5iZiI6MTY5NTM4NTA0NywianRpIjoiWEtXaGJhbTRhMEZkUVg3biIsInN1YiI6IjIwIiwicHJ2IjoiYTIzYjU3M2RjNzNhNDA3ZThkZTUzYjQ4NmYzNjg4NmFkZjcwYzQ4MyJ9.Y2lB0MAuLr9WH5VPNThBg6vvPZOnY3xYA2q3xnAJvNQ",
 								"type": "text"
 							}
 						],
@@ -1599,7 +1599,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mzg1MDQ3LCJleHAiOjE2OTUzODg2NDcsIm5iZiI6MTY5NTM4NTA0NywianRpIjoiWEtXaGJhbTRhMEZkUVg3biIsInN1YiI6IjIwIiwicHJ2IjoiYTIzYjU3M2RjNzNhNDA3ZThkZTUzYjQ4NmYzNjg4NmFkZjcwYzQ4MyJ9.Y2lB0MAuLr9WH5VPNThBg6vvPZOnY3xYA2q3xnAJvNQ",
 								"type": "text"
 							}
 						],
@@ -1718,13 +1718,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY4NjMxLCJleHAiOjE2OTUzNzIyMzEsIm5iZiI6MTY5NTM2ODYzMSwianRpIjoiNEV3TlNndEtSOUNpMGRLYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.hZndzt7pQHLh34O-tKhg07Bs0BpM4hKLlPISJo2GCCg",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mzg1MDQ3LCJleHAiOjE2OTUzODg2NDcsIm5iZiI6MTY5NTM4NTA0NywianRpIjoiWEtXaGJhbTRhMEZkUVg3biIsInN1YiI6IjIwIiwicHJ2IjoiYTIzYjU3M2RjNzNhNDA3ZThkZTUzYjQ4NmYzNjg4NmFkZjcwYzQ4MyJ9.Y2lB0MAuLr9WH5VPNThBg6vvPZOnY3xYA2q3xnAJvNQ",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"role_name\": \"Admin 2\",\r\n    \"permissions\": [\"damages\", \"repairs\", \"vehicles\", \"drivers\"]\r\n}",
+							"raw": "{\r\n    \"role_name\": \"Admin\",\r\n    \"permissions\": [\"manage_drivers\",\"manage_company\",\"manage_staff\",\"manage_role\",\"manage_project\",\"manage_trip\",\"manage_vehicle_type\",\"manage_vehicles\",\"manage_fuel_management\",\"manage_maintenance_type\",\"manage_vehicle_maintenance\",\"manage_vehicle_inspection\",\"manage_vpc\",\"manage_roadtax\",\"manage_deduction_type\",\"manage_deductions\",\"manage_allowance_type\",\"manage_allowances\"]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1758,13 +1758,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY4NjMxLCJleHAiOjE2OTUzNzIyMzEsIm5iZiI6MTY5NTM2ODYzMSwianRpIjoiNEV3TlNndEtSOUNpMGRLYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.hZndzt7pQHLh34O-tKhg07Bs0BpM4hKLlPISJo2GCCg",
+								"value": "Bearer Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Mzg1MDQ3LCJleHAiOjE2OTUzODg2NDcsIm5iZiI6MTY5NTM4NTA0NywianRpIjoiWEtXaGJhbTRhMEZkUVg3biIsInN1YiI6IjIwIiwicHJ2IjoiYTIzYjU3M2RjNzNhNDA3ZThkZTUzYjQ4NmYzNjg4NmFkZjcwYzQ4MyJ9.Y2lB0MAuLr9WH5VPNThBg6vvPZOnY3xYA2q3xnAJvNQ",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\":\"7\",\r\n    \"role_name\": \"Admin 2\",\r\n    \"permissions\": [\"damages\", \"repairs\", \"vehicles\"],\r\n    \"status\":\"1\"\r\n}",
+							"raw": "{\r\n    \"id\":\"2\",\r\n    \"role_name\": \"Admin\",\r\n    \"permissions\":[\"manage_drivers\",\"manage_company\",\"manage_staff\",\"manage_role\",\"manage_project\",\"manage_trip\",\"manage_vehicle_type\",\"manage_vehicles\",\"manage_fuel_management\",\"manage_maintenance_type\",\"manage_vehicle_maintenance\",\"manage_vehicle_inspection\",\"manage_vpc\",\"manage_roadtax\",\"manage_deduction_type\",\"manage_deductions\",\"manage_allowance_type\",\"manage_allowances\"],\r\n    \"status\":\"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
