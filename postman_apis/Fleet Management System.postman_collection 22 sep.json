@@ -1435,16 +1435,16 @@
 			]
 		},
 		{
-			"name": "Admins",
+			"name": "Staff Management",
 			"item": [
 				{
-					"name": "Add  Admins",
+					"name": "Add  Staff",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzMTcxLCJleHAiOjE2OTUzMDY3NzEsIm5iZiI6MTY5NTMwMzE3MSwianRpIjoiVXE0Rk1tSWY0YkF5R0xtMCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.LmWLm6Y59vsZdvihnmVA34njVGFxao9y0noRKrFGU0M",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
 								"type": "text"
 							}
 						],
@@ -1472,19 +1472,14 @@
 									"type": "text"
 								},
 								{
-									"key": "type",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "permissions",
-									"value": "Supervisor 1, Supervisor 2",
+									"key": "role_type",
+									"value": "2",
 									"type": "text"
 								},
 								{
 									"key": "image",
 									"type": "file",
-									"src": "/C:/Users/Muhammad Arslan/Downloads/caleb-lucas-Wl3dPgNc8Nw-unsplash.jpg"
+									"src": "/C:/Users/Muhammad Arslan/Downloads/Untitled design.png"
 								},
 								{
 									"key": "view_all_data",
@@ -1494,7 +1489,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/store",
+							"raw": "http://127.0.0.1:8000/api/admin/staff/store",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1506,7 +1501,7 @@
 							"path": [
 								"api",
 								"admin",
-								"adminManagement",
+								"staff",
 								"store"
 							]
 						}
@@ -1514,13 +1509,13 @@
 					"response": []
 				},
 				{
-					"name": "Update  Admins",
+					"name": "Update  Staff",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzMTcxLCJleHAiOjE2OTUzMDY3NzEsIm5iZiI6MTY5NTMwMzE3MSwianRpIjoiVXE0Rk1tSWY0YkF5R0xtMCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.LmWLm6Y59vsZdvihnmVA34njVGFxao9y0noRKrFGU0M",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
 								"type": "text"
 							}
 						],
@@ -1529,7 +1524,7 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "caleb",
+									"value": "calebjanaltair",
 									"type": "text"
 								},
 								{
@@ -1548,13 +1543,8 @@
 									"type": "text"
 								},
 								{
-									"key": "type",
-									"value": "1",
-									"type": "text"
-								},
-								{
-									"key": "permissions",
-									"value": "Supervisor 1, Supervisor 2, Supervisor 3",
+									"key": "role_type",
+									"value": "2",
 									"type": "text"
 								},
 								{
@@ -1563,13 +1553,247 @@
 									"type": "text"
 								},
 								{
-									"key": "image",
-									"type": "file",
-									"src": "/C:/Users/Muhammad Arslan/Downloads/Untitled design.png"
+									"key": "id",
+									"value": "19",
+									"type": "text"
 								},
 								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Muhammad Arslan/Downloads/caleb-lucas-Wl3dPgNc8Nw-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/staff/update",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"staff",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All  Staff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/staff",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"staff"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One  Staff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/staff/edit/19",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"staff",
+								"edit",
+								"19"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete  Staff",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY1OTI5LCJleHAiOjE2OTUzNjk1MjksIm5iZiI6MTY5NTM2NTkyOSwianRpIjoiTlUwNDVmOXJSVFFSUXZRSiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ZtR0yNoFhYjOqqKORMo7bAC-sRrpPquS6Mcdybsxsss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
 									"key": "id",
-									"value": "18",
+									"value": "19",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/staff/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"staff",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Roles",
+			"item": [
+				{
+					"name": "Add   Roles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "role_name",
+									"value": "Admin 3",
+									"type": "text"
+								},
+								{
+									"key": "permissions",
+									"value": "damages, repairs, vehicles, drivers",
+									"type": "text"
+								},
+								{
+									"key": "full_access",
+									"value": "0",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/role/store",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"role",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update   Roles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "role_name",
+									"value": "Super Admin",
+									"type": "text"
+								},
+								{
+									"key": "permissions",
+									"value": "all",
+									"type": "text"
+								},
+								{
+									"key": "full_access",
+									"value": "1",
 									"type": "text"
 								},
 								{
@@ -1580,7 +1804,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/update",
+							"raw": "http://127.0.0.1:8000/api/admin/role/update",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1592,7 +1816,7 @@
 							"path": [
 								"api",
 								"admin",
-								"adminManagement",
+								"role",
 								"update"
 							]
 						}
@@ -1600,7 +1824,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All  Admins",
+					"name": "Get All   Roles",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1609,7 +1833,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzNTU3LCJleHAiOjE2OTUzMDcxNTcsIm5iZiI6MTY5NTMwMzU1NywianRpIjoiSEdCamUwbVh5ZmRqZ0ozZiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XNGxEvD7pOXJDVuU1zHhDVKcPBrUi40SWcz5JXZ5Nqg",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
 								"type": "text"
 							}
 						],
@@ -1618,7 +1842,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/adminManagement",
+							"raw": "http://127.0.0.1:8000/api/admin/role",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1630,14 +1854,14 @@
 							"path": [
 								"api",
 								"admin",
-								"adminManagement"
+								"role"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Get One  Admins",
+					"name": "Get One   Roles",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1646,7 +1870,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzMTcxLCJleHAiOjE2OTUzMDY3NzEsIm5iZiI6MTY5NTMwMzE3MSwianRpIjoiVXE0Rk1tSWY0YkF5R0xtMCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.LmWLm6Y59vsZdvihnmVA34njVGFxao9y0noRKrFGU0M",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
 								"type": "text"
 							}
 						],
@@ -1655,7 +1879,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/edit/18",
+							"raw": "http://127.0.0.1:8000/api/admin/role/edit/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1667,22 +1891,22 @@
 							"path": [
 								"api",
 								"admin",
-								"adminManagement",
+								"role",
 								"edit",
-								"18"
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Delete  Admins",
+					"name": "Delete   Roles",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzAzNTU3LCJleHAiOjE2OTUzMDcxNTcsIm5iZiI6MTY5NTMwMzU1NywianRpIjoiSEdCamUwbVh5ZmRqZ0ozZiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XNGxEvD7pOXJDVuU1zHhDVKcPBrUi40SWcz5JXZ5Nqg",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
 								"type": "text"
 							}
 						],
@@ -1691,13 +1915,13 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "18",
+									"value": "5",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/adminManagement/delete",
+							"raw": "http://127.0.0.1:8000/api/admin/role/delete",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1709,7 +1933,7 @@
 							"path": [
 								"api",
 								"admin",
-								"adminManagement",
+								"role",
 								"delete"
 							]
 						}
