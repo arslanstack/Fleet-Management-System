@@ -1718,24 +1718,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY4NjMxLCJleHAiOjE2OTUzNzIyMzEsIm5iZiI6MTY5NTM2ODYzMSwianRpIjoiNEV3TlNndEtSOUNpMGRLYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.hZndzt7pQHLh34O-tKhg07Bs0BpM4hKLlPISJo2GCCg",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "role_name",
-									"value": "Admin 3",
-									"type": "text"
-								},
-								{
-									"key": "permissions",
-									"value": "damages, repairs, vehicles, drivers",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\r\n    \"role_name\": \"Admin 2\",\r\n    \"permissions\": [\"damages\", \"repairs\", \"vehicles\", \"drivers\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/admin/role/store",
@@ -1764,34 +1758,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY4NjMxLCJleHAiOjE2OTUzNzIyMzEsIm5iZiI6MTY5NTM2ODYzMSwianRpIjoiNEV3TlNndEtSOUNpMGRLYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.hZndzt7pQHLh34O-tKhg07Bs0BpM4hKLlPISJo2GCCg",
 								"type": "text"
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "id",
-									"value": "6",
-									"type": "text"
-								},
-								{
-									"key": "role_name",
-									"value": "Admin 2",
-									"type": "text"
-								},
-								{
-									"key": "permissions",
-									"value": "damages, repairs, vehicles, drivers",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "1",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"7\",\r\n    \"role_name\": \"Admin 2\",\r\n    \"permissions\": [\"damages\", \"repairs\", \"vehicles\"],\r\n    \"status\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "http://127.0.0.1:8000/api/admin/role/update",
@@ -1823,7 +1801,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY4NjMxLCJleHAiOjE2OTUzNzIyMzEsIm5iZiI6MTY5NTM2ODYzMSwianRpIjoiNEV3TlNndEtSOUNpMGRLYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.hZndzt7pQHLh34O-tKhg07Bs0BpM4hKLlPISJo2GCCg",
 								"type": "text"
 							}
 						],
@@ -1860,7 +1838,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY0Njk1LCJleHAiOjE2OTUzNjgyOTUsIm5iZiI6MTY5NTM2NDY5NSwianRpIjoiZkZMdXBOOHBnVm90SHdURCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.z_8lapvY17vKMHIyppbBoCWCVxLEWeXy4ILzt86cKpc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MzY4NjMxLCJleHAiOjE2OTUzNzIyMzEsIm5iZiI6MTY5NTM2ODYzMSwianRpIjoiNEV3TlNndEtSOUNpMGRLYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.hZndzt7pQHLh34O-tKhg07Bs0BpM4hKLlPISJo2GCCg",
 								"type": "text"
 							}
 						],
@@ -1869,7 +1847,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/role/edit/1",
+							"raw": "http://127.0.0.1:8000/api/admin/role/edit/7",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -1883,7 +1861,7 @@
 								"admin",
 								"role",
 								"edit",
-								"1"
+								"7"
 							]
 						}
 					},

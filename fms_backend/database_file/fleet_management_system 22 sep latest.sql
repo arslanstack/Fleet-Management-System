@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2023 at 09:08 AM
+-- Generation Time: Sep 22, 2023 at 11:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -421,8 +421,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `role_name`, `permissions`, `full_access`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Super Admin', 'all', 1, 1, 1, 1, '2023-09-22 01:43:55', '2023-09-22 01:46:36'),
-(2, 'Admin 1', 'damages, repairs, vehicles, drivers', 0, 1, 1, NULL, '2023-09-22 01:46:53', '2023-09-22 01:46:53');
+(1, 'Super Admin', 'all', 1, 1, 1, 1, '2023-09-22 01:43:55', '2023-09-22 03:09:43'),
+(2, 'Admin 1', 'damages, repairs, vehicles, drivers', 0, 1, 1, NULL, '2023-09-22 01:46:53', '2023-09-22 01:46:53'),
+(7, 'Admin 2', 'damages, repairs, vehicles', 0, 1, 1, 1, '2023-09-22 02:54:58', '2023-09-22 03:10:05');
 
 -- --------------------------------------------------------
 
@@ -859,7 +860,7 @@ ALTER TABLE `projects`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `salary_payroll`

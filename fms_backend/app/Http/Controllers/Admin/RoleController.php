@@ -15,7 +15,13 @@ class RoleController extends Controller
     {
         try {
             $roles = Role::orderBy('id', 'DESC')->get();
-            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $roles]);
+            $rolesWithPermissionsArray = $roles->map(function ($role) {
+                $permissionsString = $role->permissions;
+                $permissionsArray = explode(', ', $permissionsString);
+                $role->permissions = $permissionsArray;
+                return $role;
+            });
+            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $rolesWithPermissionsArray]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
@@ -23,6 +29,7 @@ class RoleController extends Controller
 
     public function store(Request $request)
     {
+        // return response()->json(['msg' => 'success', 'request' => $request->all()]);
         $data = $request->all();
         $validator = Validator::make($request->all(), [
             'role_name' => 'required | unique:roles,role_name',
@@ -32,10 +39,12 @@ class RoleController extends Controller
         if ($validator->fails()) {
             return response()->json(['msg' => 'validation_error', 'errors' => $validator->errors()], 400);
         }
+        $permissionsArray = $data['permissions'];
+        $permissionsString = implode(', ', $permissionsArray);
         try {
             $query = Role::create([
                 'role_name' => $data['role_name'],
-                'permissions' => $data['permissions'],
+                'permissions' => $permissionsString,
                 'created_by' => Auth::user()->id,
             ]);
 
@@ -57,6 +66,8 @@ class RoleController extends Controller
             if (!$role) {
                 return response()->json(['msg' => 'error', 'response' => 'Role not found.'], 404);
             }
+            $permissionsString = $role->permissions;
+            $role->permissions = explode(', ', $permissionsString);
 
             return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $role]);
         } catch (\Exception $e) {
@@ -69,14 +80,15 @@ class RoleController extends Controller
         $data = $request->all();
         $validator = Validator::make($request->all(), [
             'id' => 'required',
-            'role_name' => 'required | unique:roles,role_name',
+            'role_name' => 'required',
             'permissions' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['msg' => 'validation_error', 'errors' => $validator->errors()], 400);
         }
-
+        $permissionsArray = $data['permissions'];
+        $permissionsString = implode(', ', $permissionsArray);
         try {
             $role = Role::find($data['id']);
 
@@ -88,7 +100,7 @@ class RoleController extends Controller
 
             $post_status = $role->update([
                 'role_name' => $data['role_name'],
-                'permissions' => $data['permissions'],
+                'permissions' => $permissionsString,
                 'status' => $status,
                 'updated_at' => now(),
                 'updated_by' => Auth::user()->id,
