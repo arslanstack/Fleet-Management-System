@@ -1734,11 +1734,6 @@
 									"key": "permissions",
 									"value": "damages, repairs, vehicles, drivers",
 									"type": "text"
-								},
-								{
-									"key": "full_access",
-									"value": "0",
-									"type": "text"
 								}
 							]
 						},
@@ -1778,22 +1773,17 @@
 							"formdata": [
 								{
 									"key": "id",
-									"value": "1",
+									"value": "6",
 									"type": "text"
 								},
 								{
 									"key": "role_name",
-									"value": "Super Admin",
+									"value": "Admin 2",
 									"type": "text"
 								},
 								{
 									"key": "permissions",
-									"value": "all",
-									"type": "text"
-								},
-								{
-									"key": "full_access",
-									"value": "1",
+									"value": "damages, repairs, vehicles, drivers",
 									"type": "text"
 								},
 								{

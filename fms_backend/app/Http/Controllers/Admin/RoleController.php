@@ -27,22 +27,15 @@ class RoleController extends Controller
         $validator = Validator::make($request->all(), [
             'role_name' => 'required | unique:roles,role_name',
             'permissions' => 'required',
-            'full_access' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['msg' => 'validation_error', 'errors' => $validator->errors()], 400);
         }
-        if ($data['full_access']) {
-            $full_access = 1;
-        } else {
-            $full_access = 0;
-        }
         try {
             $query = Role::create([
                 'role_name' => $data['role_name'],
                 'permissions' => $data['permissions'],
-                'full_access' => $full_access,
                 'created_by' => Auth::user()->id,
             ]);
 
@@ -78,7 +71,6 @@ class RoleController extends Controller
             'id' => 'required',
             'role_name' => 'required | unique:roles,role_name',
             'permissions' => 'required',
-            'full_access' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -97,7 +89,6 @@ class RoleController extends Controller
             $post_status = $role->update([
                 'role_name' => $data['role_name'],
                 'permissions' => $data['permissions'],
-                'full_access' => $data['full_access'],
                 'status' => $status,
                 'updated_at' => now(),
                 'updated_by' => Auth::user()->id,
