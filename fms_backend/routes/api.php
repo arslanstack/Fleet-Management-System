@@ -52,7 +52,7 @@ Route::middleware(['api'])->group(function () {
             Route::get('/image/{filename}', [PhotoController::class, 'image']);
             Route::get('/images', [PhotoController::class, 'get_all_images']);
 
-            Route::group(['prefix' => 'driver'], function() {
+            Route::group(['prefix' => 'driver', 'middleware' => 'permission:manage_drivers'], function () {
                 Route::get('/', [DriverController::class, 'index']);
                 Route::post('store', [DriverController::class, 'store']);
                 Route::get('edit/{id}', [DriverController::class, 'edit']);
@@ -62,35 +62,38 @@ Route::middleware(['api'])->group(function () {
                 Route::post('generate_payslip', [DriverController::class, 'generate_payslip']);
             });
 
-            Route::group(['prefix' => 'company'], function() {
+            Route::group(['prefix' => 'company', 'middleware' => 'permission:manage_company'], function () {
                 Route::get('/', [CompanyController::class, 'index']);
                 Route::post('store', [CompanyController::class, 'store']);
                 Route::get('edit/{id}', [CompanyController::class, 'edit']);
                 Route::post('update', [CompanyController::class, 'update']);
                 Route::post('delete', [CompanyController::class, 'destroy']);
             });
-            Route::group(['prefix' => 'staff'], function() {
+            Route::group(['prefix' => 'staff', 'middleware' => 'permission:manage_staff'], function () {
                 Route::get('/', [StaffManagementController::class, 'index']);
-                Route::post('store', [StaffManagementController::class, 'store']);
                 Route::get('edit/{id}', [StaffManagementController::class, 'edit']);
-                Route::post('update', [StaffManagementController::class, 'update']);
-                Route::post('delete', [StaffManagementController::class, 'destroy']);
+                // Create/Update/Delete permissions to only super-admin
+                Route::middleware('permission:change_staff')->group(function () {
+                    Route::post('store', [StaffManagementController::class, 'store']);
+                    Route::post('update', [StaffManagementController::class, 'update']);
+                    Route::post('delete', [StaffManagementController::class, 'destroy']);
+                });
             });
-            Route::group(['prefix' => 'role'], function() {
+            Route::group(['prefix' => 'role', 'middleware' => 'permission:manage_role'], function () {
                 Route::get('/', [RoleController::class, 'index']);
                 Route::post('store', [RoleController::class, 'store']);
                 Route::get('edit/{id}', [RoleController::class, 'edit']);
                 Route::post('update', [RoleController::class, 'update']);
                 Route::post('delete', [RoleController::class, 'destroy']);
             });
-            Route::group(['prefix' => 'project'], function() {
+            Route::group(['prefix' => 'project', 'middleware' => 'permission:manage_project'], function () {
                 Route::get('/', [ProjectController::class, 'index']);
                 Route::post('store', [ProjectController::class, 'store']);
                 Route::get('edit/{id}', [ProjectController::class, 'edit']);
                 Route::post('update', [ProjectController::class, 'update']);
                 Route::post('delete', [ProjectController::class, 'destroy']);
             });
-            Route::group(['prefix' => 'trip'], function() {
+            Route::group(['prefix' => 'trip', 'middleware' => 'permission:manage_trip'], function () {
                 Route::get('/', [TripController::class, 'index']);
                 Route::post('store', [TripController::class, 'store']);
                 Route::get('edit/{id}', [TripController::class, 'edit']);
@@ -98,7 +101,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [TripController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'vehicle-type'], function() {
+            Route::group(['prefix' => 'vehicle-type', 'middleware' => 'permission:manage_vehicle_type'], function () {
                 Route::get('/', [VehicleTypeController::class, 'index']);
                 Route::post('store', [VehicleTypeController::class, 'store']);
                 Route::get('edit/{id}', [VehicleTypeController::class, 'edit']);
@@ -106,7 +109,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [VehicleTypeController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'vehicles'], function() {
+            Route::group(['prefix' => 'vehicles', 'middleware' => 'permission:manage_vehicles'], function () {
                 Route::get('/', [VehicleController::class, 'index']);
                 Route::get('add', [VehicleController::class, 'add']);
                 Route::post('store', [VehicleController::class, 'store']);
@@ -115,7 +118,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [VehicleController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'fuel-management'], function() {
+            Route::group(['prefix' => 'fuel-management', 'middleware' => 'permission:manage_fuel_management'], function () {
                 Route::get('/', [FuelManagementController::class, 'index']);
                 Route::post('store', [FuelManagementController::class, 'store']);
                 Route::get('edit/{id}', [FuelManagementController::class, 'edit']);
@@ -123,7 +126,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [FuelManagementController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'maintenance-type'], function() {
+            Route::group(['prefix' => 'maintenance-type', 'middleware' => 'permission:manage_maintenance_type'], function () {
                 Route::get('/', [MaintenanceTypeController::class, 'index']);
                 Route::post('store', [MaintenanceTypeController::class, 'store']);
                 Route::get('edit/{id}', [MaintenanceTypeController::class, 'edit']);
@@ -131,7 +134,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [MaintenanceTypeController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'vehicle-maintenance'], function() {
+            Route::group(['prefix' => 'vehicle-maintenance', 'middleware' => 'permission:manage_vehicle_maintenance'], function () {
                 Route::get('/', [VehicleMaintenanceController::class, 'index']);
                 Route::post('store', [VehicleMaintenanceController::class, 'store']);
                 Route::get('edit/{id}', [VehicleMaintenanceController::class, 'edit']);
@@ -139,7 +142,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [VehicleMaintenanceController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'vehicle-inspection'], function() {
+            Route::group(['prefix' => 'vehicle-inspection', 'middleware' => 'permission:manage_vehicle_inspection'], function () {
                 Route::get('/', [VehicleInspectionController::class, 'index']);
                 Route::post('store', [VehicleInspectionController::class, 'store']);
                 Route::get('edit/{id}', [VehicleInspectionController::class, 'edit']);
@@ -147,7 +150,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [VehicleInspectionController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'vpc'], function() {
+            Route::group(['prefix' => 'vpc', 'middleware' => 'permission:manage_vpc'], function () {
                 Route::get('/', [VpcController::class, 'index']);
                 Route::post('store', [VpcController::class, 'store']);
                 Route::get('edit/{id}', [VpcController::class, 'edit']);
@@ -155,7 +158,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [VpcController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'roadtax'], function() {
+            Route::group(['prefix' => 'roadtax', 'middleware' => 'permission:manage_roadtax'], function () {
                 Route::get('/', [RoadtaxExpiryController::class, 'index']);
                 Route::post('store', [RoadtaxExpiryController::class, 'store']);
                 Route::get('edit/{id}', [RoadtaxExpiryController::class, 'edit']);
@@ -163,7 +166,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [RoadtaxExpiryController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'deduction-type'], function() {
+            Route::group(['prefix' => 'deduction-type', 'middleware' => 'permission:manage_deduction_type'], function () {
                 Route::get('/', [DeductionTypeController::class, 'index']);
                 Route::post('store', [DeductionTypeController::class, 'store']);
                 Route::get('edit/{id}', [DeductionTypeController::class, 'edit']);
@@ -171,14 +174,14 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [DeductionTypeController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'deductions'], function() {
+            Route::group(['prefix' => 'deductions', 'middleware' => 'permission:manage_deductions'], function () {
                 Route::get('/', [DeductionController::class, 'index']);
                 Route::post('store', [DeductionController::class, 'store']);
                 Route::get('edit/{id}', [DeductionController::class, 'edit']);
                 Route::post('update', [DeductionController::class, 'update']);
                 Route::post('delete', [DeductionController::class, 'destroy']);
             });
-            Route::group(['prefix' => 'allowance-type'], function() {
+            Route::group(['prefix' => 'allowance-type', 'middleware' => 'permission:manage_allowance_type'], function () {
                 Route::get('/', [AllowanceTypeController::class, 'index']);
                 Route::post('store', [AllowanceTypeController::class, 'store']);
                 Route::get('edit/{id}', [AllowanceTypeController::class, 'edit']);
@@ -186,14 +189,13 @@ Route::middleware(['api'])->group(function () {
                 Route::post('delete', [AllowanceTypeController::class, 'destroy']);
             });
 
-            Route::group(['prefix' => 'allowances'], function() {
+            Route::group(['prefix' => 'allowances', 'middleware' => 'permission:manage_allowances'], function () {
                 Route::get('/', [AllowanceController::class, 'index']);
                 Route::post('store', [AllowanceController::class, 'store']);
                 Route::get('edit/{id}', [AllowanceController::class, 'edit']);
                 Route::post('update', [AllowanceController::class, 'update']);
                 Route::post('delete', [AllowanceController::class, 'destroy']);
             });
-
         });
-});
+    });
 });

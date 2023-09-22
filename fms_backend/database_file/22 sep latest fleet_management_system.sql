@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2023 at 11:29 AM
+-- Generation Time: Sep 22, 2023 at 03:17 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,6 +33,7 @@ CREATE TABLE `admin_users` (
   `phone_no` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `role_type` tinyint(4) NOT NULL DEFAULT 2,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=admin users, 1=staff users',
   `permissions` varchar(255) DEFAULT NULL,
   `image` varchar(255) NOT NULL DEFAULT 'user.png',
@@ -48,8 +49,9 @@ CREATE TABLE `admin_users` (
 -- Dumping data for table `admin_users`
 --
 
-INSERT INTO `admin_users` (`id`, `username`, `phone_no`, `email`, `password`, `type`, `permissions`, `image`, `view_all_data`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 'admin', '03001234567', 'admin@gmail.com', '$2y$10$G2f5/.nVaCistb7Pah7nnu2kugwLlD/4D8KzO7wctvF8ROQZ8Bgnq', 0, NULL, 'user.png', 1, 1, '2022-11-08 17:29:08', 1, NULL, NULL);
+INSERT INTO `admin_users` (`id`, `username`, `phone_no`, `email`, `password`, `role_type`, `type`, `permissions`, `image`, `view_all_data`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 'admin', '03001234567', 'admin@gmail.com', '$2y$10$G2f5/.nVaCistb7Pah7nnu2kugwLlD/4D8KzO7wctvF8ROQZ8Bgnq', 1, 0, NULL, 'user.png', 2, 1, '2022-11-08 17:29:08', 1, NULL, NULL),
+(20, 'caleb', '+923134188721', 'calebjanaltair@gmail.com', '$2y$10$E.V4WNOjJ./DoBm6NNddPO4nO7g3alrMuf5oK0EvxbBI4hOTu2UPu', 2, 1, NULL, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695384979.png', 1, 1, '2023-09-22 12:16:19', 1, '2023-09-22 12:16:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -357,7 +359,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (15, '2023_09_20_123311_add_company_id_to_vehicle_maintenance', 1),
 (16, '2023_09_21_074543_create_projects_table', 2),
 (17, '2023_09_21_075153_create_trips_table', 2),
-(18, '2023_09_21_082633_add_status_to_trips', 3);
+(18, '2023_09_21_082633_add_status_to_trips', 3),
+(19, '2023_09_22_054843_add_role_type_to_admin_users', 4),
+(20, '2023_09_22_055147_create_roles_table', 5);
 
 -- --------------------------------------------------------
 
@@ -394,6 +398,32 @@ CREATE TABLE `road_tax_expiry` (
   `updated_at` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role_name` varchar(255) NOT NULL,
+  `permissions` text DEFAULT NULL,
+  `full_access` tinyint(4) NOT NULL DEFAULT 0 COMMENT '1: Yes, 0: No',
+  `status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '1: Active, 0: Inactive',
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role_name`, `permissions`, `full_access`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 'Super Admin', 'manage_drivers, manage_company, manage_staff, change_staff, manage_role, manage_project, manage_trip, manage_vehicle_type, manage_vehicles, manage_fuel_management, manage_maintenance_type, manage_vehicle_maintenance, manage_vehicle_inspection, manage_vpc, manage_roadtax, manage_deduction_type, manage_deductions, manage_allowance_type, manage_allowances', 1, 1, 1, 1, '2023-09-22 01:43:55', '2023-09-22 03:09:43'),
+(2, 'Admin', 'manage_drivers, manage_company, manage_staff, manage_role, manage_project, manage_trip, manage_vehicle_type, manage_vehicles, manage_fuel_management, manage_maintenance_type, manage_vehicle_maintenance, manage_vehicle_inspection, manage_vpc, manage_roadtax, manage_deduction_type, manage_deductions, manage_allowance_type, manage_allowances', 0, 1, 1, 20, '2023-09-22 01:46:53', '2023-09-22 08:15:49');
 
 -- --------------------------------------------------------
 
@@ -508,7 +538,7 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`id`, `vehicle_type`, `fuel_type`, `registration_no`, `chassis_no`, `engine_no`, `current_mileage`, `make`, `model`, `year`, `color`, `registration_date`, `vehicle_location`, `driver_id`, `plate_no_photo`, `vehicle_photo`, `additional_notes`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(3, 2, 1, 'FAZ10K', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', 'Karachi Port', 1, 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695288510.jpg', 'http://127.0.0.1:8000/assets/upload_images/caleb-lucas-Wl3dPgNc8Nw-unsplash_1695288510.jpg', 'Lorem Ipsum', 0, '2023-09-21 09:21:39', 1, '2023-09-21 09:28:30', 1);
+(3, 2, 1, 'FAZ10K', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', 'Karachi Port', 1, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695294564.png', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695294564.jpg', 'Lorem Ipsum', 0, '2023-09-21 09:21:39', 1, '2023-09-21 11:09:24', 1);
 
 -- --------------------------------------------------------
 
@@ -697,6 +727,12 @@ ALTER TABLE `road_tax_expiry`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `salary_payroll`
 --
 ALTER TABLE `salary_payroll`
@@ -752,7 +788,7 @@ ALTER TABLE `vehicle_types`
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `allowances`
@@ -812,13 +848,19 @@ ALTER TABLE `maintenance_types`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `salary_payroll`
