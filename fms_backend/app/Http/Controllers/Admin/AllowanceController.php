@@ -10,10 +10,12 @@ class AllowanceController extends Controller
 {
 	public function index()
 	{
-		$data['deductions'] = Allowance::orderBy('id', 'DESC')->get();
-		$data['allowance_types'] = get_complete_table('allowances', '', '', '', '1', '', '');
-		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
+		// $data['deductions'] = Allowance::orderBy('id', 'DESC')->get();
+		// $data['allowance_types'] = get_complete_table('allowances', '', '', '', '1', '', '');
+		// $data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
+		// return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
+		$allowances = Allowance::orderBy('id', 'DESC')->get();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowances));
 	}
 	public function store(Request $request)
 	{

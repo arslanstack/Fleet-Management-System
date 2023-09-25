@@ -61,7 +61,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('salary', [DriverController::class, 'salary']);
                 Route::post('generate_payslip', [DriverController::class, 'generate_payslip']);
             });
-
             Route::group(['prefix' => 'company', 'middleware' => 'permission:manage_company'], function () {
                 Route::get('/', [CompanyController::class, 'index']);
                 Route::post('store', [CompanyController::class, 'store']);
@@ -100,7 +99,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [TripController::class, 'update']);
                 Route::post('delete', [TripController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'vehicle-type', 'middleware' => 'permission:manage_vehicle_type'], function () {
                 Route::get('/', [VehicleTypeController::class, 'index']);
                 Route::post('store', [VehicleTypeController::class, 'store']);
@@ -108,7 +106,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [VehicleTypeController::class, 'update']);
                 Route::post('delete', [VehicleTypeController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'vehicles', 'middleware' => 'permission:manage_vehicles'], function () {
                 Route::get('/', [VehicleController::class, 'index']);
                 Route::get('add', [VehicleController::class, 'add']);
@@ -117,7 +114,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [VehicleController::class, 'update']);
                 Route::post('delete', [VehicleController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'fuel-management', 'middleware' => 'permission:manage_fuel_management'], function () {
                 Route::get('/', [FuelManagementController::class, 'index']);
                 Route::post('store', [FuelManagementController::class, 'store']);
@@ -125,7 +121,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [FuelManagementController::class, 'update']);
                 Route::post('delete', [FuelManagementController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'maintenance-type', 'middleware' => 'permission:manage_maintenance_type'], function () {
                 Route::get('/', [MaintenanceTypeController::class, 'index']);
                 Route::post('store', [MaintenanceTypeController::class, 'store']);
@@ -133,7 +128,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [MaintenanceTypeController::class, 'update']);
                 Route::post('delete', [MaintenanceTypeController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'vehicle-maintenance', 'middleware' => 'permission:manage_vehicle_maintenance'], function () {
                 Route::get('/', [VehicleMaintenanceController::class, 'index']);
                 Route::post('store', [VehicleMaintenanceController::class, 'store']);
@@ -141,7 +135,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [VehicleMaintenanceController::class, 'update']);
                 Route::post('delete', [VehicleMaintenanceController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'vehicle-inspection', 'middleware' => 'permission:manage_vehicle_inspection'], function () {
                 Route::get('/', [VehicleInspectionController::class, 'index']);
                 Route::post('store', [VehicleInspectionController::class, 'store']);
@@ -149,7 +142,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [VehicleInspectionController::class, 'update']);
                 Route::post('delete', [VehicleInspectionController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'vpc', 'middleware' => 'permission:manage_vpc'], function () {
                 Route::get('/', [VpcController::class, 'index']);
                 Route::post('store', [VpcController::class, 'store']);
@@ -157,7 +149,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [VpcController::class, 'update']);
                 Route::post('delete', [VpcController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'roadtax', 'middleware' => 'permission:manage_roadtax'], function () {
                 Route::get('/', [RoadtaxExpiryController::class, 'index']);
                 Route::post('store', [RoadtaxExpiryController::class, 'store']);
@@ -165,7 +156,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [RoadtaxExpiryController::class, 'update']);
                 Route::post('delete', [RoadtaxExpiryController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'deduction-type', 'middleware' => 'permission:manage_deduction_type'], function () {
                 Route::get('/', [DeductionTypeController::class, 'index']);
                 Route::post('store', [DeductionTypeController::class, 'store']);
@@ -173,7 +163,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [DeductionTypeController::class, 'update']);
                 Route::post('delete', [DeductionTypeController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'deductions', 'middleware' => 'permission:manage_deductions'], function () {
                 Route::get('/', [DeductionController::class, 'index']);
                 Route::post('store', [DeductionController::class, 'store']);
@@ -188,7 +177,6 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [AllowanceTypeController::class, 'update']);
                 Route::post('delete', [AllowanceTypeController::class, 'destroy']);
             });
-
             Route::group(['prefix' => 'allowances', 'middleware' => 'permission:manage_allowances'], function () {
                 Route::get('/', [AllowanceController::class, 'index']);
                 Route::post('store', [AllowanceController::class, 'store']);

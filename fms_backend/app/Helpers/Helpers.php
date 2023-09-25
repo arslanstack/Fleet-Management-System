@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Admin\Role;
+use Illuminate\Support\Facades\DB;
 
 if (!function_exists('admin_url')) {
 	function admin_url()

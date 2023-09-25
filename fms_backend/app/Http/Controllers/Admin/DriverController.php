@@ -1,17 +1,22 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\Driver;
 use Session, Validator, DB, Str;
+use App\Mail\MailPayroll;
+use PDF;
+use Mail;
 
 class DriverController extends Controller
 {
 	public function index()
 	{
 		$drivers = Driver::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $drivers));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $drivers));
 	}
 	public function store(Request $request)
 	{
@@ -33,7 +38,7 @@ class DriverController extends Controller
 			'diesel_tag' => 'required',
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
 
 		$image_path1 = '';
@@ -41,63 +46,62 @@ class DriverController extends Controller
 		$image_path3 = '';
 		$image_path4 = '';
 		$image_path5 = '';
-		if($request->hasFile('nric_front_side')){
+		if ($request->hasFile('nric_front_side')) {
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$nric_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$nric_front_side = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_front_side);
-			$image_path1 = asset('assets/upload_images').'/'.$nric_front_side;
+			$image_path1 = asset('assets/upload_images') . '/' . $nric_front_side;
 		}
-		if($request->hasFile('nric_back_side')){
+		if ($request->hasFile('nric_back_side')) {
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$nric_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$nric_back_side = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $nric_back_side);
-			$image_path2 = asset('assets/upload_images').'/'.$nric_back_side;
-		}else{
-
+			$image_path2 = asset('assets/upload_images') . '/' . $nric_back_side;
+		} else {
 		}
-		if($request->hasFile('licence_front_side')){
+		if ($request->hasFile('licence_front_side')) {
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$licence_front_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$licence_front_side = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $licence_front_side);
-			$image_path3 = asset('assets/upload_images').'/'.$licence_front_side;
+			$image_path3 = asset('assets/upload_images') . '/' . $licence_front_side;
 		}
-		if($request->hasFile('licence_back_side')){
+		if ($request->hasFile('licence_back_side')) {
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$licence_back_side = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$licence_back_side = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $licence_back_side);
-			$image_path4 = asset('assets/upload_images').'/'.$licence_back_side;
+			$image_path4 = asset('assets/upload_images') . '/' . $licence_back_side;
 		}
-		if($request->hasFile('profile_pic')){
+		if ($request->hasFile('profile_pic')) {
 			$image = $request->file('profile_pic');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$profile_pic = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$profile_pic = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $profile_pic);
-			$image_path5 = asset('assets/upload_images').'/'.$profile_pic;
+			$image_path5 = asset('assets/upload_images') . '/' . $profile_pic;
 		}
 		$query = Driver::create([
-			'name'=> $data['name'],
-			'phone_no'=> $data['phone_no'],
-			'email'=> $data['email'],
-			'password'=> $data['password'],
-			'nric'=> $data['nric'],
-			'address'=> $data['address'],
-			'dob'=> $data['dob'],
-			'bank_account_no'=> $data['bank_account_no'],
-			'licence_type'=> $data['licence_type'],
-			'driver_status'=> $data['driver_status'],
-			'joining_date'=> $data['joining_date'],
-			'vehicle_rental_tatus'=> $data['vehicle_rental_tatus'],
-			'car_plateno'=> $data['car_plateno'],
-			'diesel_tag'=> $data['diesel_tag'],
+			'name' => $data['name'],
+			'phone_no' => $data['phone_no'],
+			'email' => $data['email'],
+			'password' => $data['password'],
+			'nric' => $data['nric'],
+			'address' => $data['address'],
+			'dob' => $data['dob'],
+			'bank_account_no' => $data['bank_account_no'],
+			'licence_type' => $data['licence_type'],
+			'driver_status' => $data['driver_status'],
+			'joining_date' => $data['joining_date'],
+			'vehicle_rental_tatus' => $data['vehicle_rental_tatus'],
+			'car_plateno' => $data['car_plateno'],
+			'diesel_tag' => $data['diesel_tag'],
 
 			'nric_front_side' => $image_path1,
 			'nric_back_side' => $image_path2,
@@ -108,16 +112,16 @@ class DriverController extends Controller
 			'created_at' => date('Y-m-d H:i:s')
 		]);
 		$response_status = $query->id;
-		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Driver successfully added.']);
+		if ($response_status > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Driver successfully added.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 	public function edit($id, Request $request)
 	{
 		$driver = Driver::where('id', $id)->first();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $driver));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $driver));
 	}
 	public function update(Request $request)
 	{
@@ -137,104 +141,108 @@ class DriverController extends Controller
 			'diesel_tag' => 'required',
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
-		if(isset($data['status'])){
+		if (isset($data['status'])) {
 			$status = "1";
-		}else {
+		} else {
 			$status = "0";
 		}
-		if($request->hasFile('nric_front_side')){
+		if ($request->hasFile('nric_front_side')) {
 			$image = $request->file('nric_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$data['nric_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$data['nric_front_side'] = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_front_side']);
-			$image_path1 = asset('assets/upload_images').'/'.$data['nric_front_side'];
+			$image_path1 = asset('assets/upload_images') . '/' . $data['nric_front_side'];
 			DB::table('drivers')
-			->where('id', $data['id'])->update([
-				'nric_front_side' => $image_path1
-			]);
-		}if($request->hasFile('nric_back_side')){
+				->where('id', $data['id'])->update([
+					'nric_front_side' => $image_path1
+				]);
+		}
+		if ($request->hasFile('nric_back_side')) {
 			$image = $request->file('nric_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$data['nric_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$data['nric_back_side'] = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['nric_back_side']);
-			$image_path2 = asset('assets/upload_images').'/'.$data['nric_back_side'];
+			$image_path2 = asset('assets/upload_images') . '/' . $data['nric_back_side'];
 			DB::table('drivers')
-			->where('id', $data['id'])->update([
-				'nric_back_side' => $image_path2
-			]);
-		}if($request->hasFile('licence_front_side')){
+				->where('id', $data['id'])->update([
+					'nric_back_side' => $image_path2
+				]);
+		}
+		if ($request->hasFile('licence_front_side')) {
 			$image = $request->file('licence_front_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$data['licence_front_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$data['licence_front_side'] = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['licence_front_side']);
-			$image_path3 = asset('assets/upload_images').'/'.$data['licence_front_side'];
+			$image_path3 = asset('assets/upload_images') . '/' . $data['licence_front_side'];
 			DB::table('drivers')
-			->where('id', $data['id'])->update([
-				'licence_front_side' => $image_path3
-			]);
-		}if($request->hasFile('licence_back_side')){
+				->where('id', $data['id'])->update([
+					'licence_front_side' => $image_path3
+				]);
+		}
+		if ($request->hasFile('licence_back_side')) {
 			$image = $request->file('licence_back_side');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$data['licence_back_side'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$data['licence_back_side'] = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['licence_back_side']);
-			$image_path4 = asset('assets/upload_images').'/'.$data['licence_back_side'];
+			$image_path4 = asset('assets/upload_images') . '/' . $data['licence_back_side'];
 			DB::table('drivers')
-			->where('id', $data['id'])->update([
-				'licence_back_side' => $image_path4
-			]);
-		}if($request->hasFile('profile_pic')){
+				->where('id', $data['id'])->update([
+					'licence_back_side' => $image_path4
+				]);
+		}
+		if ($request->hasFile('profile_pic')) {
 			$image = $request->file('profile_pic');
 			$file_name = explode('.', $image->getClientOriginalName())[0];
-			$data['profile_pic'] = $file_name.'_'.time().'.'.$image->getClientOriginalExtension();
+			$data['profile_pic'] = $file_name . '_' . time() . '.' . $image->getClientOriginalExtension();
 			$destinationPath = public_path('/assets/upload_images');
 			$image->move($destinationPath, $data['profile_pic']);
-			$image_path5 = asset('assets/upload_images').'/'.$data['profile_pic'];
+			$image_path5 = asset('assets/upload_images') . '/' . $data['profile_pic'];
 			DB::table('drivers')
-			->where('id', $data['id'])->update([
-				'profile' => $image_path5
-			]);
+				->where('id', $data['id'])->update([
+					'profile' => $image_path5
+				]);
 		}
 
 		$post_status = Driver::where('id', $data['id'])->update([
-			'name'=> $data['name'],
-			'phone_no'=> $data['phone_no'],
-			'nric'=> $data['nric'],
-			'address'=> $data['address'],
-			'dob'=> $data['dob'],
-			'bank_account_no'=> $data['bank_account_no'],
-			'licence_type'=> $data['licence_type'],
-			'driver_status'=> $data['driver_status'],
-			'joining_date'=> $data['joining_date'],
-			'end_date'=> $data['end_date'],
-			'vehicle_rental_tatus'=> $data['vehicle_rental_tatus'],
-			'car_plateno'=> $data['car_plateno'],
-			'diesel_tag'=> $data['diesel_tag'],
+			'name' => $data['name'],
+			'phone_no' => $data['phone_no'],
+			'nric' => $data['nric'],
+			'address' => $data['address'],
+			'dob' => $data['dob'],
+			'bank_account_no' => $data['bank_account_no'],
+			'licence_type' => $data['licence_type'],
+			'driver_status' => $data['driver_status'],
+			'joining_date' => $data['joining_date'],
+			'end_date' => $data['end_date'],
+			'vehicle_rental_tatus' => $data['vehicle_rental_tatus'],
+			'car_plateno' => $data['car_plateno'],
+			'diesel_tag' => $data['diesel_tag'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
 			'updated_by' => Auth()->user()->id,
 		]);
 
-		if($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Driver successfully updated!']);
+		if ($post_status > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Driver successfully updated!']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
 		$status = Driver::where('id', $data['id'])->first();
-		if($status->id) {
+		if ($status->id) {
 			Driver::find($data['id'])->delete();
-			return response()->json(['msg' => 'success', 'response'=>'Driver successfully deleted.']);
+			return response()->json(['msg' => 'success', 'response' => 'Driver successfully deleted.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 
@@ -246,7 +254,7 @@ class DriverController extends Controller
 			'salary_amount' => 'required'
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
 		$query = DB::table('driver_salaries')->insertGetId([
 			'driver_id' => $data['driver_id'],
@@ -255,10 +263,10 @@ class DriverController extends Controller
 			'created_at' => date('Y-m-d H:i:s'),
 		]);
 
-		if($query > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Driver salary successfully added.']);
+		if ($query > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Driver salary successfully added.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 
@@ -269,7 +277,7 @@ class DriverController extends Controller
 			'driver_id' => 'required'
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
 
 		$current_salary = get_single_row('driver_salaries', 'driver_id', $data['driver_id'], '', '', '', '');
@@ -277,24 +285,50 @@ class DriverController extends Controller
 
 		$data['allowance_amount'] = get_allowances($data['driver_id']);
 		$data['deduction_amount'] = get_deductions($data['driver_id']);
-		$data['net_salary'] = ( ($data['allowance_amount'] + $data['basic_salary']) - $data['deduction_amount']);
+		$data['net_salary'] = (($data['allowance_amount'] + $data['basic_salary']) - $data['deduction_amount']);
 
 		$query = DB::table('salary_payroll')->insertGetId([
 			'driver_id' => $data['driver_id'],
-			'basic_salary'=> $data['basic_salary'],
-			'allowance_amount'=> $data['allowance_amount'],
-			'deduction_amount'=> $data['deduction_amount'],
-			'net_salary'=> $data['net_salary'],
-			'salary_month'=> date('Y-m-d'),
-			'notes'=> $data['notes'],
+			'basic_salary' => $data['basic_salary'],
+			'allowance_amount' => $data['allowance_amount'],
+			'deduction_amount' => $data['deduction_amount'],
+			'net_salary' => $data['net_salary'],
+			'salary_month' => date('Y-m-d'),
+			'notes' => $data['notes'],
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s'),
 		]);
 
-		if($query > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Payslip generated successfully.']);
+		$date = \Carbon\Carbon::now();
+		$monthYear = $date->format('F Y');
+
+
+		$driver_details = Driver::where('id', $data['driver_id'])->first();
+
+		$slipdata['monthYear'] = $monthYear;
+		$slipdata['name'] = $driver_details->name;
+		$slipdata['acc_no'] = substr($driver_details->bank_account_no, -4);
+		$slipdata['basic'] = $data['basic_salary'];
+		$slipdata['allowance'] = $data['allowance_amount'];
+		$slipdata['deduction'] = $data['deduction_amount'];
+		$slipdata['total_earning'] = ($data['allowance_amount'] + $data['basic_salary']);
+		$slipdata['net_salary'] = $data['net_salary'];
+
+		$pdf = PDF::loadView('pdf.payroll', $slipdata);
+
+
+		$mailData["pdf"] = $pdf;
+		$mailData['email'] = $driver_details->email;
+		$mailData["title"] = "Payslip for " . $monthYear;
+		$mailData["body"] = "Please attached find your payslip for " . $monthYear . ".";
+
+		Mail::to($mailData['email'])->send(new MailPayroll($mailData));
+
+
+		if ($query > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Payslip generated successfully.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 }
