@@ -87,6 +87,9 @@ Route::middleware(['api'])->group(function () {
             });
             Route::group(['prefix' => 'project', 'middleware' => 'permission:manage_project'], function () {
                 Route::get('/', [ProjectController::class, 'index']);
+                Route::get('weekly', [ProjectController::class, 'weekly']);
+                Route::get('monthly', [ProjectController::class, 'monthly']);
+                Route::get('yearly', [ProjectController::class, 'yearly']);
                 Route::post('store', [ProjectController::class, 'store']);
                 Route::get('edit/{id}', [ProjectController::class, 'edit']);
                 Route::post('update', [ProjectController::class, 'update']);

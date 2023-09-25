@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Admin\Project;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
+
 
 class ProjectController extends Controller
 {
@@ -19,7 +21,56 @@ class ProjectController extends Controller
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
     }
+    public function weekly()
+    {
+        try {
+            $endDate = Carbon::now();
+            $startDate = $endDate->copy()->subWeek(); // Subtracts a week from the current date
 
+            // Query projects created within the date range
+            $projects = Project::whereBetween('created_at', [$startDate, $endDate])
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+        } catch (\Exception $e) {
+            return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
+        }
+    }
+    public function monthly()
+    {
+        try {
+            // Calculate the start and end dates for the current month
+            $endDate = Carbon::now();
+            $startDate = $endDate->copy()->startOfMonth(); // Start of the current month
+
+            // Query projects created within the current month
+            $projects = Project::whereBetween('created_at', [$startDate, $endDate])
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+        } catch (\Exception $e) {
+            return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
+        }
+    }
+    public function yearly()
+    {
+        try {
+            // Calculate the start and end dates for the current year
+            $endDate = Carbon::now();
+            $startDate = $endDate->copy()->startOfYear(); // Start of the current year
+
+            // Query projects created within the current year
+            $projects = Project::whereBetween('created_at', [$startDate, $endDate])
+                ->orderBy('id', 'DESC')
+                ->get();
+
+            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+        } catch (\Exception $e) {
+            return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
+        }
+    }
     public function store(Request $request)
     {
         $data = $request->all();

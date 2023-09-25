@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2023 at 03:17 PM
+-- Generation Time: Sep 25, 2023 at 12:30 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -184,7 +184,7 @@ CREATE TABLE `drivers` (
 --
 
 INSERT INTO `drivers` (`id`, `name`, `phone_no`, `email`, `password`, `nric`, `address`, `dob`, `bank_account_no`, `licence_type`, `driver_status`, `joining_date`, `end_date`, `vehicle_rental_tatus`, `car_plateno`, `diesel_tag`, `driver_project`, `nric_front_side`, `nric_back_side`, `licence_front_side`, `licence_back_side`, `created_at`, `created_by`, `updated_at`, `updated_by`, `status`, `profile`) VALUES
-(1, 'Abdul Waheed', '03394008120', 'd@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, '2023-09-08', '2023-09-08', 1, 'leo 1234', '454545', 'one, two', '', '', '', '', '2023-09-08 12:32:54', 1, '2023-09-20 12:49:51', 1, 0, NULL),
+(1, 'Abdul Waheed', '03394008120', 'arslanstack@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, '2023-09-08', '2023-09-08', 1, 'leo 1234', '454545', 'one, two', '', '', '', '', '2023-09-08 12:32:54', 1, '2023-09-20 12:49:51', 1, 0, NULL),
 (2, 'Test user', '030414141414', 'd@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, NULL, '2023-09-08', 1, 'leo 1234', '454545', 'one, two', '', '', '', '', '2023-09-08 12:32:58', 1, '2023-09-08 12:32:58', NULL, 1, NULL),
 (3, 'Test user', '030414141414', 'd@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, NULL, '2023-09-08', 1, 'leo 1234', '454545', 'one, two', '', '', '', '', '2023-09-08 12:32:59', 1, '2023-09-08 12:32:59', NULL, 1, NULL),
 (4, 'Test user', '030414141414', 'd@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, NULL, '2023-09-08', 1, 'leo 1234', '454545', 'one, two', '', '', '', '', '2023-09-08 12:33:00', 1, '2023-09-08 12:33:00', NULL, 1, NULL),
@@ -380,6 +380,17 @@ CREATE TABLE `projects` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `name`, `description`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(6, 'Test Project 1', 'Lorem Ipsum', 1, 1, NULL, '2023-09-25 05:22:59', '2023-09-25 05:22:59'),
+(7, 'Test Project 2', 'Lorem Ipsum', 1, 1, NULL, '2023-09-25 05:23:03', '2023-09-25 05:23:03'),
+(8, 'Test Project 3', 'Lorem Ipsum', 1, 1, NULL, '2023-09-04 05:23:06', '2023-09-25 05:23:06'),
+(9, 'Test Project 4', 'Lorem Ipsum', 1, 1, NULL, '2023-07-25 05:23:10', '2023-09-25 05:23:10'),
+(10, 'Test Project 5', 'Lorem Ipsum', 1, 1, NULL, '2021-09-25 05:23:13', '2023-09-25 05:23:13');
+
 -- --------------------------------------------------------
 
 --
@@ -452,7 +463,7 @@ CREATE TABLE `salary_payroll` (
 --
 
 INSERT INTO `salary_payroll` (`id`, `driver_id`, `basic_salary`, `allowance_amount`, `deduction_amount`, `net_salary`, `salary_month`, `notes`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(1, 1, 35000.00, 2000.00, 300.00, 36700.00, '2023-09-14', 'notes if any', 1, '2023-09-14 08:42:25', 1, NULL, NULL);
+(8, 1, 35000.00, 2000.00, 300.00, 36700.00, '2023-09-25', 'notes if any', 1, '2023-09-25 09:12:29', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -854,7 +865,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -866,7 +877,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `salary_payroll`
 --
 ALTER TABLE `salary_payroll`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `settings`
