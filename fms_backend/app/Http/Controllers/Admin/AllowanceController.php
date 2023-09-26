@@ -18,6 +18,11 @@ class AllowanceController extends Controller
 		$allowances = Allowance::orderBy('id', 'DESC')->get();
 		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowances));
 	}
+	public function driver_allowances($id)
+	{
+		$allowances = Allowance::where('driver_id', $id)->orderBy('id', 'DESC')->get();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowances));
+	}
 	public function store(Request $request)
 	{
 		$data = $request->all();

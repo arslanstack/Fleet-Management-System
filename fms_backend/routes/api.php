@@ -184,6 +184,7 @@ Route::middleware(['api'])->group(function () {
                 Route::get('/', [AllowanceController::class, 'index']);
                 Route::post('store', [AllowanceController::class, 'store']);
                 Route::get('edit/{id}', [AllowanceController::class, 'edit']);
+                Route::get('/driver_allowances/{id}', [AllowanceController::class, 'driver_allowances']);
                 Route::post('update', [AllowanceController::class, 'update']);
                 Route::post('delete', [AllowanceController::class, 'destroy']);
             });
