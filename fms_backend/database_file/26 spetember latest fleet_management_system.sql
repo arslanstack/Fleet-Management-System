@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2023 at 12:30 PM
+-- Generation Time: Sep 26, 2023 at 09:16 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,7 +33,7 @@ CREATE TABLE `admin_users` (
   `phone_no` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `role_type` tinyint(4) NOT NULL DEFAULT 2,
+  `role_type` int(4) NOT NULL DEFAULT 2,
   `type` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=admin users, 1=staff users',
   `permissions` varchar(255) DEFAULT NULL,
   `image` varchar(255) NOT NULL DEFAULT 'user.png',
@@ -51,7 +51,10 @@ CREATE TABLE `admin_users` (
 
 INSERT INTO `admin_users` (`id`, `username`, `phone_no`, `email`, `password`, `role_type`, `type`, `permissions`, `image`, `view_all_data`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
 (1, 'admin', '03001234567', 'admin@gmail.com', '$2y$10$G2f5/.nVaCistb7Pah7nnu2kugwLlD/4D8KzO7wctvF8ROQZ8Bgnq', 1, 0, NULL, 'user.png', 2, 1, '2022-11-08 17:29:08', 1, NULL, NULL),
-(20, 'caleb', '+923134188721', 'calebjanaltair@gmail.com', '$2y$10$E.V4WNOjJ./DoBm6NNddPO4nO7g3alrMuf5oK0EvxbBI4hOTu2UPu', 2, 1, NULL, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695384979.png', 1, 1, '2023-09-22 12:16:19', 1, '2023-09-22 12:16:19', NULL);
+(20, 'caleb', '+923134188721', 'calebjanaltair@gmail.com', '$2y$10$E.V4WNOjJ./DoBm6NNddPO4nO7g3alrMuf5oK0EvxbBI4hOTu2UPu', 2, 1, NULL, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695384979.png', 1, 1, '2023-09-22 12:16:19', 1, '2023-09-22 12:16:19', NULL),
+(26, 'backend1', '+923134188721', 'backend1gmail.com', '$2y$10$9R.vnFiunKOK4WzDhAfT4OlJ1qN5X/wg.KrXBqGTlpppYgrFa9xoy', 9, 1, NULL, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695709219.png', 1, 1, '2023-09-26 06:20:19', 1, '2023-09-26 06:20:19', NULL),
+(27, 'backend2', '+923134188721', 'backend2gmail.com', '$2y$10$df9ddCqLmQC1RTEZ/Bl7gehAglEkFOj2H9NWFQEKCZqojwKSULRFK', 8, 1, NULL, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695709241.png', 1, 1, '2023-09-26 06:20:41', 1, '2023-09-26 06:20:41', NULL),
+(28, 'backend3', '+923134188721', 'backend3gmail.com', '$2y$10$nHgu7l/swQ1/dmsp6xXWxu.vvfc1xCE7QeBB8caSofp5GgxQm5VpW', 10, 1, NULL, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695709307.png', 1, 1, '2023-09-26 06:21:47', 1, '2023-09-26 06:21:47', NULL);
 
 -- --------------------------------------------------------
 
@@ -69,6 +72,17 @@ CREATE TABLE `allowances` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `allowances`
+--
+
+INSERT INTO `allowances` (`id`, `allowance_type`, `description`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(15, 'lorem', 'Test', 1, '2023-09-26 07:06:08', '2023-09-26 07:06:08', 1, NULL),
+(16, 'ipsum', 'Test', 1, '2023-09-26 07:06:13', '2023-09-26 07:06:13', 1, NULL),
+(17, 'donor', 'Test', 1, '2023-09-26 07:06:17', '2023-09-26 07:06:17', 1, NULL),
+(18, 'amet', 'Test', 1, '2023-09-26 07:11:24', '2023-09-26 07:11:24', 1, NULL),
+(19, 'brains', 'Test', 1, '2023-09-26 07:11:31', '2023-09-26 07:11:31', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -107,7 +121,11 @@ CREATE TABLE `companies` (
 
 INSERT INTO `companies` (`id`, `company_name`, `uen`, `email`, `password`, `pic_name`, `company_address`, `pic_mobile_no`, `bank_account_no`, `pic_nric`, `pic_address`, `vehicle_rental_tatus`, `car_plateno`, `diesel_tag`, `driver_project`, `nric_front_side`, `nric_back_side`, `created_at`, `created_by`, `updated_at`, `updated_by`, `status`) VALUES
 (1, 'Test user', '030414141414', 'd@gmail.com', '123456', '2023-09-09', '35021363636363', '01020304052023', 'lahore', '1', '1', 1, 'leo 1234', '454545', 'one, two', '', '', '2023-09-08 13:32:13', 1, '2023-09-08 13:32:13', NULL, 1),
-(3, 'Test user', '030414141414', 'd3d@gmail.com', '123456', '2023-09-09', '35021363636363', '01020304052023', 'lahore', '1', '1', 1, 'leo 1234', '454545', 'one, two', '123123_1694412054.png', '1231233_1694412054.jpg', '2023-09-11 06:00:54', 1, '2023-09-11 06:00:54', NULL, 1);
+(3, 'Test user', '030414141414', 'd3d@gmail.com', '123456', '2023-09-09', '35021363636363', '01020304052023', 'lahore', '1', '1', 1, 'leo 1234', '454545', 'one, two', '123123_1694412054.png', '1231233_1694412054.jpg', '2023-09-11 06:00:54', 1, '2023-09-11 06:00:54', NULL, 1),
+(5, 'PayPal', 'T09LL0001B', 'paypal@paypal.com', '12345678', 'Paypal CEO', '5 Temasek Blvd, #09-01 Suntec Tower Five, Singapore 038985', '01020304052023', 'T09LL0001B1288UAA1121', '1', '1', 1, 'leo 1234', '454545', 'one, two', '', '', '2023-09-26 06:01:01', 1, '2023-09-26 06:01:01', NULL, 1),
+(6, 'PayPal', 'T09LL0001B', 'paypal2@paypal.com', '12345678', 'Paypal CEO', '5 Temasek Blvd, #09-01 Suntec Tower Five, Singapore 038985', '01020304052023', 'T09LL0001B1288UAA1121', '1', '1', 1, 'leo 1234', '454545', 'one, two', '', '', '2023-09-26 06:01:18', 1, '2023-09-26 06:01:18', NULL, 1),
+(7, 'PayPal', 'T09LL0001B', 'paypal3@paypal.com', '12345678', 'Paypal CEO', '5 Temasek Blvd, #09-01 Suntec Tower Five, Singapore 038985', '01020304052023', 'T09LL0001B1288UAA1121', '1', '1', 1, 'leo 1234', '454545', 'one, two', '', '', '2023-09-26 06:01:28', 1, '2023-09-26 06:01:28', NULL, 1),
+(8, 'PayPal', 'T09LL0001B', 'paypal4@paypal.com', '12345678', 'Paypal CEO', '5 Temasek Blvd, #09-01 Suntec Tower Five, Singapore 038985', '01020304052023', 'T09LL0001B1288UAA1121', '1', '1', 1, 'leo 1234', '454545', 'one, two', '', '', '2023-09-26 06:01:34', 1, '2023-09-26 06:01:34', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -197,7 +215,8 @@ INSERT INTO `drivers` (`id`, `name`, `phone_no`, `email`, `password`, `nric`, `a
 (12, 'test', '3452345243', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2023-09-13 13:40:43', NULL, '2023-09-13 13:40:43', NULL, 1, NULL),
 (13, 'Test user', '030414141414', 'da333@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, '2023-09-08', NULL, 1, 'leo 1234', '454545', NULL, 'D:\\wamp64\\www\\fms\\fms_backend\\public\\/assets/upload_images123123_1694781329.png', '', '', '', '2023-09-15 12:35:29', 1, '2023-09-15 12:35:29', NULL, 1, NULL),
 (14, 'Test user', '030414141414', 'da33333@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, '2023-09-08', NULL, 1, 'leo 1234', '454545', NULL, 'http://127.0.0.1:8000/assets/upload_imagesdesktop wallpaper_1694781776.png', '', '', '', '2023-09-15 12:42:56', 1, '2023-09-15 12:42:56', NULL, 1, NULL),
-(15, 'Test user', '030414141414', 'da3333333@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, '2023-09-08', NULL, 1, 'leo 1234', '454545', NULL, 'http://127.0.0.1:8000/assets/upload_images/coding_1694781855.png', '', '', '', '2023-09-15 12:44:15', 1, '2023-09-15 12:44:15', NULL, 1, NULL);
+(15, 'Test user', '030414141414', 'da3333333@gmail.com', '123456', '35021363636363', 'lahore', '2023-09-09', '01020304052023', 1, 1, '2023-09-08', NULL, 1, 'leo 1234', '454545', NULL, 'http://127.0.0.1:8000/assets/upload_images/coding_1694781855.png', '', '', '', '2023-09-15 12:44:15', 1, '2023-09-15 12:44:15', NULL, 1, NULL),
+(18, 'John Doe', '03394008123', 'calebjanaltair@gmail.com', '12345678', '3330198122441', 'Lahore Cantt, Pakistan', '2023-09-09', '090012331881', 1, 1, '2023-09-08', NULL, 1, 'LEQ 12311', '454545', NULL, '', '', '', '', '2023-09-26 05:49:45', 1, '2023-09-26 05:49:45', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -222,8 +241,11 @@ CREATE TABLE `driver_allowances` (
 --
 
 INSERT INTO `driver_allowances` (`id`, `driver_id`, `allowance_id`, `amount`, `status`, `updated_by`, `created_at`, `created_by`, `updated_at`) VALUES
-(1, 1, 1, 500.00, 1, NULL, '2023-09-13 13:32:33', NULL, '2023-09-13 13:32:33'),
-(2, 1, 1, 1500.00, 1, NULL, '2023-09-13 13:32:33', NULL, '2023-09-13 13:32:33');
+(7, 2, 16, 500.00, 1, NULL, '2023-09-26 07:13:01', 1, '2023-09-26 07:13:01'),
+(6, 1, 15, 500.00, 1, NULL, '2023-09-26 07:12:55', 1, '2023-09-26 07:12:55'),
+(5, 18, 15, 500.00, 1, NULL, '2023-09-26 07:12:51', 1, '2023-09-26 07:12:51'),
+(8, 3, 17, 500.00, 1, NULL, '2023-09-26 07:13:09', 1, '2023-09-26 07:13:09'),
+(9, 4, 18, 500.00, 1, NULL, '2023-09-26 07:13:15', 1, '2023-09-26 07:13:15');
 
 -- --------------------------------------------------------
 
@@ -250,8 +272,11 @@ CREATE TABLE `driver_deductions` (
 --
 
 INSERT INTO `driver_deductions` (`id`, `driver_id`, `deduction_id`, `amount`, `effective_date`, `description`, `status`, `updated_by`, `created_at`, `created_by`, `updated_at`) VALUES
-(1, 1, 1, 100.00, '2023-09-13', 'role break', 1, NULL, '2023-09-13 13:33:28', NULL, '2023-09-13 13:33:28'),
-(2, 1, 1, 200.00, '2023-09-13', 'role break', 1, NULL, '2023-09-13 13:33:28', NULL, '2023-09-13 13:33:28');
+(3, 1, 3, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:58:44', 1, '2023-09-26 06:58:44'),
+(4, 2, 3, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:58:53', 1, '2023-09-26 06:58:53'),
+(5, 3, 4, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:58:59', 1, '2023-09-26 06:58:59'),
+(6, 4, 5, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:59:06', 1, '2023-09-26 06:59:06'),
+(7, 5, 6, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:59:11', 1, '2023-09-26 06:59:11');
 
 -- --------------------------------------------------------
 
@@ -275,7 +300,12 @@ CREATE TABLE `driver_salaries` (
 --
 
 INSERT INTO `driver_salaries` (`id`, `driver_id`, `salary`, `status`, `updated_by`, `created_at`, `created_by`, `updated_at`) VALUES
-(1, 1, 35000.00, 1, NULL, '2023-09-13 13:34:34', NULL, '2023-09-13 13:34:34');
+(1, 1, 35000.00, 1, NULL, '2023-09-13 13:34:34', NULL, '2023-09-13 13:34:34'),
+(2, 18, 100000.00, 1, NULL, '2023-09-26 07:13:45', 1, NULL),
+(3, 2, 100000.00, 1, NULL, '2023-09-26 07:14:20', 1, NULL),
+(4, 3, 100000.00, 1, NULL, '2023-09-26 07:14:23', 1, NULL),
+(5, 4, 100000.00, 1, NULL, '2023-09-26 07:14:29', 1, NULL),
+(6, 5, 100000.00, 1, NULL, '2023-09-26 07:14:32', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -303,6 +333,17 @@ CREATE TABLE `fuel_management` (
   `updated_at` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `fuel_management`
+--
+
+INSERT INTO `fuel_management` (`id`, `vehicle_id`, `driver_id`, `fuel_type`, `quantity`, `cost_per_liter`, `fuel_cost`, `previous_meter_reading`, `current_meter_reading`, `fuel_avg`, `per_liter_avg`, `fuel_datetime`, `location`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(2, 3, 2, 1, 12.00, 12.00, 21.00, 0.00, 12.00, 0.00, 0.00, '2019-01-19 03:14:07', 'Singapore Chowk', 1, '2023-09-26 06:34:19', 1, '2023-09-26 06:34:19', NULL),
+(3, 4, 3, 2, 12.00, 12.00, 21.00, 0.00, 12.00, 0.00, 0.00, '2020-01-19 03:14:07', 'Singapore Chowk', 1, '2023-09-26 06:34:41', 1, '2023-09-26 06:34:41', NULL),
+(4, 5, 4, 3, 12.00, 12.00, 21.00, 0.00, 12.00, 0.00, 0.00, '2021-01-19 03:14:07', 'Singapore Chowk', 1, '2023-09-26 06:34:54', 1, '2023-09-26 06:34:54', NULL),
+(5, 6, 5, 4, 12.00, 12.00, 21.00, 0.00, 12.00, 0.00, 0.00, '2022-01-19 03:14:07', 'Singapore Chowk', 1, '2023-09-26 06:37:51', 1, '2023-09-26 06:37:51', NULL),
+(6, 7, 6, 5, 12.00, 12.00, 21.00, 0.00, 12.00, 0.00, 0.00, '2023-01-19 03:14:07', 'Singapore Chowk', 1, '2023-09-26 06:38:14', 1, '2023-09-26 06:38:14', NULL);
 
 -- --------------------------------------------------------
 
@@ -410,6 +451,17 @@ CREATE TABLE `road_tax_expiry` (
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `road_tax_expiry`
+--
+
+INSERT INTO `road_tax_expiry` (`id`, `vehicle_id`, `expiry_date`, `renewal_date`, `description`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 3, '2023-09-12', '2024-09-12', 'Test', 1, '2023-09-26 06:55:09', 1, '2023-09-26 06:55:09', NULL),
+(2, 4, '2023-09-12', '2024-09-12', 'Test', 1, '2023-09-26 06:55:13', 1, '2023-09-26 06:55:13', NULL),
+(3, 5, '2023-09-12', '2024-09-12', 'Test', 1, '2023-09-26 06:55:16', 1, '2023-09-26 06:55:16', NULL),
+(4, 6, '2023-09-12', '2024-09-12', 'Test', 1, '2023-09-26 06:55:19', 1, '2023-09-26 06:55:19', NULL),
+(5, 7, '2023-09-12', '2024-09-12', 'Test', 1, '2023-09-26 06:55:23', 1, '2023-09-26 06:55:23', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -434,7 +486,10 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `role_name`, `permissions`, `full_access`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', 'manage_drivers, manage_company, manage_staff, change_staff, manage_role, manage_project, manage_trip, manage_vehicle_type, manage_vehicles, manage_fuel_management, manage_maintenance_type, manage_vehicle_maintenance, manage_vehicle_inspection, manage_vpc, manage_roadtax, manage_deduction_type, manage_deductions, manage_allowance_type, manage_allowances', 1, 1, 1, 1, '2023-09-22 01:43:55', '2023-09-22 03:09:43'),
-(2, 'Admin', 'manage_drivers, manage_company, manage_staff, manage_role, manage_project, manage_trip, manage_vehicle_type, manage_vehicles, manage_fuel_management, manage_maintenance_type, manage_vehicle_maintenance, manage_vehicle_inspection, manage_vpc, manage_roadtax, manage_deduction_type, manage_deductions, manage_allowance_type, manage_allowances', 0, 1, 1, 20, '2023-09-22 01:46:53', '2023-09-22 08:15:49');
+(2, 'Admin', 'manage_drivers, manage_company, manage_staff, manage_role, manage_project, manage_trip, manage_vehicle_type, manage_vehicles, manage_fuel_management, manage_maintenance_type, manage_vehicle_maintenance, manage_vehicle_inspection, manage_vpc, manage_roadtax, manage_deduction_type, manage_deductions, manage_allowance_type, manage_allowances', 0, 1, 1, 20, '2023-09-22 01:46:53', '2023-09-22 08:15:49'),
+(8, 'Admin 3', 'manage_drivers, manage_fuel_management', 0, 1, 1, NULL, '2023-09-26 01:11:58', '2023-09-26 01:11:58'),
+(9, 'Admin 2', 'manage_drivers, manage_deduction_type, manage_deductions, manage_allowance_type, manage_allowances', 0, 1, 1, NULL, '2023-09-26 01:12:57', '2023-09-26 01:12:57'),
+(10, 'Admin 1', 'manage_drivers, manage_vehicles, manage_maintenance_type, manage_vehicle_maintenance, manage_vehicle_inspection', 0, 1, 1, NULL, '2023-09-26 01:13:53', '2023-09-26 01:13:53');
 
 -- --------------------------------------------------------
 
@@ -463,6 +518,10 @@ CREATE TABLE `salary_payroll` (
 --
 
 INSERT INTO `salary_payroll` (`id`, `driver_id`, `basic_salary`, `allowance_amount`, `deduction_amount`, `net_salary`, `salary_month`, `notes`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(12, 4, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:46', 1, NULL, NULL),
+(11, 3, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:36', 1, NULL, NULL),
+(10, 18, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:25', 1, NULL, NULL),
+(9, 2, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:09', 1, NULL, NULL),
 (8, 1, 35000.00, 2000.00, 300.00, 36700.00, '2023-09-25', 'notes if any', 1, '2023-09-25 09:12:29', 1, NULL, NULL);
 
 -- --------------------------------------------------------
@@ -513,6 +572,16 @@ CREATE TABLE `trips` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `trips`
+--
+
+INSERT INTO `trips` (`id`, `vehicle_id`, `driver_id`, `project_id`, `start_date_time`, `end_date_time`, `from_location`, `end_location`, `distance`, `description`, `notes`, `amount`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(4, 3, 18, 10, '2018-01-19 03:14:07', '2018-01-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:04:33', '2023-09-26 01:04:33'),
+(5, 5, 15, 8, '2018-01-19 03:14:07', '2018-01-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:05:02', '2023-09-26 01:05:02'),
+(6, 6, 13, 7, '2018-01-19 03:14:07', '2018-01-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:06:09', '2023-09-26 01:06:09'),
+(7, 7, 12, 9, '2018-01-19 03:14:07', '2018-01-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:06:20', '2023-09-26 01:06:20');
+
 -- --------------------------------------------------------
 
 --
@@ -549,7 +618,11 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`id`, `vehicle_type`, `fuel_type`, `registration_no`, `chassis_no`, `engine_no`, `current_mileage`, `make`, `model`, `year`, `color`, `registration_date`, `vehicle_location`, `driver_id`, `plate_no_photo`, `vehicle_photo`, `additional_notes`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(3, 2, 1, 'FAZ10K', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', 'Karachi Port', 1, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695294564.png', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695294564.jpg', 'Lorem Ipsum', 0, '2023-09-21 09:21:39', 1, '2023-09-21 11:09:24', 1);
+(3, 4, 1, 'FAZ10K', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', 'Karachi Port', 1, 'http://127.0.0.1:8000/assets/upload_images/Untitled design_1695294564.png', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695294564.jpg', 'Lorem Ipsum', 0, '2023-09-21 09:21:39', 1, '2023-09-21 11:09:24', 1),
+(4, 1, 2, 'ABC123', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', '56 Bakers Street', 1, 'http://127.0.0.1:8000/assets/upload_images/caleb-lucas-PCyhtU6I0iw-unsplash_1695709796.jpg', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695709796.jpg', 'Lorem Ipsum', 1, '2023-09-26 06:29:56', 1, '2023-09-26 06:29:56', NULL),
+(5, 2, 3, 'DEF123', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', '56 Bakers Street', 2, 'http://127.0.0.1:8000/assets/upload_images/caleb-lucas-PCyhtU6I0iw-unsplash_1695709824.jpg', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695709824.jpg', 'Lorem Ipsum', 1, '2023-09-26 06:30:24', 1, '2023-09-26 06:30:24', NULL),
+(6, 3, 4, 'GHI123', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', '56 Bakers Street', 3, 'http://127.0.0.1:8000/assets/upload_images/caleb-lucas-PCyhtU6I0iw-unsplash_1695709842.jpg', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695709842.jpg', 'Lorem Ipsum', 1, '2023-09-26 06:30:42', 1, '2023-09-26 06:30:42', NULL),
+(7, 4, 5, 'GHI123', '9762317', '213213123', '1134511', 'Ford', 'e450', '2019', 'white', '2023-09-09', '56 Bakers Street', 4, 'http://127.0.0.1:8000/assets/upload_images/caleb-lucas-PCyhtU6I0iw-unsplash_1695709855.jpg', 'http://127.0.0.1:8000/assets/upload_images/adrian-dascal-1QOsJGbNIgk-unsplash_1695709855.jpg', 'Lorem Ipsum', 1, '2023-09-26 06:30:55', 1, '2023-09-26 06:30:55', NULL);
 
 -- --------------------------------------------------------
 
@@ -570,6 +643,17 @@ CREATE TABLE `vehicle_inspection` (
   `updated_at` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `vehicle_inspection`
+--
+
+INSERT INTO `vehicle_inspection` (`id`, `vehicle_id`, `inspection_date`, `next_inspection_date`, `maintenance_recommendation`, `inspection_status`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 3, '2023-09-12', '2025-09-12', 'test', 1, 1, '2023-09-26 06:46:10', 1, '2023-09-26 06:46:10', NULL),
+(2, 4, '2023-09-12', '2025-09-12', 'test', 1, 1, '2023-09-26 06:46:26', 1, '2023-09-26 06:46:26', NULL),
+(3, 5, '2023-09-12', '2025-09-12', 'test', 1, 1, '2023-09-26 06:46:30', 1, '2023-09-26 06:46:30', NULL),
+(4, 6, '2023-09-12', '2025-09-12', 'test', 1, 1, '2023-09-26 06:46:33', 1, '2023-09-26 06:46:33', NULL),
+(5, 7, '2023-09-12', '2025-09-12', 'test', 1, 1, '2023-09-26 06:46:58', 1, '2023-09-26 06:46:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -620,6 +704,17 @@ CREATE TABLE `vehicle_plate_check` (
   `updated_at` datetime DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `vehicle_plate_check`
+--
+
+INSERT INTO `vehicle_plate_check` (`id`, `vehicle_id`, `plate_expiry_date`, `license_plate`, `plate_registration_status`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
+(1, 3, '2024-09-12', 'FAZ10K', 1, 1, '2023-09-26 06:51:05', 1, '2023-09-26 06:51:05', NULL),
+(2, 4, '2024-09-12', 'ABC123', 1, 1, '2023-09-26 06:51:09', 1, '2023-09-26 06:51:09', NULL),
+(3, 5, '2024-09-12', 'DEF123', 1, 1, '2023-09-26 06:51:13', 1, '2023-09-26 06:51:13', NULL),
+(4, 6, '2024-09-12', 'GHI123', 1, 1, '2023-09-26 06:51:16', 1, '2023-09-26 06:51:16', NULL),
+(5, 7, '2024-09-12', 'GHI123', 1, 1, '2023-09-26 06:51:19', 1, '2023-09-26 06:51:19', NULL);
 
 -- --------------------------------------------------------
 
@@ -799,19 +894,19 @@ ALTER TABLE `vehicle_types`
 -- AUTO_INCREMENT for table `admin_users`
 --
 ALTER TABLE `admin_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `allowances`
 --
 ALTER TABLE `allowances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `deductions`
@@ -823,31 +918,31 @@ ALTER TABLE `deductions`
 -- AUTO_INCREMENT for table `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `driver_allowances`
 --
 ALTER TABLE `driver_allowances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `driver_deductions`
 --
 ALTER TABLE `driver_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `driver_salaries`
 --
 ALTER TABLE `driver_salaries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `fuel_management`
 --
 ALTER TABLE `fuel_management`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `maintenance_types`
@@ -868,16 +963,22 @@ ALTER TABLE `projects`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `road_tax_expiry`
+--
+ALTER TABLE `road_tax_expiry`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `salary_payroll`
 --
 ALTER TABLE `salary_payroll`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -889,19 +990,31 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
 --
 ALTER TABLE `vehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `vehicle_inspection`
+--
+ALTER TABLE `vehicle_inspection`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `vehicle_maintenance`
 --
 ALTER TABLE `vehicle_maintenance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `vehicle_plate_check`
+--
+ALTER TABLE `vehicle_plate_check`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `vehicle_types`
