@@ -31,13 +31,12 @@ class StaffManagementController extends Controller
             'role_type' => 'required',
             'phone_no' => 'required',
             'image' => 'required',
-            'view_all_data' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json(['msg' => 'validation_error', 'errors' => $validator->errors()], 400);
         }
-
+        
         try {
             if ($request->hasFile('image')) {
                 $imageFile = $request->file('image');
@@ -53,7 +52,6 @@ class StaffManagementController extends Controller
                 'password' => bcrypt($data['password']),
                 'role_type' => $data['role_type'],
                 'phone_no' => $data['phone_no'],
-                'view_all_data' => $data['view_all_data'],
                 'image' => $image_path1,
                 'created_by' => Auth::user()->id,
                 'created_at' => now(),

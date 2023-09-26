@@ -4,16 +4,23 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\Deduction;
-use Session, Validator, DB, Str;
-
+use Session, DB, Str;
+use Illuminate\Support\Facades\Validator;
 class DeductionController extends Controller
 {
 	public function index()
 	{
-		$data['deductions'] = Deduction::orderBy('id', 'DESC')->get();
-		$data['deduction_types'] = get_complete_table('deductions', '', '', '', '1', '', '');
-		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
+		// $data['deductions'] = Deduction::orderBy('id', 'DESC')->get();
+		// $data['deduction_types'] = get_complete_table('deductions', '', '', '', '1', '', '');
+		// $data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
+		// return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
+		
+		try {
+			$deductions = Deduction::orderBy('id', 'DESC')->get();
+			return response()->json(['msg' => 'success', 'response' => 'successfully retrieved all deductions.', 'data' => $deductions]);
+		} catch (\Exception $e) {
+			return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
+		}
 	}
 	public function store(Request $request)
 	{
@@ -28,19 +35,19 @@ class DeductionController extends Controller
 			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
 		}
 		$query = Deduction::create([
-			'driver_id'=> $data['driver_id'],
-			'deduction_id'=> $data['deduction_type'],
-			'amount'=> $data['amount'],
-			'effective_date'=> $data['effective_date'],
-			'description'=> $data['description'],
+			'driver_id' => $data['driver_id'],
+			'deduction_id' => $data['deduction_type'],
+			'amount' => $data['amount'],
+			'effective_date' => $data['effective_date'],
+			'description' => $data['description'],
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s')
 		]);
 		$response_status = $query->id;
-		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Deduction successfully added.']);
+		if ($response_status > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Deduction successfully added.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 	public function edit($id, Request $request)
@@ -48,7 +55,7 @@ class DeductionController extends Controller
 		$data['deduction'] = Deduction::where('id', $id)->first();
 		$data['deduction_types'] = get_complete_table('deductions', '', '', '', '1', '', '');
 		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
 	}
 	public function update(Request $request)
 	{
@@ -60,39 +67,39 @@ class DeductionController extends Controller
 			'effective_date' => 'required',
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
-		if(isset($data['status'])){
+		if (isset($data['status'])) {
 			$status = "1";
-		}else {
+		} else {
 			$status = "0";
 		}
 		$post_status = Deduction::where('id', $data['id'])->update([
-			'driver_id'=> $data['driver_id'],
-			'deduction_id'=> $data['deduction_type'],
-			'amount'=> $data['amount'],
-			'effective_date'=> $data['effective_date'],
-			'description'=> $data['description'],
+			'driver_id' => $data['driver_id'],
+			'deduction_id' => $data['deduction_type'],
+			'amount' => $data['amount'],
+			'effective_date' => $data['effective_date'],
+			'description' => $data['description'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
 			'updated_by' => Auth()->user()->id,
 		]);
 
-		if($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Deduction successfully updated!']);
+		if ($post_status > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Deduction successfully updated!']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
 		$status = Deduction::where('id', $data['id'])->first();
-		if($status) {
+		if ($status) {
 			Deduction::find($data['id'])->delete();
-			return response()->json(['msg' => 'success', 'response'=>'Deduction successfully deleted.']);
+			return response()->json(['msg' => 'success', 'response' => 'Deduction successfully deleted.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 }

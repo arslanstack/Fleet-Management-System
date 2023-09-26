@@ -16,7 +16,7 @@ class ProjectController extends Controller
     {
         try {
             $projects = Project::orderBy('id', 'DESC')->get();
-            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+            return response()->json(['msg' => 'success', 'response' => 'successfully retrieved all projects.', 'data' => $projects]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
@@ -32,7 +32,7 @@ class ProjectController extends Controller
                 ->orderBy('id', 'DESC')
                 ->get();
 
-            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+            return response()->json(['msg' => 'success', 'response' => 'successfully retrieved weekly projects report.', 'data' => $projects]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
@@ -49,7 +49,7 @@ class ProjectController extends Controller
                 ->orderBy('id', 'DESC')
                 ->get();
 
-            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+            return response()->json(['msg' => 'success', 'response' => 'successfully retrieved monthly projects report.', 'data' => $projects]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
@@ -66,7 +66,7 @@ class ProjectController extends Controller
                 ->orderBy('id', 'DESC')
                 ->get();
 
-            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $projects]);
+            return response()->json(['msg' => 'success', 'response' => 'successfully retrieved yearly projects report.', 'data' => $projects]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
