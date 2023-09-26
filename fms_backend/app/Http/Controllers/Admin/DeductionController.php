@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\Deduction;
 use Session, DB, Str;
 use Illuminate\Support\Facades\Validator;
+
 class DeductionController extends Controller
 {
 	public function index()
@@ -14,7 +17,7 @@ class DeductionController extends Controller
 		// $data['deduction_types'] = get_complete_table('deductions', '', '', '', '1', '', '');
 		// $data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
 		// return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
-		
+
 		try {
 			$deductions = Deduction::orderBy('id', 'DESC')->get();
 			return response()->json(['msg' => 'success', 'response' => 'successfully retrieved all deductions.', 'data' => $deductions]);
@@ -30,9 +33,10 @@ class DeductionController extends Controller
 			'deduction_type' => 'required',
 			'amount' => 'required',
 			'effective_date' => 'required',
+			'installment_months' => 'required',
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
 		$query = Deduction::create([
 			'driver_id' => $data['driver_id'],
@@ -41,7 +45,12 @@ class DeductionController extends Controller
 			'effective_date' => $data['effective_date'],
 			'description' => $data['description'],
 			'created_by' => Auth()->user()->id,
-			'created_at' => date('Y-m-d H:i:s')
+			'created_at' => date('Y-m-d H:i:s'),
+			'installment_months' => $data['installment_months'],
+			'status' => 0, //0 stands for outstanding, once all installments are paid status = 1 as paid.
+			'paid_months' => 0,
+			'paid_amount' => 0.00,
+			'remaining_amount' => $data['amount'],
 		]);
 		$response_status = $query->id;
 		if ($response_status > 0) {

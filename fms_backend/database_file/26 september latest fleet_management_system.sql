@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 09:16 AM
+-- Generation Time: Sep 26, 2023 at 01:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -260,23 +260,24 @@ CREATE TABLE `driver_deductions` (
   `amount` double(10,2) NOT NULL DEFAULT 0.00,
   `effective_date` date DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0: outstanding, 1:paid',
   `updated_by` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL
+  `updated_at` datetime DEFAULT NULL,
+  `installment_months` int(11) NOT NULL DEFAULT 1,
+  `paid_months` int(11) NOT NULL DEFAULT 0,
+  `paid_amount` double(10,2) NOT NULL DEFAULT 0.00,
+  `remaining_amount` double(10,2) NOT NULL DEFAULT 0.00
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `driver_deductions`
 --
 
-INSERT INTO `driver_deductions` (`id`, `driver_id`, `deduction_id`, `amount`, `effective_date`, `description`, `status`, `updated_by`, `created_at`, `created_by`, `updated_at`) VALUES
-(3, 1, 3, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:58:44', 1, '2023-09-26 06:58:44'),
-(4, 2, 3, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:58:53', 1, '2023-09-26 06:58:53'),
-(5, 3, 4, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:58:59', 1, '2023-09-26 06:58:59'),
-(6, 4, 5, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:59:06', 1, '2023-09-26 06:59:06'),
-(7, 5, 6, 500.00, '2023-12-12', 'Test', 1, NULL, '2023-09-26 06:59:11', 1, '2023-09-26 06:59:11');
+INSERT INTO `driver_deductions` (`id`, `driver_id`, `deduction_id`, `amount`, `effective_date`, `description`, `status`, `updated_by`, `created_at`, `created_by`, `updated_at`, `installment_months`, `paid_months`, `paid_amount`, `remaining_amount`) VALUES
+(15, 18, 10, 2000.00, '2023-09-23', 'Drving under Influence', 0, NULL, '2023-09-26 11:04:54', 1, '2023-09-26 11:04:54', 4, 2, 1000.00, 1000.00),
+(14, 18, 10, 600.00, '2023-09-23', 'No seatbelt challan', 1, NULL, '2023-09-26 11:04:43', 1, '2023-09-26 11:04:43', 1, 1, 600.00, 0.00);
 
 -- --------------------------------------------------------
 
@@ -402,7 +403,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2023_09_21_075153_create_trips_table', 2),
 (18, '2023_09_21_082633_add_status_to_trips', 3),
 (19, '2023_09_22_054843_add_role_type_to_admin_users', 4),
-(20, '2023_09_22_055147_create_roles_table', 5);
+(20, '2023_09_22_055147_create_roles_table', 5),
+(21, '2023_09_26_085624_add_installment_fields_to_driver_deductions_table', 6);
 
 -- --------------------------------------------------------
 
@@ -522,7 +524,43 @@ INSERT INTO `salary_payroll` (`id`, `driver_id`, `basic_salary`, `allowance_amou
 (11, 3, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:36', 1, NULL, NULL),
 (10, 18, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:25', 1, NULL, NULL),
 (9, 2, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 07:15:09', 1, NULL, NULL),
-(8, 1, 35000.00, 2000.00, 300.00, 36700.00, '2023-09-25', 'notes if any', 1, '2023-09-25 09:12:29', 1, NULL, NULL);
+(8, 1, 35000.00, 2000.00, 300.00, 36700.00, '2023-09-25', 'notes if any', 1, '2023-09-25 09:12:29', 1, NULL, NULL),
+(13, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:39:25', 1, NULL, NULL),
+(14, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:41:40', 1, NULL, NULL),
+(15, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:42:08', 1, NULL, NULL),
+(16, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:43:40', 1, NULL, NULL),
+(17, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:45:45', 1, NULL, NULL),
+(18, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:46:03', 1, NULL, NULL),
+(19, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:46:26', 1, NULL, NULL),
+(20, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:46:56', 1, NULL, NULL),
+(21, 18, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:47:29', 1, NULL, NULL),
+(22, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 09:59:18', 1, NULL, NULL),
+(23, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:18:49', 1, NULL, NULL),
+(24, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:21:28', 1, NULL, NULL),
+(25, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:21:50', 1, NULL, NULL),
+(26, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:35:06', 1, NULL, NULL),
+(27, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:39:43', 1, NULL, NULL),
+(28, 18, 100000.00, 500.00, 933.33, 99566.67, '2023-09-26', 'notes if any', 1, '2023-09-26 10:45:24', 1, NULL, NULL),
+(29, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:47:11', 1, NULL, NULL),
+(30, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:52:34', 1, NULL, NULL),
+(31, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:52:46', 1, NULL, NULL),
+(32, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:53:22', 1, NULL, NULL),
+(33, 18, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:54:17', 1, NULL, NULL),
+(34, 18, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 10:55:09', 1, NULL, NULL),
+(35, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:02:09', 1, NULL, NULL),
+(36, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:02:44', 1, NULL, NULL),
+(37, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:03:08', 1, NULL, NULL),
+(38, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:03:12', 1, NULL, NULL),
+(39, 18, 100000.00, 500.00, 0.00, 100500.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:03:51', 1, NULL, NULL),
+(40, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:05:18', 1, NULL, NULL),
+(41, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:07:36', 1, NULL, NULL),
+(42, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:12:29', 1, NULL, NULL),
+(43, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:13:58', 1, NULL, NULL),
+(44, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:15:57', 1, NULL, NULL),
+(45, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:20:57', 1, NULL, NULL),
+(46, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:21:50', 1, NULL, NULL),
+(47, 18, 100000.00, 500.00, 500.00, 100000.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:24:00', 1, NULL, NULL),
+(48, 18, 100000.00, 500.00, 1100.00, 99400.00, '2023-09-26', 'notes if any', 1, '2023-09-26 11:26:01', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -930,7 +968,7 @@ ALTER TABLE `driver_allowances`
 -- AUTO_INCREMENT for table `driver_deductions`
 --
 ALTER TABLE `driver_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `driver_salaries`
@@ -954,7 +992,7 @@ ALTER TABLE `maintenance_types`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `projects`
@@ -978,7 +1016,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `salary_payroll`
 --
 ALTER TABLE `salary_payroll`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `settings`

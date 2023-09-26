@@ -5278,7 +5278,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzEwODg2LCJleHAiOjE2OTU3MTQ0ODYsIm5iZiI6MTY5NTcxMDg4NiwianRpIjoiUW1PdHF3OVQ0RElzdnlyQiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.FG71wkYZYOuQHYPQh8MAQgsp_8CZg1DckV6Kxohz2mw",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI2MTY5LCJleHAiOjE2OTU3Mjk3NjksIm5iZiI6MTY5NTcyNjE2OSwianRpIjoiQUl5VmRKcURKUUw2WTNBSiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ySA0NKUO5yPp9GprfPZhoyHE126IUcKfc99uHkkvhUE",
 								"type": "text"
 							}
 						],
@@ -5287,27 +5287,32 @@
 							"formdata": [
 								{
 									"key": "driver_id",
-									"value": "5",
+									"value": "18",
 									"type": "text"
 								},
 								{
 									"key": "deduction_type",
-									"value": "6",
+									"value": "10",
 									"type": "text"
 								},
 								{
 									"key": "amount",
-									"value": "500",
+									"value": "2000",
 									"type": "text"
 								},
 								{
 									"key": "effective_date",
-									"value": "2023-12-12",
+									"value": "2023-09-23",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Test",
+									"value": "No seatbelt challan",
+									"type": "text"
+								},
+								{
+									"key": "installment_months",
+									"value": "4",
 									"type": "text"
 								}
 							]
@@ -5558,7 +5563,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzEwODg2LCJleHAiOjE2OTU3MTQ0ODYsIm5iZiI6MTY5NTcxMDg4NiwianRpIjoiUW1PdHF3OVQ0RElzdnlyQiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.FG71wkYZYOuQHYPQh8MAQgsp_8CZg1DckV6Kxohz2mw",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI2MDk3LCJleHAiOjE2OTU3Mjk2OTcsIm5iZiI6MTY5NTcyNjA5NywianRpIjoiOUhBQm01cGpHQ3o3Tk5scSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.005xjysVoKFcM3PfuW06FNuU8XyBx3rFKcXvBtvokbk",
 								"type": "text"
 							}
 						],
@@ -6210,7 +6215,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzEwODg2LCJleHAiOjE2OTU3MTQ0ODYsIm5iZiI6MTY5NTcxMDg4NiwianRpIjoiUW1PdHF3OVQ0RElzdnlyQiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.FG71wkYZYOuQHYPQh8MAQgsp_8CZg1DckV6Kxohz2mw",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI2MTY5LCJleHAiOjE2OTU3Mjk3NjksIm5iZiI6MTY5NTcyNjE2OSwianRpIjoiQUl5VmRKcURKUUw2WTNBSiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ySA0NKUO5yPp9GprfPZhoyHE126IUcKfc99uHkkvhUE",
 								"type": "text"
 							}
 						],
@@ -6219,7 +6224,7 @@
 							"formdata": [
 								{
 									"key": "driver_id",
-									"value": "4",
+									"value": "18",
 									"type": "text"
 								},
 								{

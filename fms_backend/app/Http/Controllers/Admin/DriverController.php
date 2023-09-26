@@ -286,7 +286,9 @@ class DriverController extends Controller
 		$data['basic_salary'] = $current_salary->salary;
 
 		$data['allowance_amount'] = get_allowances($data['driver_id']);
-		$data['deduction_amount'] = get_deductions($data['driver_id']);
+		$deductionData = get_deductions($data['driver_id']);
+		$data['deduction_amount'] = $deductionData['total_deductions'];
+		$data['deduction_summary'] = $deductionData['deduction_summary'];
 		$data['net_salary'] = (($data['allowance_amount'] + $data['basic_salary']) - $data['deduction_amount']);
 
 		$query = DB::table('salary_payroll')->insertGetId([
@@ -313,6 +315,7 @@ class DriverController extends Controller
 		$slipdata['basic'] = $data['basic_salary'];
 		$slipdata['allowance'] = $data['allowance_amount'];
 		$slipdata['deduction'] = $data['deduction_amount'];
+		$slipdata['deduction_summary'] = $data['deduction_summary'];
 		$slipdata['total_earning'] = ($data['allowance_amount'] + $data['basic_salary']);
 		$slipdata['net_salary'] = $data['net_salary'];
 
@@ -328,7 +331,7 @@ class DriverController extends Controller
 
 
 		if ($query > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Payslip generated successfully.']);
+			return response()->json(['msg' => 'success', 'response' => 'Payslip generated successfully.', 'data' => $slipdata]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

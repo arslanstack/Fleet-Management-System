@@ -11,5 +11,5 @@ class Deduction extends Model
 
     protected $table = 'driver_deductions';
     // protected $guard = 'admin';
-    protected $fillable = ['id', 'driver_id', 'deduction_id', 'amount', 'effective_date', 'description', 'created_at', 'created_by', 'updated_at', 'updated_by', 'status'];
+    protected $fillable = ['id', 'driver_id', 'deduction_id', 'amount', 'effective_date', 'description', 'created_at', 'created_by', 'updated_at', 'updated_by', 'status', 'installment_months', 'paid_months', 'paid_amount', 'remaining_amount'];
 }

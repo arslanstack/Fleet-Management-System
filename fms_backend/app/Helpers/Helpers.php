@@ -141,14 +141,71 @@ if (!function_exists('get_single_row')) {
 if (!function_exists('get_deductions')) {
 	function get_deductions($driver_id)
 	{
+		// $year = date('Y');
+		// $month = date('m');
+		// $query = DB::table('driver_deductions');
+		// $query->where('driver_id', $driver_id);
+		// $query->whereYear('effective_date', '=', $year);
+		// $query->whereMonth('effective_date', '=', $month);
+		// $data = $query->sum('amount');
+		// return $data;
+
 		$year = date('Y');
 		$month = date('m');
-		$query = DB::table('driver_deductions');
-		$query->where('driver_id', $driver_id);
-		$query->whereYear('effective_date', '=', $year);
-		$query->whereMonth('effective_date', '=', $month);
-		$data = $query->sum('amount');
-		return $data;
+
+		$deductions = DB::table('driver_deductions')
+			->where('driver_id', $driver_id)
+			->whereYear('effective_date', '=', $year)
+			->whereMonth('effective_date', '=', $month)
+			->where('amount', '>', 0) // Only select deductions with a non-zero amount
+			->get();
+
+		$totalDeductions = 0;
+		$deductionSummary = [];
+
+		foreach ($deductions as $deduction) {
+			$installmentMonths = $deduction->installment_months;
+			$paidMonths = $deduction->paid_months;
+			$remainingAmount = $deduction->remaining_amount;
+			$paidAmount = $deduction->paid_amount;
+
+			if ($paidMonths < $installmentMonths) {
+				$installmentAmount = $remainingAmount / ($installmentMonths - $paidMonths);
+				$totalDeductions += $installmentAmount;
+
+				// Update the deduction columns
+				$paidMonths += 1;
+				$paidAmount += $installmentAmount;
+				$remainingAmount -= $installmentAmount;
+			
+				$remainingAmount == 0 ? $deductionStatus = 1 : $deductionStatus = 0;
+
+				// Update the deduction record in the database
+				DB::table('driver_deductions')
+					->where('id', $deduction->id)
+					->update([
+						'paid_months' => $paidMonths,
+						'paid_amount' => $paidAmount,
+						'remaining_amount' => $remainingAmount,
+						'status' => $deductionStatus,
+					]);
+
+				// Add deduction details to the summary
+				$deductionSummary[] = [
+					'deduction_description' => $deduction->description,
+					'current_month' => $paidMonths,
+					'total_months' => $installmentMonths,
+					'total_amount' => $deduction->amount,
+					'amount_for_installment' => $installmentAmount,
+					'remaining_amount' => $remainingAmount,
+				];
+			}
+		}
+
+		return [
+			'total_deductions' => $totalDeductions,
+			'deduction_summary' => $deductionSummary,
+		];
 	}
 }
 
@@ -222,6 +279,3 @@ if (!function_exists('hasPermission')) {
 		return in_array($permission, $role->permissions);
 	}
 }
-
-
-
