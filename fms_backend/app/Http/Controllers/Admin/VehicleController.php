@@ -14,7 +14,7 @@ class VehicleController extends Controller
 	{
 		// $data['vehicle_types'] =  get_complete_table('vehicle_types', '', '', '', '1', '', '');
 		// $data['drivers'] =  get_complete_table('drivers', '', '', '', '1', '', '');
-		$data['vehicles'] = Vehicle::orderBy('id', 'DESC')->get();
+		$data = Vehicle::orderBy('id', 'DESC')->get();
 		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
 	}
 

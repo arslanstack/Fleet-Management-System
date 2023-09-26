@@ -3580,7 +3580,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI5MzM4LCJleHAiOjE2OTU3MzI5MzgsIm5iZiI6MTY5NTcyOTMzOCwianRpIjoiUnhXamNHN2xHZjhsWWpIOCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XBSLbyItP5yptz1niSyfOnPBhhLFCYVJhzjnQEuq_7o",
 								"type": "text"
 							}
 						],
@@ -5278,7 +5278,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI2MTY5LCJleHAiOjE2OTU3Mjk3NjksIm5iZiI6MTY5NTcyNjE2OSwianRpIjoiQUl5VmRKcURKUUw2WTNBSiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ySA0NKUO5yPp9GprfPZhoyHE126IUcKfc99uHkkvhUE",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI5MzM4LCJleHAiOjE2OTU3MzI5MzgsIm5iZiI6MTY5NTcyOTMzOCwianRpIjoiUnhXamNHN2xHZjhsWWpIOCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XBSLbyItP5yptz1niSyfOnPBhhLFCYVJhzjnQEuq_7o",
 								"type": "text"
 							}
 						],
@@ -5297,7 +5297,7 @@
 								},
 								{
 									"key": "amount",
-									"value": "2000",
+									"value": "150",
 									"type": "text"
 								},
 								{
@@ -5307,12 +5307,12 @@
 								},
 								{
 									"key": "description",
-									"value": "No seatbelt challan",
+									"value": "ill Discipline",
 									"type": "text"
 								},
 								{
 									"key": "installment_months",
-									"value": "4",
+									"value": "2",
 									"type": "text"
 								}
 							]
@@ -5344,7 +5344,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI5MzM4LCJleHAiOjE2OTU3MzI5MzgsIm5iZiI6MTY5NTcyOTMzOCwianRpIjoiUnhXamNHN2xHZjhsWWpIOCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XBSLbyItP5yptz1niSyfOnPBhhLFCYVJhzjnQEuq_7o",
 								"type": "text"
 							}
 						],
@@ -5353,31 +5353,56 @@
 							"formdata": [
 								{
 									"key": "driver_id",
-									"value": "1",
+									"value": "18",
 									"type": "text"
 								},
 								{
 									"key": "deduction_type",
-									"value": "1",
+									"value": "10",
 									"type": "text"
 								},
 								{
 									"key": "amount",
-									"value": "500",
+									"value": "150",
 									"type": "text"
 								},
 								{
 									"key": "effective_date",
-									"value": "2023-12-12",
+									"value": "2023-09-23",
 									"type": "text"
 								},
 								{
 									"key": "description",
-									"value": "Test",
+									"value": "ill Discipline",
+									"type": "text"
+								},
+								{
+									"key": "installment_months",
+									"value": "2",
 									"type": "text"
 								},
 								{
 									"key": "id",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "paid_months",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "paid_amount",
+									"value": "75",
+									"type": "text"
+								},
+								{
+									"key": "remaining_amount",
+									"value": "75",
+									"type": "text"
+								},
+								{
+									"key": "status",
 									"value": "1",
 									"type": "text"
 								}
@@ -5563,7 +5588,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI2MDk3LCJleHAiOjE2OTU3Mjk2OTcsIm5iZiI6MTY5NTcyNjA5NywianRpIjoiOUhBQm01cGpHQ3o3Tk5scSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.005xjysVoKFcM3PfuW06FNuU8XyBx3rFKcXvBtvokbk",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI5MzM4LCJleHAiOjE2OTU3MzI5MzgsIm5iZiI6MTY5NTcyOTMzOCwianRpIjoiUnhXamNHN2xHZjhsWWpIOCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XBSLbyItP5yptz1niSyfOnPBhhLFCYVJhzjnQEuq_7o",
 								"type": "text"
 							}
 						],
@@ -5624,6 +5649,45 @@
 								"deductions",
 								"edit",
 								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get installments of deduction",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI5MzM4LCJleHAiOjE2OTU3MzI5MzgsIm5iZiI6MTY5NTcyOTMzOCwianRpIjoiUnhXamNHN2xHZjhsWWpIOCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.XBSLbyItP5yptz1niSyfOnPBhhLFCYVJhzjnQEuq_7o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/report/15",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"report",
+								"15"
 							]
 						}
 					},

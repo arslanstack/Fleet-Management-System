@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2023 at 01:32 PM
+-- Generation Time: Sep 26, 2023 at 02:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -260,7 +260,7 @@ CREATE TABLE `driver_deductions` (
   `amount` double(10,2) NOT NULL DEFAULT 0.00,
   `effective_date` date DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0: outstanding, 1:paid',
+  `status` tinyint(4) NOT NULL DEFAULT 1,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
@@ -276,7 +276,8 @@ CREATE TABLE `driver_deductions` (
 --
 
 INSERT INTO `driver_deductions` (`id`, `driver_id`, `deduction_id`, `amount`, `effective_date`, `description`, `status`, `updated_by`, `created_at`, `created_by`, `updated_at`, `installment_months`, `paid_months`, `paid_amount`, `remaining_amount`) VALUES
-(15, 18, 10, 2000.00, '2023-09-23', 'Drving under Influence', 0, NULL, '2023-09-26 11:04:54', 1, '2023-09-26 11:04:54', 4, 2, 1000.00, 1000.00),
+(17, 18, 10, 150.00, '2023-09-23', 'ill Discipline', 1, 1, '2023-09-26 11:59:04', 1, '2023-09-26 11:59:45', 2, 1, 75.00, 75.00),
+(15, 18, 10, 2000.00, '2023-09-23', 'Drving under Influence', 1, NULL, '2023-09-26 11:04:54', 1, '2023-09-26 11:04:54', 4, 2, 1000.00, 1000.00),
 (14, 18, 10, 600.00, '2023-09-23', 'No seatbelt challan', 1, NULL, '2023-09-26 11:04:43', 1, '2023-09-26 11:04:43', 1, 1, 600.00, 0.00);
 
 -- --------------------------------------------------------
@@ -968,7 +969,7 @@ ALTER TABLE `driver_allowances`
 -- AUTO_INCREMENT for table `driver_deductions`
 --
 ALTER TABLE `driver_deductions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `driver_salaries`

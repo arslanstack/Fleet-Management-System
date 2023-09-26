@@ -177,8 +177,8 @@ if (!function_exists('get_deductions')) {
 				$paidMonths += 1;
 				$paidAmount += $installmentAmount;
 				$remainingAmount -= $installmentAmount;
-			
-				$remainingAmount == 0 ? $deductionStatus = 1 : $deductionStatus = 0;
+
+				// $remainingAmount == 0 ? $deductionStatus = 1 : $deductionStatus = 0;
 
 				// Update the deduction record in the database
 				DB::table('driver_deductions')
@@ -187,7 +187,6 @@ if (!function_exists('get_deductions')) {
 						'paid_months' => $paidMonths,
 						'paid_amount' => $paidAmount,
 						'remaining_amount' => $remainingAmount,
-						'status' => $deductionStatus,
 					]);
 
 				// Add deduction details to the summary
@@ -206,6 +205,54 @@ if (!function_exists('get_deductions')) {
 			'total_deductions' => $totalDeductions,
 			'deduction_summary' => $deductionSummary,
 		];
+	}
+}
+
+if (!function_exists('get_installment_report')) {
+	function get_installment_report($deduction_id)
+	{
+		// Get the deduction information
+		$deduction = DB::table('driver_deductions')->where('id', $deduction_id)->first();
+
+		// Check if the deduction exists
+		if (!$deduction) {
+			return null; // Return null if deduction not found
+		}
+
+		$installmentReport = [];
+
+		$installmentMonths = $deduction->installment_months;
+		$paidMonths = $deduction->paid_months;
+		$remainingAmount = $deduction->remaining_amount;
+		$totalAmount = $deduction->amount;
+
+		for ($i = 1; $i <= $installmentMonths; $i++) {
+			$installmentAmount = $totalAmount / $installmentMonths;
+
+			if ($i <= $paidMonths) {
+				$amountPaid = $installmentAmount;
+				$amountLeft = 0;
+				$paid = true;
+			} else {
+				$amountPaid = 0;
+				$amountLeft = $installmentAmount;
+				$paid = false;
+			}
+
+			$installmentReport[] = [
+				'month' => $i,
+				'paid' => $paid,
+				'amount_paid' => $amountPaid,
+				'remaining_amount' => $totalAmount - ($installmentAmount * $i),
+			];
+		}
+
+		// Filter out unpaid months
+		$installmentReport = array_filter($installmentReport, function ($item) {
+			return $item['paid'];
+		});
+
+		return $installmentReport;
 	}
 }
 

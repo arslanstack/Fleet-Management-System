@@ -170,6 +170,7 @@ Route::middleware(['api'])->group(function () {
                 Route::get('/', [DeductionController::class, 'index']);
                 Route::post('store', [DeductionController::class, 'store']);
                 Route::get('edit/{id}', [DeductionController::class, 'edit']);
+                Route::get('report/{id}', [DeductionController::class, 'installmentReport']);
                 Route::post('update', [DeductionController::class, 'update']);
                 Route::post('delete', [DeductionController::class, 'destroy']);
             });
