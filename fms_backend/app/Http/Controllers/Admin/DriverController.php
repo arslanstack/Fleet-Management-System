@@ -22,6 +22,7 @@ class DriverController extends Controller
 	}
 	public function store(Request $request)
 	{
+
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
 			'name' => 'required',
@@ -42,7 +43,11 @@ class DriverController extends Controller
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
-
+		$dobDate = new \DateTime($data['dob']);
+		$joiningDate = new \DateTime($data['dob']);
+		if ($joiningDate <= $dobDate) {
+			return response()->json(array('msg' => 'lvl_error', 'response' => 'Joining date must be after date of birth.'));
+		}
 		$image_path1 = '';
 		$image_path2 = '';
 		$image_path3 = '';
