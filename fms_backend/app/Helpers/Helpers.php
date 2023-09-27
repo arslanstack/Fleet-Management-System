@@ -326,3 +326,123 @@ if (!function_exists('hasPermission')) {
 		return in_array($permission, $role->permissions);
 	}
 }
+if (!function_exists('calculateTripProfitLoss')) {
+	function calculateTripProfitLoss($trip_id)
+	{
+		$trip = DB::table('trips')->where('id', $trip_id)->first();
+
+		// Get refuelings for the trip
+		$refuelings = DB::table('fuel_management')->where('trip_id', $trip_id)->get();
+
+		// Calculate the total refueling cost for the trip and create refuelment breakdown
+		$totalRefuelingCost = 0;
+		$refuelmentBreakdown = [];
+		foreach ($refuelings as $refueling) {
+			$totalRefuelingCost += $refueling->fuel_cost;
+			$refuelmentBreakdown[] = [
+				'id' => $refueling->id,
+				'driver_id' => $refueling->driver_id,
+				'vehicle_id' => $refueling->vehicle_id,
+				'fuel_cost' => $refueling->fuel_cost,
+				'location' => $refueling->location,
+			];
+		}
+
+		// Get maintenances for the trip
+		$maintenances = DB::table('vehicle_maintenance')->where('trip_id', $trip_id)->get();
+
+		// Calculate the total maintenance cost for the trip and create maintenance breakdown
+		$totalMaintenanceCost = 0;
+		$maintenanceBreakdown = [];
+		foreach ($maintenances as $maintenance) {
+			$totalMaintenanceCost += $maintenance->amount;
+			$maintenanceBreakdown[] = [
+				'id' => $maintenance->id,
+				'driver_id' => $maintenance->driver_id,
+				'vehicle_id' => $maintenance->vehicle_id,
+				'amount' => $maintenance->amount,
+			];
+		}
+
+		// Calculate the trip fee
+		$tripFee = $trip->amount;
+
+		// Calculate the profit or loss amount for the trip
+		$amount = $tripFee - ($totalRefuelingCost + $totalMaintenanceCost);
+
+		// Create a summary array
+		$summary = [
+			'trip_id' => $trip_id,
+			'project_id' => $trip->project_id,
+			'driver_id' => $trip->driver_id,
+			'trip_from_location' => $trip->from_location,
+			'trip_end_location' => $trip->end_location,
+			'trip_distance' => $trip->distance,
+			'trip_start_date_time' => $trip->start_date_time,
+			'trip_start_date_time' => $trip->start_date_time,
+			'trip_fee' => $tripFee,
+			'refuelment_cost' => $totalRefuelingCost,
+			'refuelment_breakdown' => $refuelmentBreakdown,
+			'maintenance_cost' => $totalMaintenanceCost,
+			'maintenance_breakdown' => $maintenanceBreakdown,
+		];
+
+		return [
+			'amount' => $amount,
+			'summary' => $summary,
+		];
+	}
+}
+if (!function_exists('calculateDriverProfitLoss')) {
+	function calculateDriverProfitLoss($driver_id)
+	{
+		// Initialize variables to store overall statistics
+		$overallStatus = 'profit';
+		$overallAmount = 0;
+		$overallSummary = [];
+		$totalDistance = 0;
+		$totalFuelConsumption = 0;
+
+		// Get all trips made by the driver
+		$trips = DB::table('trips')->where('driver_id', $driver_id)->get();
+
+		// Iterate through each trip
+		foreach ($trips as $trip) {
+			// Calculate profit or loss for the trip using the existing helper function
+			$tripData = calculateTripProfitLoss($trip->id);
+			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+			$tripAmount = abs($tripData['amount']);
+
+			// Update overall statistics
+			$overallAmount += $tripAmount;
+			$totalDistance += $trip->distance;
+			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+
+			// Create a summary for the trip and add it to the overall summary
+			$tripSummary = [
+				'trip_id' => $trip->id,
+				'trip_status' => $tripStatus,
+				'trip_amount' => $tripAmount,
+				'trip_summary' => $tripData['summary'],
+			];
+			$overallSummary[] = $tripSummary;
+
+			// Update overall status (if any trip is a loss, overall status will be a loss)
+			if ($tripStatus === 'loss') {
+				$overallStatus = 'loss';
+			}
+		}
+
+		// Create the overall summary
+		$driverSummary = [
+			'driver_id' => $driver_id,
+			'overall_status' => $overallStatus,
+			'overall_amount' => $overallAmount,
+			'overall_summary' => $overallSummary,
+			'total_distance' => $totalDistance,
+			'total_fuel_consumption' => $totalFuelConsumption,
+		];
+
+		return $driverSummary;
+	}
+}

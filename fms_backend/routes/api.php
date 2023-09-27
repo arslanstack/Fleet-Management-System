@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TripController;
 use App\Http\Controllers\Admin\StaffManagementController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\ProfitLossController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -189,6 +190,27 @@ Route::middleware(['api'])->group(function () {
                 Route::post('update', [AllowanceController::class, 'update']);
                 Route::post('delete', [AllowanceController::class, 'destroy']);
             });
+            Route::group(['prefix' => 'profit-loss'], function () {
+                // Profit Loss Estimate
+                Route::get('/project/{id}', [ProfitLossController::class, 'project_profit_loss']);
+                Route::get('/driver/{id}', [ProfitLossController::class, 'driver_profit_loss']);
+                Route::get('/company/{id}', [ProfitLossController::class, 'company_profit_loss']);
+                Route::get('/trip/{id}', [ProfitLossController::class, 'trip_profit_loss']);
+                
+                
+                // Diesel Usage
+                Route::get('/diesel/monthly', [ProfitLossController::class, 'diesel_monthly']);
+                Route::get('/diesel/weekly', [ProfitLossController::class, 'diesel_weekly']);
+                Route::get('/diesel/yearly', [ProfitLossController::class, 'diesel_yearly']);
+
+                // Diesel Consumption by driver and vehicle
+                Route::get('/diesel/driver/{id}', [ProfitLossController::class, 'diesel_driver']);
+                Route::get('/diesel/vehicle/{id}', [ProfitLossController::class, 'diesel_vehicle']);
+
+                // Idle Vehicle
+                Route::get('/idle-vehicle', [ProfitLossController::class, 'idle_vehicle']);
+            });
+
         });
     });
 });

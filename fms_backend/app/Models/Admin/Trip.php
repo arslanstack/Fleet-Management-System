@@ -19,6 +19,7 @@ class Trip extends Model
         'vehicle_id',
         'driver_id',
         'project_id',
+        'company_id',
         'start_date_time',
         'end_date_time',
         'from_location',
