@@ -168,7 +168,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODAwNTA5LCJleHAiOjE2OTU4MDQxMDksIm5iZiI6MTY5NTgwMDUwOSwianRpIjoiSUh3ckd5NUhGczF3dG1tbiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.fpYczj9SqRTHlKNWGplJuZ_WRDwQXbnZyP0foplw85I",
 								"type": "text"
 							}
 						],
@@ -187,7 +187,7 @@
 								},
 								{
 									"key": "email",
-									"value": "calebjanaltair@gmail.com",
+									"value": "abcdef@gmail.com",
 									"type": "text"
 								},
 								{
@@ -227,7 +227,7 @@
 								},
 								{
 									"key": "joining_date",
-									"value": "2023-09-08",
+									"value": "2023-08-08",
 									"type": "text"
 								},
 								{
@@ -6224,6 +6224,379 @@
 			]
 		},
 		{
+			"name": "Dashboard Stats",
+			"item": [
+				{
+					"name": "Get Trip P/L",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "trip_id",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2020-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/trip/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"trip",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Driver P/L",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/driver/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"driver",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project P/L",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/project/6",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"project",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Company P/L",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/company/5",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"company",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Diesel Usage",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3MTQyLCJleHAiOjE2OTU4MjA3NDIsIm5iZiI6MTY5NTgxNzE0MiwianRpIjoid0E1QUlpYjgxTGNMcWNWbSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aLgll-g-Boko5xpV8s-pNUKSt6DTLW7GwgVew-QyF_I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "from_date",
+									"value": "2020-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/diesel",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"diesel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Diesel by Driver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3MTQyLCJleHAiOjE2OTU4MjA3NDIsIm5iZiI6MTY5NTgxNzE0MiwianRpIjoid0E1QUlpYjgxTGNMcWNWbSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aLgll-g-Boko5xpV8s-pNUKSt6DTLW7GwgVew-QyF_I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2020-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/diesel/driver",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"diesel",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Diesel by Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3MTQyLCJleHAiOjE2OTU4MjA3NDIsIm5iZiI6MTY5NTgxNzE0MiwianRpIjoid0E1QUlpYjgxTGNMcWNWbSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aLgll-g-Boko5xpV8s-pNUKSt6DTLW7GwgVew-QyF_I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2020-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/diesel/vehicle",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"diesel",
+								"vehicle"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Idle Vehicles",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "from_date",
+									"value": "2023-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/idle-vehicle",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"idle-vehicle"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Salaries",
 			"item": [
 				{
@@ -6279,7 +6652,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzI2MTY5LCJleHAiOjE2OTU3Mjk3NjksIm5iZiI6MTY5NTcyNjE2OSwianRpIjoiQUl5VmRKcURKUUw2WTNBSiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ySA0NKUO5yPp9GprfPZhoyHE126IUcKfc99uHkkvhUE",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1Nzk2MzEyLCJleHAiOjE2OTU3OTk5MTIsIm5iZiI6MTY5NTc5NjMxMiwianRpIjoiazZJMmlDc29ydUtqc0pTVSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.YMFNIcIyNVlXvzkF2aNMNjYmVF2zI2UQeWi7mkA_-2Y",
 								"type": "text"
 							}
 						],

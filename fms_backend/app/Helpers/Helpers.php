@@ -437,12 +437,119 @@ if (!function_exists('calculateDriverProfitLoss')) {
 		$driverSummary = [
 			'driver_id' => $driver_id,
 			'overall_status' => $overallStatus,
-			'overall_amount' => $overallAmount,
-			'overall_summary' => $overallSummary,
+			'overall_profit/loss_amount' => $overallAmount,
 			'total_distance' => $totalDistance,
 			'total_fuel_consumption' => $totalFuelConsumption,
+			'overall_summary' => $overallSummary,
 		];
 
 		return $driverSummary;
 	}
+}
+
+if (!function_exists('calculateProjectProfitLoss')) {
+    function calculateProjectProfitLoss($project_id)
+    {
+        // Initialize variables to store overall statistics for the project
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
+
+        // Get all trips associated with the project
+        $trips = DB::table('trips')->where('project_id', $project_id)->get();
+
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
+
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
+
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
+
+        // Create the overall summary for the project
+        $projectSummary = [
+            'project_id' => $project_id,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+            'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
+
+        return $projectSummary;
+    }
+}
+if (!function_exists('calculateCompanyProfitLoss')) {
+    function calculateCompanyProfitLoss($company_id)
+    {
+        // Initialize variables to store overall statistics for the company
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
+
+        // Get all trips associated with the company
+        $trips = DB::table('trips')->where('company_id', $company_id)->get();
+
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
+
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
+
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
+
+        // Create the overall summary for the company
+        $companySummary = [
+            'company_id' => $company_id,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+			'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
+
+        return $companySummary;
+    }
 }

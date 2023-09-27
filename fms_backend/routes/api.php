@@ -196,19 +196,13 @@ Route::middleware(['api'])->group(function () {
                 Route::get('/driver/{id}', [ProfitLossController::class, 'driver_profit_loss']);
                 Route::get('/company/{id}', [ProfitLossController::class, 'company_profit_loss']);
                 Route::get('/trip/{id}', [ProfitLossController::class, 'trip_profit_loss']);
-                
-                
                 // Diesel Usage
-                Route::get('/diesel/monthly', [ProfitLossController::class, 'diesel_monthly']);
-                Route::get('/diesel/weekly', [ProfitLossController::class, 'diesel_weekly']);
-                Route::get('/diesel/yearly', [ProfitLossController::class, 'diesel_yearly']);
-
+                Route::post('/diesel', [ProfitLossController::class, 'diesel_usage']);
                 // Diesel Consumption by driver and vehicle
-                Route::get('/diesel/driver/{id}', [ProfitLossController::class, 'diesel_driver']);
-                Route::get('/diesel/vehicle/{id}', [ProfitLossController::class, 'diesel_vehicle']);
-
+                Route::post('/diesel/driver', [ProfitLossController::class, 'diesel_driver']);
+                Route::post('/diesel/vehicle', [ProfitLossController::class, 'diesel_vehicle']);
                 // Idle Vehicle
-                Route::get('/idle-vehicle', [ProfitLossController::class, 'idle_vehicle']);
+                Route::post('/idle-vehicle', [ProfitLossController::class, 'idle_vehicle']);
             });
 
         });
