@@ -17,6 +17,112 @@ use Carbon\Carbon;
 
 class ProfitLossController extends Controller
 {
+    public function project_profit_loss_range(Request $request)
+    {
+        // Validate the request parameters
+        $validator = Validator::make($request->all(), [
+            'project_id' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        // Extract the input parameters
+        $projectId = $request->input('project_id');
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        // Call a helper function to calculate profit and loss for the project within the date range
+        $projectData = calculateProjectProfitLossInRange($projectId, $fromDate, $toDate);
+
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'successfully',
+            'data' => $projectData,
+        ]);
+    }
+    public function driver_profit_loss_range(Request $request)
+    {
+        // Validate the request parameters
+        $validator = Validator::make($request->all(), [
+            'driver_id' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        // Extract the input parameters
+        $driverId = $request->input('driver_id');
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        // Call a helper function to calculate profit and loss for the driver within the date range
+        $driverData = calculateDriverProfitLossInRange($driverId, $fromDate, $toDate);
+
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'successfully',
+            'data' => $driverData,
+        ]);
+    }
+    public function company_profit_loss_range(Request $request)
+    {
+        // Validate the request parameters
+        $validator = Validator::make($request->all(), [
+            'company_id' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        // Extract the input parameters
+        $companyId = $request->input('company_id');
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        // Call a helper function to calculate profit and loss for the company within the date range
+        $companyData = calculateCompanyProfitLossInRange($companyId, $fromDate, $toDate);
+
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'successfully',
+            'data' => $companyData,
+        ]);
+    }
+    public function trip_profit_loss_range(Request $request)
+    {
+        // Validate the request parameters
+        $validator = Validator::make($request->all(), [
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        // Extract the input parameters
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        // Call a helper function to calculate profit and loss statistics for all trips within the date range
+        $tripData = calculateTripProfitLossInRange($fromDate, $toDate);
+
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'successfully',
+            'data' => $tripData,
+        ]);
+    }
     public function project_profit_loss($project_id)
     {
         $projectData = calculateProjectProfitLoss($project_id);
@@ -93,8 +199,6 @@ class ProfitLossController extends Controller
             ],
         ]);
     }
-
-
     public function diesel_driver(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -126,7 +230,6 @@ class ProfitLossController extends Controller
             ],
         ]);
     }
-
     public function diesel_vehicle(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -158,7 +261,6 @@ class ProfitLossController extends Controller
             ],
         ]);
     }
-
     public function idle_vehicle(Request $request)
     {
         $validator = Validator::make($request->all(), [

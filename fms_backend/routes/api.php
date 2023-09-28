@@ -171,6 +171,7 @@ Route::middleware(['api'])->group(function () {
                 Route::get('/', [DeductionController::class, 'index']);
                 Route::post('store', [DeductionController::class, 'store']);
                 Route::get('edit/{id}', [DeductionController::class, 'edit']);
+                Route::get('/driver_deduction/{id}', [DeductionController::class, 'driver_deduction']);
                 Route::get('report/{id}', [DeductionController::class, 'installmentReport']);
                 Route::post('update', [DeductionController::class, 'update']);
                 Route::post('delete', [DeductionController::class, 'destroy']);
@@ -196,6 +197,13 @@ Route::middleware(['api'])->group(function () {
                 Route::get('/driver/{id}', [ProfitLossController::class, 'driver_profit_loss']);
                 Route::get('/company/{id}', [ProfitLossController::class, 'company_profit_loss']);
                 Route::get('/trip/{id}', [ProfitLossController::class, 'trip_profit_loss']);
+
+                // Profit Loss Estimate
+                Route::post('/project', [ProfitLossController::class, 'project_profit_loss_range']);
+                Route::post('/driver', [ProfitLossController::class, 'driver_profit_loss_range']);
+                Route::post('/company', [ProfitLossController::class, 'company_profit_loss_range']);
+                Route::post('/trip', [ProfitLossController::class, 'trip_profit_loss_range']);
+
                 // Diesel Usage
                 Route::post('/diesel', [ProfitLossController::class, 'diesel_usage']);
                 // Diesel Consumption by driver and vehicle

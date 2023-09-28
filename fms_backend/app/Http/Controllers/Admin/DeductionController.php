@@ -65,6 +65,10 @@ class DeductionController extends Controller
 		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
 		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
 	}
+	public function driver_deduction($id){
+		$deduction = Deduction::where('driver_id', $id)->orderBy('id', 'DESC')->get();
+		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $deduction));
+	}
 	public function update(Request $request)
 	{
 		$data = $request->all();
