@@ -36,7 +36,7 @@ class StaffManagementController extends Controller
         if ($validator->fails()) {
             return response()->json(['msg' => 'validation_error', 'errors' => $validator->errors()], 400);
         }
-        
+
         try {
             if ($request->hasFile('image')) {
                 $imageFile = $request->file('image');
@@ -129,9 +129,14 @@ class StaffManagementController extends Controller
             ]);
 
             if ($post_status > 0) {
-                return response()->json(['msg' => 'success', 'response' => 'Admin successfully updated!']);
+                $updatedRecord = Admin::find($data['id']);
+                return response()->json([
+                    'msg' => 'success',
+                    'response' => 'Allowance successfully updated!',
+                    'query' => $updatedRecord, // Include the updated record in the response
+                ]);
             } else {
-                return response()->json(['msg' => 'error', 'response' => 'Something went wrong! Probably Inavlid id given.']);
+                return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
             }
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);

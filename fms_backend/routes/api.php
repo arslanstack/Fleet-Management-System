@@ -172,6 +172,7 @@ Route::middleware(['api'])->group(function () {
                 Route::post('store', [DeductionController::class, 'store']);
                 Route::get('edit/{id}', [DeductionController::class, 'edit']);
                 Route::get('/driver_deduction/{id}', [DeductionController::class, 'driver_deduction']);
+                Route::get('/active_deduction/{id}', [DeductionController::class, 'active_deductions']);
                 Route::get('report/{id}', [DeductionController::class, 'installmentReport']);
                 Route::post('update', [DeductionController::class, 'update']);
                 Route::post('delete', [DeductionController::class, 'destroy']);
@@ -211,6 +212,9 @@ Route::middleware(['api'])->group(function () {
                 // Diesel Consumption by driver and vehicle
                 Route::post('/diesel/driver', [ProfitLossController::class, 'diesel_driver']);
                 Route::post('/diesel/vehicle', [ProfitLossController::class, 'diesel_vehicle']);
+                // Diesel Consumption and maintenance by driver and vehicle monthly
+                Route::post('/diesel_maintenance_monthly/driver', [ProfitLossController::class, 'monthly_dm_driver']);
+                Route::post('/diesel_maintenance_monthly/vehicle', [ProfitLossController::class, 'monthly_dm_vehicle']);
                 // Idle Vehicle
                 Route::post('/idle-vehicle', [ProfitLossController::class, 'idle_vehicle']);
             });

@@ -74,7 +74,7 @@ class TripController extends Controller
     {
         try {
             $trip = Trip::find($id);
-            
+
             if (!$trip) {
                 return response()->json(['msg' => 'error', 'response' => 'Trip not found.'], 404);
             }
@@ -110,13 +110,13 @@ class TripController extends Controller
 
         try {
             $trip = Trip::find($data['id']);
-            
+
             if (!$trip) {
                 return response()->json(['msg' => 'error', 'response' => 'Trip not found.'], 404);
             }
 
             $status = isset($data['status']) ? "1" : "0";
-            
+
             $post_status = $trip->update([
                 'vehicle_id' => $data['vehicle_id'],
                 'driver_id' => $data['driver_id'],
@@ -135,10 +135,15 @@ class TripController extends Controller
                 'updated_by' => Auth::user()->id,
             ]);
 
-            if ($post_status) {
-                return response()->json(['msg' => 'success', 'response' => 'Trip successfully updated!']);
+            if ($post_status > 0) {
+                $updatedRecord = Trip::find($data['id']);
+                return response()->json([
+                    'msg' => 'success',
+                    'response' => 'Allowance successfully updated!',
+                    'query' => $updatedRecord, // Include the updated record in the response
+                ]);
             } else {
-                return response()->json(['msg' => 'error', 'response' => 'Something went wrong!'], 500);
+                return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
             }
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
@@ -148,7 +153,7 @@ class TripController extends Controller
     public function destroy(Request $request)
     {
         $data = $request->all();
-        
+
         $validator = Validator::make($request->all(), [
             'id' => 'required',
         ]);
@@ -159,7 +164,7 @@ class TripController extends Controller
 
         try {
             $trip = Trip::find($data['id']);
-            
+
             if (!$trip) {
                 return response()->json(['msg' => 'error', 'response' => 'Trip not found.'], 404);
             }

@@ -168,7 +168,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODAwNTA5LCJleHAiOjE2OTU4MDQxMDksIm5iZiI6MTY5NTgwMDUwOSwianRpIjoiSUh3ckd5NUhGczF3dG1tbiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.fpYczj9SqRTHlKNWGplJuZ_WRDwQXbnZyP0foplw85I",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA4OTU1LCJleHAiOjE2OTU5MTI1NTUsIm5iZiI6MTY5NTkwODk1NSwianRpIjoibmVZREVadkdTbVlicmx4TCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.UVtKhKSo0MLfdU__sYvPCqzmuAdyLsRZkOyHtwwMSN8",
 								"type": "text"
 							}
 						],
@@ -187,7 +187,7 @@
 								},
 								{
 									"key": "email",
-									"value": "abcdef@gmail.com",
+									"value": "kbasd@gmail.com",
 									"type": "text"
 								},
 								{
@@ -207,7 +207,7 @@
 								},
 								{
 									"key": "dob",
-									"value": "2023-09-09",
+									"value": "2001-09-09",
 									"type": "text"
 								},
 								{
@@ -227,7 +227,7 @@
 								},
 								{
 									"key": "joining_date",
-									"value": "2023-08-08",
+									"value": "2022-08-08",
 									"type": "text"
 								},
 								{
@@ -439,7 +439,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA4OTU1LCJleHAiOjE2OTU5MTI1NTUsIm5iZiI6MTY5NTkwODk1NSwianRpIjoibmVZREVadkdTbVlicmx4TCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.UVtKhKSo0MLfdU__sYvPCqzmuAdyLsRZkOyHtwwMSN8",
 								"type": "text"
 							}
 						],
@@ -468,7 +468,7 @@
 								},
 								{
 									"key": "dob",
-									"value": "2023-09-09",
+									"value": "2001-09-09",
 									"type": "text"
 								},
 								{
@@ -538,7 +538,7 @@
 								},
 								{
 									"key": "id",
-									"value": "1",
+									"value": "20",
 									"type": "text"
 								}
 							]
@@ -616,7 +616,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA4OTU1LCJleHAiOjE2OTU5MTI1NTUsIm5iZiI6MTY5NTkwODk1NSwianRpIjoibmVZREVadkdTbVlicmx4TCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.UVtKhKSo0MLfdU__sYvPCqzmuAdyLsRZkOyHtwwMSN8",
 								"type": "text"
 							}
 						],
@@ -635,7 +635,7 @@
 								},
 								{
 									"key": "email",
-									"value": "paypal4@paypal.com",
+									"value": "paypaal4@paypal.com",
 									"type": "text"
 								},
 								{
@@ -732,7 +732,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA4OTU1LCJleHAiOjE2OTU5MTI1NTUsIm5iZiI6MTY5NTkwODk1NSwianRpIjoibmVZREVadkdTbVlicmx4TCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.UVtKhKSo0MLfdU__sYvPCqzmuAdyLsRZkOyHtwwMSN8",
 								"type": "text"
 							}
 						],
@@ -811,7 +811,7 @@
 								},
 								{
 									"key": "id",
-									"value": "4",
+									"value": "9",
 									"type": "text"
 								}
 							]
@@ -5729,6 +5729,45 @@
 					"response": []
 				},
 				{
+					"name": "Get Active Deductions",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA3OTc4LCJleHAiOjE2OTU5MTE1NzgsIm5iZiI6MTY5NTkwNzk3OCwianRpIjoiTnZFV1REVWUwbDJwWFRhRiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Yh2Kj7Ra-pCwrXTqY2ZnyCEfQBVzrjxqx_LiE2EblPc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/active_deduction/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"active_deduction",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get installments of deduction",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -5820,7 +5859,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzEwODg2LCJleHAiOjE2OTU3MTQ0ODYsIm5iZiI6MTY5NTcxMDg4NiwianRpIjoiUW1PdHF3OVQ0RElzdnlyQiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.FG71wkYZYOuQHYPQh8MAQgsp_8CZg1DckV6Kxohz2mw",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA1MDMwLCJleHAiOjE2OTU5MDg2MzAsIm5iZiI6MTY5NTkwNTAzMCwianRpIjoiUTBIeTlMaUdWV1hrVXcwRSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Wx5lHDrzd_NsfUpkuMMjIuMoCOlspD7fjOVkI9nrwqw",
 								"type": "text"
 							}
 						],
@@ -5866,7 +5905,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA1MDMwLCJleHAiOjE2OTU5MDg2MzAsIm5iZiI6MTY5NTkwNTAzMCwianRpIjoiUTBIeTlMaUdWV1hrVXcwRSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Wx5lHDrzd_NsfUpkuMMjIuMoCOlspD7fjOVkI9nrwqw",
 								"type": "text"
 							}
 						],
@@ -5885,6 +5924,11 @@
 								},
 								{
 									"key": "id",
+									"value": "20",
+									"type": "text"
+								},
+								{
+									"key": "status",
 									"value": "1",
 									"type": "text"
 								}
@@ -6039,7 +6083,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzEwODg2LCJleHAiOjE2OTU3MTQ0ODYsIm5iZiI6MTY5NTcxMDg4NiwianRpIjoiUW1PdHF3OVQ0RElzdnlyQiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.FG71wkYZYOuQHYPQh8MAQgsp_8CZg1DckV6Kxohz2mw",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA1MDMwLCJleHAiOjE2OTU5MDg2MzAsIm5iZiI6MTY5NTkwNTAzMCwianRpIjoiUTBIeTlMaUdWV1hrVXcwRSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Wx5lHDrzd_NsfUpkuMMjIuMoCOlspD7fjOVkI9nrwqw",
 								"type": "text"
 							}
 						],
@@ -6090,7 +6134,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk0NDIwNjExLCJleHAiOjE2OTQ0MjQyMTEsIm5iZiI6MTY5NDQyMDYxMSwianRpIjoiNzNYZGZFQ1JhYTRYTFE1WSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Kt10bLK251CacW_pTIf-Orp-Hh4hbUxO7oUi1Xmwwxc",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA1MDMwLCJleHAiOjE2OTU5MDg2MzAsIm5iZiI6MTY5NTkwNTAzMCwianRpIjoiUTBIeTlMaUdWV1hrVXcwRSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Wx5lHDrzd_NsfUpkuMMjIuMoCOlspD7fjOVkI9nrwqw",
 								"type": "text"
 							}
 						],
@@ -6114,6 +6158,11 @@
 								},
 								{
 									"key": "id",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "status",
 									"value": "1",
 									"type": "text"
 								}
@@ -6800,6 +6849,58 @@
 					"response": []
 				},
 				{
+					"name": "Monthly Driver Fuel+Repair",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA3OTc4LCJleHAiOjE2OTU5MTE1NzgsIm5iZiI6MTY5NTkwNzk3OCwianRpIjoiTnZFV1REVWUwbDJwWFRhRiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Yh2Kj7Ra-pCwrXTqY2ZnyCEfQBVzrjxqx_LiE2EblPc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2020-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-25",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/diesel_maintenance_monthly/driver",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"diesel_maintenance_monthly",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Diesel by Vehicle in Date Range",
 					"request": {
 						"method": "POST",
@@ -6850,6 +6951,157 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Monthly Vehicle Fuel+Repair",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA3OTc4LCJleHAiOjE2OTU5MTE1NzgsIm5iZiI6MTY5NTkwNzk3OCwianRpIjoiTnZFV1REVWUwbDJwWFRhRiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Yh2Kj7Ra-pCwrXTqY2ZnyCEfQBVzrjxqx_LiE2EblPc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "vehicle_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2020-01-19",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/diesel_maintenance_monthly/vehicle",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"diesel_maintenance_monthly",
+								"vehicle"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Diesel by Vehicle in Date Range Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1OTA3OTc4LCJleHAiOjE2OTU5MTE1NzgsIm5iZiI6MTY5NTkwNzk3OCwianRpIjoiTnZFV1REVWUwbDJwWFRhRiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.Yh2Kj7Ra-pCwrXTqY2ZnyCEfQBVzrjxqx_LiE2EblPc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "vehicle_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "from_date",
+											"value": "2020-01-19",
+											"type": "text"
+										},
+										{
+											"key": "to_date",
+											"value": "2023-09-27",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/admin/profit-loss/diesel_maintenance_monthly/vehicle",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"admin",
+										"profit-loss",
+										"diesel_maintenance_monthly",
+										"vehicle"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "127.0.0.1:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Sep 2023 13:47:00 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 28 Sep 2023 13:47:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"msg\": \"success\",\n    \"response\": \"Successfully retrieved vehicle monthly data\",\n    \"data\": {\n        \"vehicle_id\": \"3\",\n        \"fuel_consumption\": 46,\n        \"total_fuel_cost\": 552,\n        \"maintenance_cost\": 7000,\n        \"fuel_consumption_summary\": [\n            {\n                \"fuel_date\": \"2020-01-19\",\n                \"total_quantity\": 14\n            },\n            {\n                \"fuel_date\": \"2023-01-19\",\n                \"total_quantity\": 12\n            },\n            {\n                \"fuel_date\": \"2023-09-01\",\n                \"total_quantity\": 20\n            }\n        ],\n        \"maintenance_summary\": [\n            {\n                \"id\": 3,\n                \"maintenance_date\": \"2021-09-12\",\n                \"amount\": 2500,\n                \"description\": \"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s\"\n            },\n            {\n                \"id\": 5,\n                \"maintenance_date\": \"2023-01-12\",\n                \"amount\": 3000,\n                \"description\": \"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s\"\n            },\n            {\n                \"id\": 6,\n                \"maintenance_date\": \"2023-09-12\",\n                \"amount\": 1500,\n                \"description\": \"Lorem Ipsum has been the industry's standard dummy text ever since the 1500s\"\n            }\n        ]\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Idle Vehicles in Date Range",

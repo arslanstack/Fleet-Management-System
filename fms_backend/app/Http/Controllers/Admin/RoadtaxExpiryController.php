@@ -84,7 +84,12 @@ class RoadtaxExpiryController extends Controller
 		]);
 
 		if ($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Roadtax successfully updated!']);
+			$updatedRecord = Roadtax::find($data['id']);
+			return response()->json([
+				'msg' => 'success',
+				'response' => 'Allowance successfully updated!',
+				'query' => $updatedRecord, // Include the updated record in the response
+			]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

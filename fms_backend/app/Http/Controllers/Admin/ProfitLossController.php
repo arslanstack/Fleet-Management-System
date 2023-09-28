@@ -337,4 +337,114 @@ class ProfitLossController extends Controller
             'data' => $idle_vehicles,
         ]);
     }
+
+    public function monthly_dm_driver(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'driver_id' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        $driver_id = $request->input('driver_id');
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+
+        // Calculate fuel consumption and total fuel cost using FuelConsumption Model
+        $fuelConsumption = FuelManagement::where('driver_id', $driver_id)
+            ->whereBetween('fuel_datetime', [$from_date, $to_date])
+            ->sum('quantity');
+
+        $totalFuelCost = FuelManagement::where('driver_id', $driver_id)
+            ->whereBetween('fuel_datetime', [$from_date, $to_date])
+            ->sum('fuel_cost');
+
+        // Calculate maintenance cost and get a summary using VehicleMaintenance Model
+        $maintenanceCost = VehicleMaintenance::where('driver_id', $driver_id)
+            ->whereBetween('maintenance_date', [$from_date, $to_date])
+            ->sum('amount');
+
+        $maintenanceSummary = VehicleMaintenance::where('driver_id', $driver_id)
+            ->whereBetween('maintenance_date', [$from_date, $to_date])
+            ->get(['id', 'maintenance_date', 'amount', 'description']); // Adjust the fields as needed
+
+        // Calculate fuel consumption summary by grouping records by date
+        $fuelConsumptionSummary = FuelManagement::where('driver_id', $driver_id)
+            ->whereBetween('fuel_datetime', [$from_date, $to_date])
+            ->groupBy('fuel_date')
+            ->selectRaw('DATE(fuel_datetime) as fuel_date, SUM(quantity) as total_quantity')
+            ->get();
+
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'Successfully retrieved driver monthly data',
+            'data' => [
+                'driver_id' => $driver_id,
+                'fuel_consumption' => $fuelConsumption,
+                'total_fuel_cost' => $totalFuelCost,
+                'maintenance_cost' => $maintenanceCost,
+                'fuel_consumption_summary' => $fuelConsumptionSummary,
+                'maintenance_summary' => $maintenanceSummary,
+            ],
+        ]);
+    }
+
+    public function monthly_dm_vehicle(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'vehicle_id' => 'required',
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        $vehicle_id = $request->input('vehicle_id');
+        $from_date = $request->input('from_date');
+        $to_date = $request->input('to_date');
+
+        // Calculate fuel consumption and total fuel cost using FuelManagement Model
+        $fuelConsumption = FuelManagement::where('vehicle_id', $vehicle_id)
+            ->whereBetween('fuel_datetime', [$from_date, $to_date])
+            ->sum('quantity');
+
+        $totalFuelCost = FuelManagement::where('vehicle_id', $vehicle_id)
+            ->whereBetween('fuel_datetime', [$from_date, $to_date])
+            ->sum('fuel_cost');
+
+        // Calculate maintenance cost and get a summary using VehicleMaintenance Model
+        $maintenanceCost = VehicleMaintenance::where('vehicle_id', $vehicle_id)
+            ->whereBetween('maintenance_date', [$from_date, $to_date])
+            ->sum('amount');
+
+        $maintenanceSummary = VehicleMaintenance::where('vehicle_id', $vehicle_id)
+            ->whereBetween('maintenance_date', [$from_date, $to_date])
+            ->get(['id', 'maintenance_date', 'amount', 'description']); // Adjust the fields as needed
+
+        // Calculate fuel consumption summary by grouping records by date
+        $fuelConsumptionSummary = FuelManagement::where('vehicle_id', $vehicle_id)
+            ->whereBetween('fuel_datetime', [$from_date, $to_date])
+            ->groupBy(DB::raw('DATE(fuel_datetime)'))
+            ->selectRaw('DATE(fuel_datetime) as fuel_date, SUM(quantity) as total_quantity')
+            ->get();
+
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'Successfully retrieved vehicle monthly data',
+            'data' => [
+                'vehicle_id' => $vehicle_id,
+                'fuel_consumption' => $fuelConsumption,
+                'total_fuel_cost' => $totalFuelCost,
+                'maintenance_cost' => $maintenanceCost,
+                'fuel_consumption_summary' => $fuelConsumptionSummary,
+                'maintenance_summary' => $maintenanceSummary,
+            ],
+        ]);
+    }
 }

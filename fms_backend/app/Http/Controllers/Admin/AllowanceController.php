@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -16,12 +18,12 @@ class AllowanceController extends Controller
 		// $data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
 		// return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
 		$allowances = Allowance::orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowances));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $allowances));
 	}
 	public function driver_allowances($id)
 	{
 		$allowances = Allowance::where('driver_id', $id)->orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $allowances));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $allowances));
 	}
 	public function store(Request $request)
 	{
@@ -32,20 +34,20 @@ class AllowanceController extends Controller
 			'amount' => 'required',
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
 		$query = Allowance::create([
-			'driver_id'=> $data['driver_id'],
-			'allowance_id'=> $data['allowance_type'],
-			'amount'=> $data['amount'],
+			'driver_id' => $data['driver_id'],
+			'allowance_id' => $data['allowance_type'],
+			'amount' => $data['amount'],
 			'created_by' => Auth()->user()->id,
 			'created_at' => date('Y-m-d H:i:s')
 		]);
 		$response_status = $query->id;
-		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully added.', 'query' => $query]);
+		if ($response_status > 0) {
+			return response()->json(['msg' => 'success', 'response' => 'Allowance successfully added.', 'query' => $query]);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 	public function edit($id, Request $request)
@@ -53,7 +55,7 @@ class AllowanceController extends Controller
 		$data['deduction'] = Allowance::where('id', $id)->first();
 		$data['allowance_types'] = get_complete_table('allowances', '', '', '', '1', '', '');
 		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $data));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
 	}
 	public function update(Request $request)
 	{
@@ -64,37 +66,42 @@ class AllowanceController extends Controller
 			'amount' => 'required',
 		]);
 		if ($validator->fails()) {
-			return response()->json(array('msg' => 'lvl_error', 'response'=>$validator->errors()->all()));
+			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
-		if(isset($data['status'])){
+		if (isset($data['status'])) {
 			$status = "1";
-		}else {
+		} else {
 			$status = "0";
 		}
 		$post_status = Allowance::where('id', $data['id'])->update([
-			'driver_id'=> $data['driver_id'],
-			'allowance_id'=> $data['allowance_type'],
-			'amount'=> $data['amount'],
+			'driver_id' => $data['driver_id'],
+			'allowance_id' => $data['allowance_type'],
+			'amount' => $data['amount'],
 			'status' => $status,
 			'updated_at' => date('Y-m-d H:i:s'),
 			'updated_by' => Auth()->user()->id,
 		]);
 
-		if($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully updated!', 'query' => $post_status]);
+		if ($post_status > 0) {
+			$updatedRecord = Allowance::find($data['id']);
+			return response()->json([
+				'msg' => 'success',
+				'response' => 'Allowance successfully updated!',
+				'query' => $updatedRecord, // Include the updated record in the response
+			]);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 	public function destroy(Request $request)
 	{
 		$data = $request->all();
 		$status = Allowance::where('id', $data['id'])->first();
-		if($status) {
+		if ($status) {
 			Allowance::find($data['id'])->delete();
-			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully deleted.']);
+			return response()->json(['msg' => 'success', 'response' => 'Allowance successfully deleted.']);
 		} else {
-			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
+			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
 }

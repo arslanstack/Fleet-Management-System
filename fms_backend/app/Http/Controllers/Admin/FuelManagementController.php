@@ -139,7 +139,12 @@ class FuelManagementController extends Controller
 		]);
 
 		if ($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Fuel management successfully updated!']);
+			$updatedRecord = FuelManagement::find($data['id']);
+			return response()->json([
+				'msg' => 'success',
+				'response' => 'Allowance successfully updated!',
+				'query' => $updatedRecord, // Include the updated record in the response
+			]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

@@ -45,7 +45,7 @@ class DriverController extends Controller
 		}
 		$dobDate = new \DateTime($data['dob']);
 		$joiningDate = new \DateTime($data['joining_date']);
-		
+
 		if ($joiningDate <= $dobDate) {
 			return response()->json(array('msg' => 'lvl_error', 'response' => 'Joining date must be after date of birth.'));
 		}
@@ -151,6 +151,12 @@ class DriverController extends Controller
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
+		$dobDate = new \DateTime($data['dob']);
+		$joiningDate = new \DateTime($data['joining_date']);
+
+		if ($joiningDate <= $dobDate) {
+			return response()->json(array('msg' => 'lvl_error', 'response' => 'Joining date must be after date of birth.'));
+		}
 		if (isset($data['status'])) {
 			$status = "1";
 		} else {
@@ -237,7 +243,12 @@ class DriverController extends Controller
 		]);
 
 		if ($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Driver successfully updated!']);
+			$updatedRecord = Driver::find($data['id']);
+			return response()->json([
+				'msg' => 'success',
+				'response' => 'Allowance successfully updated!',
+				'query' => $updatedRecord, // Include the updated record in the response
+			]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

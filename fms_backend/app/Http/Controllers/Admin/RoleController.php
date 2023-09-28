@@ -106,10 +106,15 @@ class RoleController extends Controller
                 'updated_by' => Auth::user()->id,
             ]);
 
-            if ($post_status) {
-                return response()->json(['msg' => 'success', 'response' => 'Role successfully updated!']);
+            if ($post_status > 0) {
+                $updatedRecord = Role::find($data['id']);
+                return response()->json([
+                    'msg' => 'success',
+                    'response' => 'Allowance successfully updated!',
+                    'query' => $updatedRecord, // Include the updated record in the response
+                ]);
             } else {
-                return response()->json(['msg' => 'error', 'response' => 'Something went wrong!'], 500);
+                return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
             }
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);

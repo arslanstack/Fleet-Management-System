@@ -65,9 +65,10 @@ class DeductionController extends Controller
 		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
 		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
 	}
-	public function driver_deduction($id){
+	public function driver_deduction($id)
+	{
 		$deduction = Deduction::where('driver_id', $id)->orderBy('id', 'DESC')->get();
-		return response()->json(array('msg' => 'success', 'response'=>'successfully', 'data' => $deduction));
+		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $deduction));
 	}
 	public function update(Request $request)
 	{
@@ -107,13 +108,31 @@ class DeductionController extends Controller
 		]);
 
 		if ($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Deduction successfully updated!']);
+			$updatedRecord = Deduction::find($data['id']);
+			return response()->json([
+				'msg' => 'success',
+				'response' => 'Allowance successfully updated!',
+				'query' => $updatedRecord, // Include the updated record in the response
+			]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}
 	}
+	public function active_deductions($id)
+	{
+		// Use Eloquent to query the deductions table
+		$activeDeductionsCount = Deduction::where('driver_id', $id)
+			->where('remaining_amount', '>', 0)
+			->count();
 
-	public function installmentReport($id){
+		return response()->json([
+			'msg' => 'success',
+			'response' => 'Successfully retrieved active deductions count',
+			'active_deductions_count' => $activeDeductionsCount,
+		]);
+	}
+	public function installmentReport($id)
+	{
 		$data['deduction'] = Deduction::where('id', $id)->first();
 		$data['report'] = get_installment_report($id);
 		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
