@@ -45,7 +45,7 @@ class RoadtaxExpiryController extends Controller
 		]);
 		$response_status = $query->id;
 		if ($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Roadtax successfully added.']);
+			return response()->json(['msg' => 'success', 'response' => 'Roadtax successfully added.', 'query' => $query]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

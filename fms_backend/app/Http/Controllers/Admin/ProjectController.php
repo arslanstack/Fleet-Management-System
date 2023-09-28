@@ -92,7 +92,7 @@ class ProjectController extends Controller
             ]);
 
             if ($query) {
-                return response()->json(['msg' => 'success', 'response' => 'Project successfully added.']);
+                return response()->json(['msg' => 'success', 'response' => 'Project successfully added.', 'query' => $query]);
             } else {
                 return response()->json(['msg' => 'error', 'response' => 'Something went wrong!'], 500);
             }

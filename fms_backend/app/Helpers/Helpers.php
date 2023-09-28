@@ -447,344 +447,344 @@ if (!function_exists('calculateDriverProfitLoss')) {
 	}
 }
 if (!function_exists('calculateProjectProfitLoss')) {
-	function calculateProjectProfitLoss($project_id)
-	{
-		// Initialize variables to store overall statistics for the project
-		$overallStatus = 'profit';
-		$overallAmount = 0;
-		$overallSummary = [];
-		$totalDistance = 0;
-		$totalFuelConsumption = 0;
+    function calculateProjectProfitLoss($project_id)
+    {
+        // Initialize variables to store overall statistics for the project
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
 
-		// Get all trips associated with the project
-		$trips = DB::table('trips')->where('project_id', $project_id)->get();
+        // Get all trips associated with the project
+        $trips = DB::table('trips')->where('project_id', $project_id)->get();
 
-		// Iterate through each trip
-		foreach ($trips as $trip) {
-			// Calculate profit or loss for the trip using the existing helper function
-			$tripData = calculateTripProfitLoss($trip->id);
-			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
-			$tripAmount = abs($tripData['amount']);
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
 
-			// Update overall statistics
-			$overallAmount += $tripAmount;
-			$totalDistance += $trip->distance;
-			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
 
-			// Create a summary for the trip and add it to the overall summary
-			$tripSummary = [
-				'trip_id' => $trip->id,
-				'trip_status' => $tripStatus,
-				'trip_amount' => $tripAmount,
-				'trip_summary' => $tripData['summary'],
-			];
-			$overallSummary[] = $tripSummary;
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
 
-			// Update overall status (if any trip is a loss, overall status will be a loss)
-			if ($tripStatus === 'loss') {
-				$overallStatus = 'loss';
-			}
-		}
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
 
-		// Create the overall summary for the project
-		$projectSummary = [
-			'project_id' => $project_id,
-			'overall_status' => $overallStatus,
-			'overall_profit/loss_amount' => $overallAmount,
-			'total_distance' => $totalDistance,
-			'total_fuel_consumption' => $totalFuelConsumption,
-			'overall_summary' => $overallSummary,
-		];
+        // Create the overall summary for the project
+        $projectSummary = [
+            'project_id' => $project_id,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+            'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
 
-		return $projectSummary;
-	}
+        return $projectSummary;
+    }
 }
 if (!function_exists('calculateCompanyProfitLoss')) {
-	function calculateCompanyProfitLoss($company_id)
-	{
-		// Initialize variables to store overall statistics for the company
-		$overallStatus = 'profit';
-		$overallAmount = 0;
-		$overallSummary = [];
-		$totalDistance = 0;
-		$totalFuelConsumption = 0;
+    function calculateCompanyProfitLoss($company_id)
+    {
+        // Initialize variables to store overall statistics for the company
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
 
-		// Get all trips associated with the company
-		$trips = DB::table('trips')->where('company_id', $company_id)->get();
+        // Get all trips associated with the company
+        $trips = DB::table('trips')->where('company_id', $company_id)->get();
 
-		// Iterate through each trip
-		foreach ($trips as $trip) {
-			// Calculate profit or loss for the trip using the existing helper function
-			$tripData = calculateTripProfitLoss($trip->id);
-			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
-			$tripAmount = abs($tripData['amount']);
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
 
-			// Update overall statistics
-			$overallAmount += $tripAmount;
-			$totalDistance += $trip->distance;
-			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
 
-			// Create a summary for the trip and add it to the overall summary
-			$tripSummary = [
-				'trip_id' => $trip->id,
-				'trip_status' => $tripStatus,
-				'trip_amount' => $tripAmount,
-				'trip_summary' => $tripData['summary'],
-			];
-			$overallSummary[] = $tripSummary;
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
 
-			// Update overall status (if any trip is a loss, overall status will be a loss)
-			if ($tripStatus === 'loss') {
-				$overallStatus = 'loss';
-			}
-		}
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
 
-		// Create the overall summary for the company
-		$companySummary = [
-			'company_id' => $company_id,
-			'overall_status' => $overallStatus,
-			'overall_profit/loss_amount' => $overallAmount,
+        // Create the overall summary for the company
+        $companySummary = [
+            'company_id' => $company_id,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
 			'total_distance' => $totalDistance,
-			'total_fuel_consumption' => $totalFuelConsumption,
-			'overall_summary' => $overallSummary,
-		];
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
 
-		return $companySummary;
-	}
+        return $companySummary;
+    }
 }
 
 
 if (!function_exists('calculateDriverProfitLossInRange')) {
-	function calculateDriverProfitLossInRange($driverId, $fromDate, $toDate)
-	{
-		// Initialize variables to store overall statistics
-		$overallStatus = 'profit';
-		$overallAmount = 0;
-		$overallSummary = [];
-		$totalDistance = 0;
-		$totalFuelConsumption = 0;
+    function calculateDriverProfitLossInRange($driverId, $fromDate, $toDate)
+    {
+        // Initialize variables to store overall statistics
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
 
-		// Get all trips made by the driver within the date range
-		$trips = DB::table('trips')
-			->where('driver_id', $driverId)
-			->where(function ($query) use ($fromDate, $toDate) {
-				$query->whereBetween('start_date_time', [$fromDate, $toDate])
-					->orWhereBetween('end_date_time', [$fromDate, $toDate]);
-			})
-			->get();
+        // Get all trips made by the driver within the date range
+        $trips = DB::table('trips')
+            ->where('driver_id', $driverId)
+            ->where(function ($query) use ($fromDate, $toDate) {
+                $query->whereBetween('start_date_time', [$fromDate, $toDate])
+                    ->orWhereBetween('end_date_time', [$fromDate, $toDate]);
+            })
+            ->get();
 
-		// Iterate through each trip
-		foreach ($trips as $trip) {
-			// Calculate profit or loss for the trip using the existing helper function
-			$tripData = calculateTripProfitLoss($trip->id);
-			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
-			$tripAmount = abs($tripData['amount']);
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
 
-			// Update overall statistics
-			$overallAmount += $tripAmount;
-			$totalDistance += $trip->distance;
-			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
 
-			// Create a summary for the trip and add it to the overall summary
-			$tripSummary = [
-				'trip_id' => $trip->id,
-				'trip_status' => $tripStatus,
-				'trip_amount' => $tripAmount,
-				'trip_summary' => $tripData['summary'],
-			];
-			$overallSummary[] = $tripSummary;
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
 
-			// Update overall status (if any trip is a loss, overall status will be a loss)
-			if ($tripStatus === 'loss') {
-				$overallStatus = 'loss';
-			}
-		}
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
 
-		// Create the overall summary for the driver within the date range
-		$driverSummary = [
-			'driver_id' => $driverId,
-			'overall_status' => $overallStatus,
-			'overall_profit/loss_amount' => $overallAmount,
-			'total_distance' => $totalDistance,
-			'total_fuel_consumption' => $totalFuelConsumption,
-			'overall_summary' => $overallSummary,
-		];
+        // Create the overall summary for the driver within the date range
+        $driverSummary = [
+            'driver_id' => $driverId,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+            'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
 
-		return $driverSummary;
-	}
+        return $driverSummary;
+    }
 }
 if (!function_exists('calculateCompanyProfitLossInRange')) {
-	function calculateCompanyProfitLossInRange($companyId, $fromDate, $toDate)
-	{
-		// Initialize variables to store overall statistics
-		$overallStatus = 'profit';
-		$overallAmount = 0;
-		$overallSummary = [];
-		$totalDistance = 0;
-		$totalFuelConsumption = 0;
+    function calculateCompanyProfitLossInRange($companyId, $fromDate, $toDate)
+    {
+        // Initialize variables to store overall statistics
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
 
-		// Get all trips associated with the company within the date range
-		$trips = DB::table('trips')
-			->where('company_id', $companyId)
-			->where(function ($query) use ($fromDate, $toDate) {
-				$query->whereBetween('start_date_time', [$fromDate, $toDate])
-					->orWhereBetween('end_date_time', [$fromDate, $toDate]);
-			})
-			->get();
+        // Get all trips associated with the company within the date range
+        $trips = DB::table('trips')
+            ->where('company_id', $companyId)
+            ->where(function ($query) use ($fromDate, $toDate) {
+                $query->whereBetween('start_date_time', [$fromDate, $toDate])
+                    ->orWhereBetween('end_date_time', [$fromDate, $toDate]);
+            })
+            ->get();
 
-		// Iterate through each trip
-		foreach ($trips as $trip) {
-			// Calculate profit or loss for the trip using the existing helper function
-			$tripData = calculateTripProfitLoss($trip->id);
-			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
-			$tripAmount = abs($tripData['amount']);
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
 
-			// Update overall statistics
-			$overallAmount += $tripAmount;
-			$totalDistance += $trip->distance;
-			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
 
-			// Create a summary for the trip and add it to the overall summary
-			$tripSummary = [
-				'trip_id' => $trip->id,
-				'trip_status' => $tripStatus,
-				'trip_amount' => $tripAmount,
-				'trip_summary' => $tripData['summary'],
-			];
-			$overallSummary[] = $tripSummary;
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
 
-			// Update overall status (if any trip is a loss, overall status will be a loss)
-			if ($tripStatus === 'loss') {
-				$overallStatus = 'loss';
-			}
-		}
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
 
-		// Create the overall summary for the company within the date range
-		$companySummary = [
-			'company_id' => $companyId,
-			'overall_status' => $overallStatus,
-			'overall_profit/loss_amount' => $overallAmount,
-			'total_distance' => $totalDistance,
-			'total_fuel_consumption' => $totalFuelConsumption,
-			'overall_summary' => $overallSummary,
-		];
+        // Create the overall summary for the company within the date range
+        $companySummary = [
+            'company_id' => $companyId,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+            'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
 
-		return $companySummary;
-	}
+        return $companySummary;
+    }
 }
 if (!function_exists('calculateProjectProfitLossInRange')) {
-	function calculateProjectProfitLossInRange($projectId, $fromDate, $toDate)
-	{
-		// Initialize variables to store overall statistics
-		$overallStatus = 'profit';
-		$overallAmount = 0;
-		$overallSummary = [];
-		$totalDistance = 0;
-		$totalFuelConsumption = 0;
+    function calculateProjectProfitLossInRange($projectId, $fromDate, $toDate)
+    {
+        // Initialize variables to store overall statistics
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
 
-		// Get all trips associated with the project within the date range
-		$trips = DB::table('trips')
-			->where('project_id', $projectId)
-			->where(function ($query) use ($fromDate, $toDate) {
-				$query->whereBetween('start_date_time', [$fromDate, $toDate])
-					->orWhereBetween('end_date_time', [$fromDate, $toDate]);
-			})
-			->get();
+        // Get all trips associated with the project within the date range
+        $trips = DB::table('trips')
+            ->where('project_id', $projectId)
+            ->where(function ($query) use ($fromDate, $toDate) {
+                $query->whereBetween('start_date_time', [$fromDate, $toDate])
+                    ->orWhereBetween('end_date_time', [$fromDate, $toDate]);
+            })
+            ->get();
 
-		// Iterate through each trip
-		foreach ($trips as $trip) {
-			// Calculate profit or loss for the trip using the existing helper function
-			$tripData = calculateTripProfitLoss($trip->id);
-			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
-			$tripAmount = abs($tripData['amount']);
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
 
-			// Update overall statistics
-			$overallAmount += $tripAmount;
-			$totalDistance += $trip->distance;
-			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
 
-			// Create a summary for the trip and add it to the overall summary
-			$tripSummary = [
-				'trip_id' => $trip->id,
-				'trip_status' => $tripStatus,
-				'trip_amount' => $tripAmount,
-				'trip_summary' => $tripData['summary'],
-			];
-			$overallSummary[] = $tripSummary;
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
 
-			// Update overall status (if any trip is a loss, overall status will be a loss)
-			if ($tripStatus === 'loss') {
-				$overallStatus = 'loss';
-			}
-		}
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
 
-		// Create the overall summary for the project within the date range
-		$projectSummary = [
-			'project_id' => $projectId,
-			'overall_status' => $overallStatus,
-			'overall_profit/loss_amount' => $overallAmount,
-			'total_distance' => $totalDistance,
-			'total_fuel_consumption' => $totalFuelConsumption,
-			'overall_summary' => $overallSummary,
-		];
+        // Create the overall summary for the project within the date range
+        $projectSummary = [
+            'project_id' => $projectId,
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+            'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
 
-		return $projectSummary;
-	}
+        return $projectSummary;
+    }
 }
 if (!function_exists('calculateTripProfitLossInRange')) {
-	function calculateTripProfitLossInRange($fromDate, $toDate)
-	{
-		// Initialize variables to store overall statistics
-		$overallStatus = 'profit';
-		$overallAmount = 0;
-		$overallSummary = [];
-		$totalDistance = 0;
-		$totalFuelConsumption = 0;
+    function calculateTripProfitLossInRange($fromDate, $toDate)
+    {
+        // Initialize variables to store overall statistics
+        $overallStatus = 'profit';
+        $overallAmount = 0;
+        $overallSummary = [];
+        $totalDistance = 0;
+        $totalFuelConsumption = 0;
 
-		// Get all trips that fall within the date range
-		$trips = DB::table('trips')
-			->where(function ($query) use ($fromDate, $toDate) {
-				$query->whereBetween('start_date_time', [$fromDate, $toDate])
-					->orWhereBetween('end_date_time', [$fromDate, $toDate]);
-			})
-			->get();
+        // Get all trips that fall within the date range
+        $trips = DB::table('trips')
+            ->where(function ($query) use ($fromDate, $toDate) {
+                $query->whereBetween('start_date_time', [$fromDate, $toDate])
+                    ->orWhereBetween('end_date_time', [$fromDate, $toDate]);
+            })
+            ->get();
 
-		// Iterate through each trip
-		foreach ($trips as $trip) {
-			// Calculate profit or loss for the trip using the existing helper function
-			$tripData = calculateTripProfitLoss($trip->id);
-			$tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
-			$tripAmount = abs($tripData['amount']);
+        // Iterate through each trip
+        foreach ($trips as $trip) {
+            // Calculate profit or loss for the trip using the existing helper function
+            $tripData = calculateTripProfitLoss($trip->id);
+            $tripStatus = $tripData['amount'] >= 0 ? 'profit' : 'loss';
+            $tripAmount = abs($tripData['amount']);
 
-			// Update overall statistics
-			$overallAmount += $tripAmount;
-			$totalDistance += $trip->distance;
-			$totalFuelConsumption += $tripData['summary']['refuelment_cost'];
+            // Update overall statistics
+            $overallAmount += $tripAmount;
+            $totalDistance += $trip->distance;
+            $totalFuelConsumption += $tripData['summary']['refuelment_cost'];
 
-			// Create a summary for the trip and add it to the overall summary
-			$tripSummary = [
-				'trip_id' => $trip->id,
-				'trip_status' => $tripStatus,
-				'trip_amount' => $tripAmount,
-				'trip_summary' => $tripData['summary'],
-			];
-			$overallSummary[] = $tripSummary;
+            // Create a summary for the trip and add it to the overall summary
+            $tripSummary = [
+                'trip_id' => $trip->id,
+                'trip_status' => $tripStatus,
+                'trip_amount' => $tripAmount,
+                'trip_summary' => $tripData['summary'],
+            ];
+            $overallSummary[] = $tripSummary;
 
-			// Update overall status (if any trip is a loss, overall status will be a loss)
-			if ($tripStatus === 'loss') {
-				$overallStatus = 'loss';
-			}
-		}
+            // Update overall status (if any trip is a loss, overall status will be a loss)
+            if ($tripStatus === 'loss') {
+                $overallStatus = 'loss';
+            }
+        }
 
-		// Create the overall summary for all trips within the date range
-		$tripDataInRange = [
-			'overall_status' => $overallStatus,
-			'overall_profit/loss_amount' => $overallAmount,
-			'total_distance' => $totalDistance,
-			'total_fuel_consumption' => $totalFuelConsumption,
-			'overall_summary' => $overallSummary,
-		];
+        // Create the overall summary for all trips within the date range
+        $tripDataInRange = [
+            'overall_status' => $overallStatus,
+            'overall_profit/loss_amount' => $overallAmount,
+            'total_distance' => $totalDistance,
+            'total_fuel_consumption' => $totalFuelConsumption,
+            'overall_summary' => $overallSummary,
+        ];
 
-		return $tripDataInRange;
-	}
+        return $tripDataInRange;
+    }
 }

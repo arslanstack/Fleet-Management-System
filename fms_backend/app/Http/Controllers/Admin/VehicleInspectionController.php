@@ -48,7 +48,7 @@ class VehicleInspectionController extends Controller
 		]);
 		$response_status = $query->id;
 		if ($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Vehicle inspection successfully added.']);
+			return response()->json(['msg' => 'success', 'response' => 'Vehicle inspection successfully added.', 'query' => $query]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

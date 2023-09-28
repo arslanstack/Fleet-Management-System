@@ -44,7 +44,8 @@ class DriverController extends Controller
 			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
 		}
 		$dobDate = new \DateTime($data['dob']);
-		$joiningDate = new \DateTime($data['dob']);
+		$joiningDate = new \DateTime($data['joining_date']);
+		
 		if ($joiningDate <= $dobDate) {
 			return response()->json(array('msg' => 'lvl_error', 'response' => 'Joining date must be after date of birth.'));
 		}
@@ -120,7 +121,7 @@ class DriverController extends Controller
 		]);
 		$response_status = $query->id;
 		if ($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Driver successfully added.']);
+			return response()->json(['msg' => 'success', 'response' => 'Driver successfully added.', 'query' => $query]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

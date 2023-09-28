@@ -49,7 +49,7 @@ class VehicleMaintenanceController extends Controller
 		]);
 		$response_status = $query->id;
 		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Vehicle maintenance successfully added.']);
+			return response()->json(['msg' => 'success', 'response'=>'Vehicle maintenance successfully added.', 'query' => $query]);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}

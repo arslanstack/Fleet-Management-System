@@ -61,7 +61,7 @@ class TripController extends Controller
             ]);
 
             if ($query) {
-                return response()->json(['msg' => 'success', 'response' => 'Trip successfully added.']);
+                return response()->json(['msg' => 'success', 'response' => 'Trip successfully added.', 'query' => $query]);
             } else {
                 return response()->json(['msg' => 'error', 'response' => 'Something went wrong!'], 500);
             }

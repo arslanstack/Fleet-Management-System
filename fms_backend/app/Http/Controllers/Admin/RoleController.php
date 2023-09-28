@@ -49,7 +49,7 @@ class RoleController extends Controller
             ]);
 
             if ($query) {
-                return response()->json(['msg' => 'success', 'response' => 'Role successfully added.']);
+                return response()->json(['msg' => 'success', 'response' => 'Role successfully added.', 'query' => $query]);
             } else {
                 return response()->json(['msg' => 'error', 'response' => 'Something went wrong!'], 500);
             }

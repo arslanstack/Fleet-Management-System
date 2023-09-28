@@ -58,7 +58,7 @@ class StaffManagementController extends Controller
             ]);
 
             if ($query) {
-                return response()->json(['msg' => 'success', 'response' => 'Admin successfully added.']);
+                return response()->json(['msg' => 'success', 'response' => 'Admin successfully added.', 'query' => $query]);
             } else {
                 return response()->json(['msg' => 'error', 'response' => 'Something went wrong!'], 500);
             }

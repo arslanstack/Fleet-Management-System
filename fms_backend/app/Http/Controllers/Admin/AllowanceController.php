@@ -43,7 +43,7 @@ class AllowanceController extends Controller
 		]);
 		$response_status = $query->id;
 		if($response_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully added.']);
+			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully added.', 'query' => $query]);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
@@ -81,7 +81,7 @@ class AllowanceController extends Controller
 		]);
 
 		if($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully updated!']);
+			return response()->json(['msg' => 'success', 'response'=>'Allowance successfully updated!', 'query' => $post_status]);
 		} else {
 			return response()->json(['msg' => 'error', 'response'=>'Something went wrong!']);
 		}
