@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 27, 2023 at 03:22 PM
+-- Generation Time: Sep 28, 2023 at 11:20 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -631,10 +631,10 @@ CREATE TABLE `trips` (
 --
 
 INSERT INTO `trips` (`id`, `vehicle_id`, `driver_id`, `project_id`, `company_id`, `start_date_time`, `end_date_time`, `from_location`, `end_location`, `distance`, `description`, `notes`, `amount`, `status`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(4, 3, 18, 6, 5, '2023-01-19 03:14:07', '2023-01-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:04:33', '2023-09-26 01:04:33'),
+(4, 3, 18, 7, 5, '2023-01-19 03:14:07', '2023-01-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:04:33', '2023-09-26 01:04:33'),
 (5, 3, 18, 7, 5, '2023-01-19 03:14:07', '2023-02-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:05:02', '2023-09-26 01:05:02'),
-(6, 6, 13, 7, 5, '2020-08-19 03:14:07', '2020-09-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:06:09', '2023-09-26 01:06:09'),
-(7, 7, 12, 6, 5, '2023-09-19 03:14:07', '2023-09-23 03:14:07', 'Karachi', 'Peshawar', '2700', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:06:20', '2023-09-26 01:06:20');
+(6, 6, 18, 7, 5, '2020-08-19 03:14:07', '2020-09-20 03:14:07', 'Karachi', 'Peshawar', '2000', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:06:09', '2023-09-26 01:06:09'),
+(7, 7, 18, 7, 5, '2023-09-19 03:14:07', '2023-09-23 03:14:07', 'Karachi', 'Peshawar', '2700', 'Payloads Lorem Ipsum', 'nill', '150000', 1, 1, NULL, '2023-09-26 01:06:20', '2023-09-26 01:06:20');
 
 -- --------------------------------------------------------
 
@@ -739,8 +739,8 @@ CREATE TABLE `vehicle_maintenance` (
 --
 
 INSERT INTO `vehicle_maintenance` (`id`, `vehicle_id`, `trip_id`, `driver_id`, `company_id`, `maintenance_type_id`, `maintenance_date`, `location`, `description`, `meter_reading`, `amount`, `status`, `created_at`, `created_by`, `updated_at`, `updated_by`) VALUES
-(3, 3, 4, 1, 1, 2, '2023-09-12', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 32010.00, 2500.00, 1, '2023-09-20 12:38:12', 1, '2023-09-20 12:38:12', NULL),
-(5, 3, 4, 1, 1, 2, '2023-09-12', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 32010.00, 3000.00, 1, '2023-09-20 12:38:12', 1, '2023-09-20 12:38:12', NULL),
+(3, 3, 4, 1, 1, 2, '2021-09-12', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 32010.00, 2500.00, 1, '2023-09-20 12:38:12', 1, '2023-09-20 12:38:12', NULL),
+(5, 3, 4, 1, 1, 2, '2023-01-12', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 32010.00, 3000.00, 1, '2023-09-20 12:38:12', 1, '2023-09-20 12:38:12', NULL),
 (6, 3, 5, 1, 1, 2, '2023-09-12', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s', 32010.00, 1500.00, 1, '2023-09-20 12:38:12', 1, '2023-09-20 12:38:12', NULL);
 
 -- --------------------------------------------------------

@@ -170,7 +170,53 @@ class ProfitLossController extends Controller
             'data' => $data,
         ]);
     }
+    public function maintenance_report(Request $request)
+    {
+        // Validate the input parameters
+        $validator = Validator::make($request->all(), [
+            'from_date' => 'required|date',
+            'to_date' => 'required|date',
+        ]);
 
+        if ($validator->fails()) {
+            return response()->json(['msg' => 'lvl_error', 'response' => $validator->errors()->all()]);
+        }
+
+        // Retrieve the 'from_date' and 'to_date' from the request
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
+
+        // Use Eloquent to query the 'vehicle_maintenance' model
+        $maintenanceRecords = VehicleMaintenance::whereBetween('maintenance_date', [$fromDate, $toDate])
+            ->get();
+
+        // Calculate the total maintenance cost
+        $totalMaintenanceCost = $maintenanceRecords->sum('amount');
+
+        // Create an array to store the individual maintenance records in the date range
+        $maintenanceSummary = [];
+
+        // Populate the maintenance summary with individual records
+        foreach ($maintenanceRecords as $record) {
+            $maintenanceSummary[] = [
+                'maintenance_id' => $record->id,
+                'maintenance_date' => $record->maintenance_date,
+                'amount' => $record->amount,
+                'description' => $record->description,
+                // Add any other fields you want to include in the summary
+            ];
+        }
+
+        // Return the maintenance report as a JSON response
+        return response()->json([
+            'msg' => 'success',
+            'response' => 'successfully',
+            'data' => [
+                'total_maintenance_cost' => $totalMaintenanceCost,
+                'maintenance_summary' => $maintenanceSummary,
+            ],
+        ]);
+    }
     public function diesel_usage(Request $request)
     {
         $validator = Validator::make($request->all(), [

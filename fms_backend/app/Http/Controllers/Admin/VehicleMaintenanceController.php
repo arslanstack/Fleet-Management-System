@@ -4,8 +4,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\VehicleMaintenance;
-use Session, Validator, DB, Str;
-
+use Session, DB, Str;
+use Illuminate\Support\Facades\Validator;
 class VehicleMaintenanceController extends Controller
 {
 	public function index()
@@ -20,6 +20,9 @@ class VehicleMaintenanceController extends Controller
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
 			'vehicle_id' => 'required',
+			'driver_id' => 'required',
+			'company_id' => 'required',
+			'trip_id' => 'required',
 			'maintenance_type_id' => 'required',
 			'maintenance_date' => 'required',
 			'location' => 'required',
@@ -34,6 +37,7 @@ class VehicleMaintenanceController extends Controller
 			'vehicle_id'=> $data['vehicle_id'],
 			'driver_id'=> $data['driver_id'],
 			'company_id'=> $data['company_id'],
+			'trip_id' => $data['trip_id'],
 			'maintenance_type_id'=> $data['maintenance_type_id'],
 			'maintenance_date'=> $data['maintenance_date'],
 			'location'=> $data['location'],
@@ -62,6 +66,9 @@ class VehicleMaintenanceController extends Controller
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
 			'vehicle_id' => 'required',
+			'driver_id' => 'required',
+			'company_id' => 'required',
+			'trip_id' => 'required',
 			'maintenance_type_id' => 'required',
 			'maintenance_date' => 'required',
 			'location' => 'required',
@@ -79,7 +86,9 @@ class VehicleMaintenanceController extends Controller
 		}
 		$post_status = VehicleMaintenance::where('id', $data['id'])->update([
 			'vehicle_id'=> $data['vehicle_id'],
+			'driver_id'=> $data['driver_id'],
 			'company_id'=> $data['company_id'],
+			'trip_id' => $data['trip_id'],
 			'maintenance_type_id'=> $data['maintenance_type_id'],
 			'maintenance_date'=> $data['maintenance_date'],
 			'location'=> $data['location'],

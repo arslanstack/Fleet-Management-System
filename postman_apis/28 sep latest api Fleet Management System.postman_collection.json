@@ -1401,7 +1401,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
 								"type": "text"
 							}
 						],
@@ -1421,6 +1421,11 @@
 								{
 									"key": "project_id",
 									"value": "9",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "6",
 									"type": "text"
 								},
 								{
@@ -1492,7 +1497,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjgzMzQwLCJleHAiOjE2OTUyODY5NDAsIm5iZiI6MTY5NTI4MzM0MCwianRpIjoiQzd6SnQ5MmJ5RUtQb01xdyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.t3wYyCF6X9CD3A7G7dp_0v-2sinC5UQ3ll4i_a09TVk",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
 								"type": "text"
 							}
 						],
@@ -1501,27 +1506,32 @@
 							"formdata": [
 								{
 									"key": "vehicle_id",
-									"value": "1",
+									"value": "3",
 									"type": "text"
 								},
 								{
 									"key": "driver_id",
-									"value": "1",
+									"value": "18",
 									"type": "text"
 								},
 								{
 									"key": "project_id",
-									"value": "1",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "company_id",
+									"value": "5",
 									"type": "text"
 								},
 								{
 									"key": "start_date_time",
-									"value": "2018-01-19 03:14:07",
+									"value": "2023-01-19 03:14:07",
 									"type": "text"
 								},
 								{
 									"key": "end_date_time",
-									"value": "2018-01-21 03:14:07",
+									"value": "2023-01-20 03:14:07",
 									"type": "text"
 								},
 								{
@@ -1531,12 +1541,12 @@
 								},
 								{
 									"key": "end_location",
-									"value": "Chitral",
+									"value": "Peshawer",
 									"type": "text"
 								},
 								{
 									"key": "distance",
-									"value": "2312",
+									"value": "2000",
 									"type": "text"
 								},
 								{
@@ -1556,7 +1566,7 @@
 								},
 								{
 									"key": "id",
-									"value": "2",
+									"value": "4",
 									"type": "text"
 								},
 								{
@@ -1665,7 +1675,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
 								"type": "text"
 							}
 						],
@@ -2910,7 +2920,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODk1NDk3LCJleHAiOjE2OTU4OTkwOTcsIm5iZiI6MTY5NTg5NTQ5NywianRpIjoic0RjRTZUNjJucXF4NUp1ViIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ypkzWs6qLT6aY2oBIVN-dVCalqPAsFHQkBJZUw9r-EA",
 								"type": "text"
 							}
 						],
@@ -2930,6 +2940,11 @@
 								{
 									"key": "driver_id",
 									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "trip_id",
+									"value": "4",
 									"type": "text"
 								},
 								{
@@ -2991,7 +3006,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjEzOTM2LCJleHAiOjE2OTUyMTc1MzYsIm5iZiI6MTY5NTIxMzkzNiwianRpIjoiTEVuaENHek5qZXBHeWJRMyIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.mY65BBNiDUuBq6EhynEn-JPhYhCFjPXrQuP-VaAvVhM",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODk1NDk3LCJleHAiOjE2OTU4OTkwOTcsIm5iZiI6MTY5NTg5NTQ5NywianRpIjoic0RjRTZUNjJucXF4NUp1ViIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ypkzWs6qLT6aY2oBIVN-dVCalqPAsFHQkBJZUw9r-EA",
 								"type": "text"
 							}
 						],
@@ -3035,12 +3050,22 @@
 								},
 								{
 									"key": "id",
-									"value": "4",
+									"value": "7",
 									"type": "text"
 								},
 								{
 									"key": "company_id",
 									"value": "12",
+									"type": "text"
+								},
+								{
+									"key": "driver_id",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "trip_id",
+									"value": "4",
 									"type": "text"
 								}
 							]
@@ -3142,7 +3167,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODk1NDk3LCJleHAiOjE2OTU4OTkwOTcsIm5iZiI6MTY5NTg5NTQ5NywianRpIjoic0RjRTZUNjJucXF4NUp1ViIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ypkzWs6qLT6aY2oBIVN-dVCalqPAsFHQkBJZUw9r-EA",
 								"type": "text"
 							}
 						],
@@ -3699,7 +3724,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
 								"type": "text"
 							}
 						],
@@ -3712,18 +3737,23 @@
 									"type": "text"
 								},
 								{
+									"key": "vehicle_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
 									"key": "driver_id",
 									"value": "6",
 									"type": "text"
 								},
 								{
-									"key": "fuel_type",
-									"value": "5",
+									"key": "trip_id",
+									"value": "4",
 									"type": "text"
 								},
 								{
-									"key": "vehicle_id",
-									"value": "7",
+									"key": "fuel_type",
+									"value": "5",
 									"type": "text"
 								},
 								{
@@ -3780,7 +3810,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1MjE3NTYwLCJleHAiOjE2OTUyMjExNjAsIm5iZiI6MTY5NTIxNzU2MCwianRpIjoiYzlPcFRHVExXR0x2dDdMYiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._zU46tHDU28kwuTRq1hFxTwTiBcTyl_z-HL801AojMM",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
 								"type": "text"
 							}
 						],
@@ -3793,18 +3823,23 @@
 									"type": "text"
 								},
 								{
+									"key": "vehicle_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
 									"key": "driver_id",
 									"value": "3",
 									"type": "text"
 								},
 								{
-									"key": "fuel_type",
-									"value": "23",
+									"key": "trip_id",
+									"value": "7",
 									"type": "text"
 								},
 								{
-									"key": "vehicle_id",
-									"value": "3",
+									"key": "fuel_type",
+									"value": "23",
 									"type": "text"
 								},
 								{
@@ -3834,7 +3869,7 @@
 								},
 								{
 									"key": "id",
-									"value": "1",
+									"value": "6",
 									"type": "text"
 								}
 							]
@@ -4014,7 +4049,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzA3MjI0LCJleHAiOjE2OTU3MTA4MjQsIm5iZiI6MTY5NTcwNzIyNCwianRpIjoiMGRPempTaWcxbHVuenZJciIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.cfp1Gwlu2JxVWUsOnr1SSMeYPUYGG0hASViJxYS3aJo",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
 								"type": "text"
 							}
 						],
@@ -5655,6 +5690,45 @@
 					"response": []
 				},
 				{
+					"name": "Get Drivers Deducction",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/deductions/driver_deduction/18",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"deductions",
+								"driver_deduction",
+								"18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get installments of deduction",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -6075,7 +6149,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1NzEwODg2LCJleHAiOjE2OTU3MTQ0ODYsIm5iZiI6MTY5NTcxMDg4NiwianRpIjoiUW1PdHF3OVQ0RElzdnlyQiIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.FG71wkYZYOuQHYPQh8MAQgsp_8CZg1DckV6Kxohz2mw",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODc5NzU3LCJleHAiOjE2OTU4ODMzNTcsIm5iZiI6MTY5NTg3OTc1NywianRpIjoicWg2SW44ck5qS1JUS1lMTSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.ehw6ifxRlWIzSuJgF66Hdl-eZWOI6An3RPYZD1wKLrk",
 								"type": "text"
 							}
 						],
@@ -6227,16 +6301,13 @@
 			"name": "Dashboard Stats",
 			"item": [
 				{
-					"name": "Get Trip P/L",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "All Trips P/L in Date Range",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6244,13 +6315,8 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "trip_id",
-									"value": "4",
-									"type": "text"
-								},
-								{
 									"key": "from_date",
-									"value": "2020-01-19",
+									"value": "2020-01-01",
 									"type": "text"
 								},
 								{
@@ -6261,7 +6327,7 @@
 							]
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/trip/4",
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/trip",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -6274,8 +6340,199 @@
 								"api",
 								"admin",
 								"profit-loss",
-								"trip",
-								"4"
+								"trip"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Driver P/L in Date Range",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkzMjg3LCJleHAiOjE2OTU4OTY4ODcsIm5iZiI6MTY5NTg5MzI4NywianRpIjoiaWJORzlxQndIdlVOMFlkMSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.JTiw0vbZo_-9iqFxOHPONHeQcwtfceauzqPfjHsoe2M",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "driver_id",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2023-01-01",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/driver",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"driver"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Project P/L in Date Range",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "project_id",
+									"value": "7",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2023-01-01",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/project",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"project"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company P/L in Date Range",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "company_id",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "from_date",
+									"value": "2023-01-01",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-28",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/company",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Project P/L",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/project/7",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"project",
+								"7"
 							]
 						}
 					},
@@ -6291,7 +6548,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6321,7 +6578,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Project P/L",
+					"name": "Get Trip P/L",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -6330,7 +6587,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6339,7 +6596,7 @@
 							"formdata": []
 						},
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/project/6",
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/trip/4",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -6352,8 +6609,8 @@
 								"api",
 								"admin",
 								"profit-loss",
-								"project",
-								"6"
+								"trip",
+								"4"
 							]
 						}
 					},
@@ -6369,7 +6626,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6399,13 +6656,59 @@
 					"response": []
 				},
 				{
-					"name": "GET Diesel Usage",
+					"name": "Maintenance in Date Range",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3MTQyLCJleHAiOjE2OTU4MjA3NDIsIm5iZiI6MTY5NTgxNzE0MiwianRpIjoid0E1QUlpYjgxTGNMcWNWbSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aLgll-g-Boko5xpV8s-pNUKSt6DTLW7GwgVew-QyF_I",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODkyNTY5LCJleHAiOjE2OTU4OTYxNjksIm5iZiI6MTY5NTg5MjU2OSwianRpIjoiYjhQeHJ0WVV2bjdLUFg1RSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.PDyWGxhmDR7SntyIW1zjOj5sLAqpYaWCM470J6T3sTs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "from_date",
+									"value": "2023-01-01",
+									"type": "text"
+								},
+								{
+									"key": "to_date",
+									"value": "2023-09-27",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/profit-loss/maintenance",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"profit-loss",
+								"maintenance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Diesel Usage in Date Range",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6445,13 +6748,13 @@
 					"response": []
 				},
 				{
-					"name": "GET Diesel by Driver",
+					"name": "Diesel by Driver in Date Range",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3MTQyLCJleHAiOjE2OTU4MjA3NDIsIm5iZiI6MTY5NTgxNzE0MiwianRpIjoid0E1QUlpYjgxTGNMcWNWbSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aLgll-g-Boko5xpV8s-pNUKSt6DTLW7GwgVew-QyF_I",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6497,13 +6800,13 @@
 					"response": []
 				},
 				{
-					"name": "GET Diesel by Vehicle",
+					"name": "Diesel by Vehicle in Date Range",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3MTQyLCJleHAiOjE2OTU4MjA3NDIsIm5iZiI6MTY5NTgxNzE0MiwianRpIjoid0E1QUlpYjgxTGNMcWNWbSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.aLgll-g-Boko5xpV8s-pNUKSt6DTLW7GwgVew-QyF_I",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6549,13 +6852,13 @@
 					"response": []
 				},
 				{
-					"name": "GET Idle Vehicles",
+					"name": "Idle Vehicles in Date Range",
 					"request": {
 						"method": "POST",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODE3NjQ2LCJleHAiOjE2OTU4MjEyNDYsIm5iZiI6MTY5NTgxNzY0NiwianRpIjoidTN0Z1lyalpRVUt5RmRLQSIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0.QuM08jstIFdT4o-MQOdzdUmFH2k1vmujb8XV98s2YIY",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk1ODg4ODU2LCJleHAiOjE2OTU4OTI0NTYsIm5iZiI6MTY5NTg4ODg1NiwianRpIjoiNlJwN2psZEt3R2daWkFCWCIsInN1YiI6IjEiLCJwcnYiOiJhMjNiNTczZGM3M2E0MDdlOGRlNTNiNDg2ZjM2ODg2YWRmNzBjNDgzIn0._3oWHdYtp86KW5QlJQ8EXs03CvejFeolyIByyxSambw",
 								"type": "text"
 							}
 						],
@@ -6564,7 +6867,7 @@
 							"formdata": [
 								{
 									"key": "from_date",
-									"value": "2023-01-19",
+									"value": "2023-01-01",
 									"type": "text"
 								},
 								{

@@ -30,6 +30,7 @@ class FuelManagementController extends Controller
 		$validator = Validator::make($request->all(), [
 			'vehicle_id' => 'required',
 			'driver_id' => 'required',
+			'trip_id' => 'required',
 			'fuel_type' => 'required',
 			'quantity' => 'required',
 			'cost_per_liter' => 'required',
@@ -56,6 +57,7 @@ class FuelManagementController extends Controller
 		$query = FuelManagement::create([
 			'vehicle_id' => $data['vehicle_id'],
 			'driver_id' => $data['driver_id'],
+			'trip_id' => $data['trip_id'],
 			'fuel_type' => $data['fuel_type'],
 			'quantity' => $data['quantity'],
 			'cost_per_liter' => $data['cost_per_liter'],
@@ -89,6 +91,7 @@ class FuelManagementController extends Controller
 		$validator = Validator::make($request->all(), [
 			'vehicle_id' => 'required',
 			'driver_id' => 'required',
+			'trip_id' => 'required',
 			'fuel_type' => 'required',
 			'quantity' => 'required',
 			'cost_per_liter' => 'required',
@@ -119,6 +122,7 @@ class FuelManagementController extends Controller
 		$post_status = FuelManagement::where('id', $data['id'])->update([
 			'vehicle_id' => $data['vehicle_id'],
 			'driver_id' => $data['driver_id'],
+			'trip_id' => $data['trip_id'],
 			'fuel_type' => $data['fuel_type'],
 			'quantity' => $data['quantity'],
 			'cost_per_liter' => $data['cost_per_liter'],

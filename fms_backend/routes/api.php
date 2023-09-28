@@ -204,6 +204,8 @@ Route::middleware(['api'])->group(function () {
                 Route::post('/company', [ProfitLossController::class, 'company_profit_loss_range']);
                 Route::post('/trip', [ProfitLossController::class, 'trip_profit_loss_range']);
 
+                // Vehicle Maintenance Report
+                Route::post('/maintenance', [ProfitLossController::class, 'maintenance_report']);
                 // Diesel Usage
                 Route::post('/diesel', [ProfitLossController::class, 'diesel_usage']);
                 // Diesel Consumption by driver and vehicle
