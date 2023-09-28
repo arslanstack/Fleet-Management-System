@@ -70,7 +70,7 @@ class MaintenanceTypeController extends Controller
 			$updatedRecord = MaintenanceType::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'MaintenanceType successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

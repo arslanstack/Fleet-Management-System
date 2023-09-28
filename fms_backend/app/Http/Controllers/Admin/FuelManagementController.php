@@ -142,7 +142,7 @@ class FuelManagementController extends Controller
 			$updatedRecord = FuelManagement::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'FuelManagement successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

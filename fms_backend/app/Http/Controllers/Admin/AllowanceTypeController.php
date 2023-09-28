@@ -70,7 +70,7 @@ class AllowanceTypeController extends Controller
 			$updatedRecord = AllowanceType::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'AllowanceType successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

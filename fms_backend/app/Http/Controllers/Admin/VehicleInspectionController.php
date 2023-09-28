@@ -92,7 +92,7 @@ class VehicleInspectionController extends Controller
 			$updatedRecord = VehicleInspection::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'VehicleInspection successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

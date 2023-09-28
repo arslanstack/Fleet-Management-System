@@ -85,7 +85,12 @@ class VpcController extends Controller
 		]);
 
 		if ($post_status > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Vehicle plate check successfully updated!']);
+			$updatedRecord = Vpc::find($data['id']);
+			return response()->json([
+				'msg' => 'success',
+				'response' => 'Vpc successfully updated!',
+				'query' => $updatedRecord, // Include the updated record in the response
+			]);
 		} else {
 			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
 		}

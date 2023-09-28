@@ -161,7 +161,7 @@ class CompanyController extends Controller
 			$updatedRecord = Company::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'Company successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

@@ -87,7 +87,7 @@ class RoadtaxExpiryController extends Controller
 			$updatedRecord = Roadtax::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'Roadtax successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

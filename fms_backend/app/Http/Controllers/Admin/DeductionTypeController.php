@@ -70,7 +70,7 @@ class DeductionTypeController extends Controller
 			$updatedRecord = DeductionType::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'DeductionType successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {

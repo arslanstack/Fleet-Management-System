@@ -132,7 +132,7 @@ class StaffManagementController extends Controller
                 $updatedRecord = Admin::find($data['id']);
                 return response()->json([
                     'msg' => 'success',
-                    'response' => 'Allowance successfully updated!',
+                    'response' => 'Admin successfully updated!',
                     'query' => $updatedRecord, // Include the updated record in the response
                 ]);
             } else {

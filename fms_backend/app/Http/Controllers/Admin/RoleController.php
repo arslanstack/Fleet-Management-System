@@ -110,7 +110,7 @@ class RoleController extends Controller
                 $updatedRecord = Role::find($data['id']);
                 return response()->json([
                     'msg' => 'success',
-                    'response' => 'Allowance successfully updated!',
+                    'response' => 'Role successfully updated!',
                     'query' => $updatedRecord, // Include the updated record in the response
                 ]);
             } else {

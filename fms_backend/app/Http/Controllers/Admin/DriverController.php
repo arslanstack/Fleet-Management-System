@@ -246,7 +246,7 @@ class DriverController extends Controller
 			$updatedRecord = Driver::find($data['id']);
 			return response()->json([
 				'msg' => 'success',
-				'response' => 'Allowance successfully updated!',
+				'response' => 'Driver successfully updated!',
 				'query' => $updatedRecord, // Include the updated record in the response
 			]);
 		} else {
