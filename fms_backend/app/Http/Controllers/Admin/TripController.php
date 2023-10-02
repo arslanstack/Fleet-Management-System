@@ -84,7 +84,15 @@ class TripController extends Controller
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
         }
     }
-
+    public function driver_trips($id)
+    {
+        try {
+            $trips = Trip::where('driver_id', $id)->orderBy('id', 'DESC')->get();
+            return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $trips]);
+        } catch (\Exception $e) {
+            return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
+        }
+    }
     public function update(Request $request)
     {
         $data = $request->all();

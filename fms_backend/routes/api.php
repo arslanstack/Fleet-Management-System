@@ -100,6 +100,7 @@ Route::middleware(['api'])->group(function () {
                 Route::get('/', [TripController::class, 'index']);
                 Route::post('store', [TripController::class, 'store']);
                 Route::get('edit/{id}', [TripController::class, 'edit']);
+                Route::get('driver/{id}', [TripController::class, 'driver_trips']);
                 Route::post('update', [TripController::class, 'update']);
                 Route::post('delete', [TripController::class, 'destroy']);
             });
