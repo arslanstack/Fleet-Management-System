@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\Driver;
+use App\Models\Admin\Trip;
 use Session, Str;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,20 @@ class DriverController extends Controller
 	{
 		$drivers = Driver::orderBy('id', 'DESC')->get();
 		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $drivers));
+	}
+	public function available()
+	{
+		// Get the IDs of drivers who are part of incomplete trips
+		$driversInIncompleteTrips = Trip::where('status', 0)->pluck('driver_id')->toArray();
+
+		// Get the list of drivers who are not in incomplete trips
+		$availableDrivers = Driver::whereNotIn('id', $driversInIncompleteTrips)->get();
+
+		return response()->json([
+			'msg' => 'success',
+			'response' => 'successfully',
+			'data' => $availableDrivers,
+		]);
 	}
 	public function store(Request $request)
 	{

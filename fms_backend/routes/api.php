@@ -55,6 +55,7 @@ Route::middleware(['api'])->group(function () {
 
             Route::group(['prefix' => 'driver', 'middleware' => 'permission:manage_drivers'], function () {
                 Route::get('/', [DriverController::class, 'index']);
+                Route::get('/available', [DriverController::class, 'available']);
                 Route::post('store', [DriverController::class, 'store']);
                 Route::get('edit/{id}', [DriverController::class, 'edit']);
                 Route::post('update', [DriverController::class, 'update']);
@@ -195,16 +196,18 @@ Route::middleware(['api'])->group(function () {
             });
             Route::group(['prefix' => 'profit-loss'], function () {
                 // Profit Loss Estimate
-                Route::get('/project/{id}', [ProfitLossController::class, 'project_profit_loss']);
-                Route::get('/driver/{id}', [ProfitLossController::class, 'driver_profit_loss']);
-                Route::get('/company/{id}', [ProfitLossController::class, 'company_profit_loss']);
-                Route::get('/trip/{id}', [ProfitLossController::class, 'trip_profit_loss']);
-
-                // Profit Loss Estimate
                 Route::post('/project', [ProfitLossController::class, 'project_profit_loss_range']);
                 Route::post('/driver', [ProfitLossController::class, 'driver_profit_loss_range']);
                 Route::post('/company', [ProfitLossController::class, 'company_profit_loss_range']);
                 Route::post('/trip', [ProfitLossController::class, 'trip_profit_loss_range']);
+
+    
+                // Diesel Consumption and maintenance by driver and vehicle monthly
+                Route::post('/diesel_maintenance_monthly/driver', [ProfitLossController::class, 'monthly_dm_driver']);
+                Route::post('/diesel_maintenance_monthly/vehicle', [ProfitLossController::class, 'monthly_dm_vehicle']);
+                // Idle Vehicle
+                Route::post('/idle-vehicle', [ProfitLossController::class, 'idle_vehicle']);
+
 
                 // Vehicle Maintenance Report
                 Route::post('/maintenance', [ProfitLossController::class, 'maintenance_report']);
@@ -213,11 +216,12 @@ Route::middleware(['api'])->group(function () {
                 // Diesel Consumption by driver and vehicle
                 Route::post('/diesel/driver', [ProfitLossController::class, 'diesel_driver']);
                 Route::post('/diesel/vehicle', [ProfitLossController::class, 'diesel_vehicle']);
-                // Diesel Consumption and maintenance by driver and vehicle monthly
-                Route::post('/diesel_maintenance_monthly/driver', [ProfitLossController::class, 'monthly_dm_driver']);
-                Route::post('/diesel_maintenance_monthly/vehicle', [ProfitLossController::class, 'monthly_dm_vehicle']);
-                // Idle Vehicle
-                Route::post('/idle-vehicle', [ProfitLossController::class, 'idle_vehicle']);
+
+                // Profit Loss Estimate
+                Route::get('/project/{id}', [ProfitLossController::class, 'project_profit_loss']);
+                Route::get('/driver/{id}', [ProfitLossController::class, 'driver_profit_loss']);
+                Route::get('/company/{id}', [ProfitLossController::class, 'company_profit_loss']);
+                Route::get('/trip/{id}', [ProfitLossController::class, 'trip_profit_loss']);
             });
 
         });
