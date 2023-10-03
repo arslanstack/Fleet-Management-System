@@ -26,7 +26,6 @@ class TripController extends Controller
         $validator = Validator::make($request->all(), [
             'vehicle_id' => 'required',
             'driver_id' => 'required',
-            'project_id' => 'required',
             'company_id' => 'required',
             'start_date_time' => 'required',
             'end_date_time' => 'required',
@@ -46,7 +45,6 @@ class TripController extends Controller
             $query = Trip::create([
                 'vehicle_id' => $data['vehicle_id'],
                 'driver_id' => $data['driver_id'],
-                'project_id' => $data['project_id'],
                 'company_id' => $data['company_id'],
                 'start_date_time' => $data['start_date_time'],
                 'end_date_time' => $data['end_date_time'],
@@ -100,7 +98,6 @@ class TripController extends Controller
             'id' => 'required',
             'vehicle_id' => 'required',
             'driver_id' => 'required',
-            'project_id' => 'required',
             'company_id' => 'required',
             'start_date_time' => 'required',
             'end_date_time' => 'required',
@@ -128,7 +125,6 @@ class TripController extends Controller
             $post_status = $trip->update([
                 'vehicle_id' => $data['vehicle_id'],
                 'driver_id' => $data['driver_id'],
-                'project_id' => $data['project_id'],
                 'company_id' => $data['company_id'],
                 'start_date_time' => $data['start_date_time'],
                 'end_date_time' => $data['end_date_time'],
