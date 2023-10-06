@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\MailPayroll;
 use PDF;
 use Mail;
+use CURLFile;
 
 class DriverController extends Controller
 {
@@ -308,7 +309,8 @@ class DriverController extends Controller
 	{
 		$data = $request->all();
 		$validator = Validator::make($request->all(), [
-			'driver_id' => 'required'
+			'driver_id' => 'required',
+			'notes' => 'required'
 		]);
 		if ($validator->fails()) {
 			return response()->json(array('msg' => 'lvl_error', 'response' => $validator->errors()->all()));
@@ -352,7 +354,8 @@ class DriverController extends Controller
 		$slipdata['net_salary'] = $data['net_salary'];
 
 		$pdf = PDF::loadView('pdf.payroll', $slipdata);
-
+		$pdfPath = 'payslips/' . uniqid() . '.pdf'; // Updated path
+		$pdf->save(public_path($pdfPath)); // Save to the public folder
 
 		$mailData["pdf"] = $pdf;
 		$mailData['email'] = $driver_details->email;
@@ -361,11 +364,76 @@ class DriverController extends Controller
 
 		Mail::to($mailData['email'])->send(new MailPayroll($mailData));
 
+		// Prepare data for sending the payslip via WhatsApp
+		$recipientPhone = $driver_details->phone_no;
+		$senderPhoneId = env('WHATSAPP_SENDER_PHONE_ID');
+		$apiToken = env('WHATSAPP_API_TOKEN');
+		$pdfLink = asset($pdfPath);
 
-		if ($query > 0) {
-			return response()->json(['msg' => 'success', 'response' => 'Payslip generated successfully.', 'data' => $slipdata]);
-		} else {
-			return response()->json(['msg' => 'error', 'response' => 'Something went wrong!']);
-		}
+		// Upload the PDF document to WhatsApp server
+		$target = public_path($pdfPath); // Updated path
+		$mime = mime_content_type($target);
+
+		$file = new CURLFile($target);
+		$file->setMimeType($mime);
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => "https://graph.facebook.com/v17.0/".$senderPhoneId."/media",
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => "",
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => "POST",
+			CURLOPT_POSTFIELDS => array("messaging_product" => "whatsapp", "type" => $mime, "file" => $file),
+			CURLOPT_HTTPHEADER => array(
+				"Authorization: Bearer " . $apiToken
+			),
+		));
+		$resultWhatsAppMedia = json_decode(curl_exec($curl), true);
+		$httpcode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+		$MEDIA_OBJECT_ID = $resultWhatsAppMedia['id']; // MEDIA OBJECT ID
+
+		// Prepare the WhatsApp message with the document
+		$FileName = "Pay Slip for " . $monthYear;
+
+		$messageBody = [
+			"messaging_product" => "whatsapp",
+			"recipient_type" => "individual",
+			"to" => $recipientPhone, // Replace with the recipient's phone number
+			"type" => "document",
+			"document" => [
+				"id" => $MEDIA_OBJECT_ID,
+				"caption" => $FileName,
+				"filename" => "Pay_Slip.pdf",
+			]
+		];
+
+		// Send the WhatsApp message
+		$curl = curl_init();
+		curl_setopt_array($curl, array(
+			CURLOPT_URL => 'https://graph.facebook.com/v17.0/'.$senderPhoneId.'/messages',
+			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_ENCODING => '',
+			CURLOPT_MAXREDIRS => 10,
+			CURLOPT_TIMEOUT => 0,
+			CURLOPT_FOLLOWLOCATION => true,
+			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+			CURLOPT_CUSTOMREQUEST => 'POST',
+			CURLOPT_POSTFIELDS => json_encode($messageBody),
+			CURLOPT_HTTPHEADER => array(
+				"Authorization: Bearer " . $apiToken,
+				'Content-Type: application/json'
+			),
+		));
+		$response = json_decode(curl_exec($curl), true);
+		$status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+		curl_close($curl);
+
+		return response()->json(['URL api' => 'https://graph.facebook.com/v17.0/'.$senderPhoneId.'/messages', 'recipientPhone' => $recipientPhone, 'senderPhoneId' => $senderPhoneId, 'apiToken' => $apiToken, 'MEDIA_OBJECT_ID' => $MEDIA_OBJECT_ID, 'response' => $response]);
 	}
+
+	
 }

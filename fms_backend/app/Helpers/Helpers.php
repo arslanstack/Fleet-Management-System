@@ -155,8 +155,8 @@ if (!function_exists('get_deductions')) {
 
 		$deductions = DB::table('driver_deductions')
 			->where('driver_id', $driver_id)
-			->whereYear('effective_date', '=', $year)
-			->whereMonth('effective_date', '=', $month)
+			->whereYear('effective_date', '<=', $year)
+			->whereMonth('effective_date', '<=', $month)
 			->where('amount', '>', 0) // Only select deductions with a non-zero amount
 			->get();
 
