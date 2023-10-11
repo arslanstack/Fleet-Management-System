@@ -9,7 +9,7 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $table = 'Companies';
+    protected $table = 'companies';
     // protected $guard = 'admin';
     protected $fillable = ['id', 'company_name', 'uen', 'email', 'password', 'company_address', 'bank_account_no', 'pic_name', 'pic_mobile_no', 'pic_nric', 'pic_address', 'vehicle_rental_tatus', 'car_plateno', 'diesel_tag', 'driver_project', 'nric_front_side', 'nric_back_side', 'created_at', 'created_by', 'updated_at', 'updated_by', 'status'];
 
