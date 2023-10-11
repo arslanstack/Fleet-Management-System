@@ -96,6 +96,7 @@ class TripController extends Controller
         $data = $request->all();
         $validator = Validator::make($request->all(), [
             'id' => 'required',
+            'status' => 'required',
             'vehicle_id' => 'required',
             'driver_id' => 'required',
             'company_id' => 'required',
@@ -120,8 +121,6 @@ class TripController extends Controller
                 return response()->json(['msg' => 'error', 'response' => 'Trip not found.'], 404);
             }
 
-            $status = isset($data['status']) ? "1" : "0";
-
             $post_status = $trip->update([
                 'vehicle_id' => $data['vehicle_id'],
                 'driver_id' => $data['driver_id'],
@@ -134,7 +133,7 @@ class TripController extends Controller
                 'description' => $data['description'],
                 'notes' => $data['notes'],
                 'amount' => $data['amount'],
-                'status' => $status,
+                'status' => $data['status'],
                 'updated_at' => now(),
                 'updated_by' => Auth::user()->id,
             ]);
