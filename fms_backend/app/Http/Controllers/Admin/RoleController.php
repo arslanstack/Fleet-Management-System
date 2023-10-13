@@ -6,15 +6,19 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\Role;
-use Session, DB, Str;
+use App\Models\Admin\Admin;
+use Session, Str;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
     public function index()
     {
+        $currentUserId = auth()->user()->id;
+        $currentRoleId = DB::table('admin_users')->where('id', $currentUserId)->value('role_type');
         try {
-            $roles = Role::orderBy('id', 'DESC')->get();
+            $roles = DB::table('roles')->where('id', '!=', $currentRoleId)->orderBy('id', 'DESC')->get();
             $rolesWithPermissionsArray = $roles->map(function ($role) {
                 $permissionsString = $role->permissions;
                 $permissionsArray = explode(', ', $permissionsString);
