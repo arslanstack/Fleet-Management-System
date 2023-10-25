@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin\DeductionType;
-use Session, Validator, DB, Str;
+use Session, DB, Str;
+use Illuminate\Support\Facades\Validator;
 
 class DeductionTypeController extends Controller
 {

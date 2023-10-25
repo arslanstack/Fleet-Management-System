@@ -788,3 +788,11 @@ if (!function_exists('calculateTripProfitLossInRange')) {
         return $tripDataInRange;
     }
 }
+if (!function_exists('PermissionsOfUser')) {
+    function PermissionsOfUser($roleid)
+    {
+		$role = DB::table('roles')->where('id', $roleid)->first();
+		$permissions = explode(', ', $role->permissions);
+		return $permissions;
+    }
+}
