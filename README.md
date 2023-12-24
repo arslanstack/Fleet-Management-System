@@ -4,9 +4,9 @@
 
 ## Project Overview
 
-This Laravel-based backend serves as the core for a comprehensive Fleet Management System, providing APIs for seamless data manipulation across various components:
+This Laravel-based backend serves as a core component for a comprehensive Fleet Management System, providing APIs for seamless data manipulation across various components:
 
-- **Administration-Facing WebApp**: Admin Panel designed to efficiently manage all fleet, trip, and driver-related data.
+- **Administration-Facing WebApp**: Admin Panel designed to manage all fleet, trip, and driver-related data efficiently.
 
 - **Salary Invoices and Whatsapp Communication API**: Powerful APIs for generating detailed salary invoices, including salary breakdowns, deductions, bonuses, and facilitating communication through WhatsApp.
 
