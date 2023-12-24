@@ -14,6 +14,13 @@ class TripController extends Controller
     {
         try {
             $trips = Trip::orderBy('id', 'DESC')->get();
+
+            // Loop through $trips and convert string date times to date format
+            foreach ($trips as $trip) {
+                $trip->start_date_time = date('Y-m-d', strtotime($trip->start_date_time));
+                $trip->end_date_time = date('Y-m-d', strtotime($trip->end_date_time));
+            }
+
             return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $trips]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);
@@ -76,6 +83,8 @@ class TripController extends Controller
             if (!$trip) {
                 return response()->json(['msg' => 'error', 'response' => 'Trip not found.'], 404);
             }
+            $trip->start_date_time = date('Y-m-d', strtotime($trip->start_date_time));
+            $trip->end_date_time = date('Y-m-d', strtotime($trip->end_date_time));
 
             return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $trip]);
         } catch (\Exception $e) {
@@ -86,6 +95,10 @@ class TripController extends Controller
     {
         try {
             $trips = Trip::where('driver_id', $id)->orderBy('id', 'DESC')->get();
+            foreach ($trips as $trip) {
+                $trip->start_date_time = date('Y-m-d', strtotime($trip->start_date_time));
+                $trip->end_date_time = date('Y-m-d', strtotime($trip->end_date_time));
+            }
             return response()->json(['msg' => 'success', 'response' => 'successfully', 'data' => $trips]);
         } catch (\Exception $e) {
             return response()->json(['msg' => 'error', 'response' => $e->getMessage()], 500);

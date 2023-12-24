@@ -80,9 +80,9 @@ class FuelManagementController extends Controller
 	}
 	public function edit($id, Request $request)
 	{
-		$data['vehicles'] = FuelManagement::where('id', $id)->first();
-		$data['vehicles'] = get_complete_table('vehicles', '', '', '', '1', '', '');
-		$data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
+		$data = FuelManagement::where('id', $id)->first();
+		// $data['vehicles'] = get_complete_table('vehicles', '', '', '', '1', '', '');
+		// $data['drivers'] = get_complete_table('drivers', '', '', '', '1', '', '');
 		return response()->json(array('msg' => 'success', 'response' => 'successfully', 'data' => $data));
 	}
 	public function update(Request $request)
