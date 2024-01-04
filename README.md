@@ -1,6 +1,5 @@
 # Laravel Based Backend for Fleet Management System
-
-![Fleet Management System](https://projects.arslanstack.com/photos/fms1.png)
+![Fleet Management System](https://projects.arslanstack.com/photos/fms/1.png)
 
 ## Project Overview
 
@@ -15,6 +14,5 @@ This Laravel-based backend serves as a core component for a comprehensive Fleet 
 ## Project Highlights
 
 Explore key features with project snapshots:
-
-![FMS](https://projects.arslanstack.com/photos/fms2.png)
-![FMS](https://projects.arslanstack.com/photos/fms3.png)
+![Fleet Management System](https://projects.arslanstack.com/photos/fms/2.png)
+![Fleet Management System](https://projects.arslanstack.com/photos/fms/3.png)
